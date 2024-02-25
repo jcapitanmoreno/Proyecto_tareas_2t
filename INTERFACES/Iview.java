@@ -2,8 +2,8 @@ package INTERFACES;
 
 public interface Iview {
 
-    void IniciarSesion();
-    void CrearUsuario();
-    void EliminarUsuario();
-    void Tarea();
+   public  void IniciarSesion();
+    public void CrearUsuario();
+     public void EliminarUsuario();
+    public void Tarea();
 }
