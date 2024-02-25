@@ -8,11 +8,12 @@ import java.util.Scanner;
 public class View implements Iview {
 
     @Override
-    public void IniciarSesion(){
+    public int IniciarSesion(){
         System.out.println("*********************************");
         System.out.println("* \n Pulse 1 para iniciar sesion *");
         int teclado= IO.Teclado.leerEntero();
         System.out.println("*********************************");
+        return teclado;
     }
     @Override
     public void CrearUsuario(){
