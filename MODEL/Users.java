@@ -1,12 +1,12 @@
 package MODEL;
 
-public class User {
+public class Users<u> {
     protected String name;
     protected String user;
     private String password;
     protected String mail;
 
-    public User(String name, String user, String password, String mail) {
+    public Users(String name, String user, String password, String mail) {
         this.name = name;
         this.user = user;
         this.password = password;

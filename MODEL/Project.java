@@ -1,15 +1,23 @@
 package MODEL;
 
 import INTERFACES.Iproject;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Project implements Iproject {
-
     protected String name;
     protected String description;
+    protected String projectCreator;
+    protected List<Users> collaborators;
 
-    protected String ProjectCreator;
+    public Project(String name, String description, String projectCreator) {
+        this.name = name;
+        this.description = description;
+        this.projectCreator = projectCreator;
+        this.collaborators = new ArrayList<>();
+    }
 
-
+    // Getters y setters
     public String getName() {
         return name;
     }
@@ -27,27 +35,21 @@ public class Project implements Iproject {
     }
 
     public String getProjectCreator() {
-        return ProjectCreator;
+        return projectCreator;
     }
 
     public void setProjectCreator(String projectCreator) {
-        ProjectCreator = projectCreator;
+        this.projectCreator = projectCreator;
     }
+
 
     @Override
     public String toString() {
         return "Project{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", ProjectCreator='" + ProjectCreator + '\'' +
+                ", projectCreator='" + projectCreator + '\'' +
+                ", collaborators=" + collaborators +
                 '}';
-    }
-
-    public Project(String name, String description, String projectCreator) {
-        this.name = name;
-        this.description = description;
-        ProjectCreator = projectCreator;
-
-
     }
 }
