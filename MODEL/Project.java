@@ -2,13 +2,41 @@ package MODEL;
 
 import INTERFACES.Iproject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Project implements Iproject {
 
     protected String name;
     protected String description;
 
-    protected String ProjectCreator;
+    protected User ProjectCreator;
+    protected List<User> collaborators;
+    protected List<Task> tasks;
 
+    public Project(String name, String description, User projectCreator, List<User> collaborators, List<Task> tasks) {
+        this.name = name;
+        this.description = description;
+        ProjectCreator = projectCreator;
+        this.collaborators = collaborators;
+        this.tasks = tasks;
+    }
+
+    public List<User> getCollaborators() {
+        return collaborators;
+    }
+
+    public void setCollaborators(List<User> collaborators) {
+        this.collaborators = collaborators;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     public String getName() {
         return name;
@@ -26,11 +54,11 @@ public class Project implements Iproject {
         this.description = description;
     }
 
-    public String getProjectCreator() {
+    public User getProjectCreator() {
         return ProjectCreator;
     }
 
-    public void setProjectCreator(String projectCreator) {
+    public void setProjectCreator(User projectCreator) {
         ProjectCreator = projectCreator;
     }
 
@@ -43,11 +71,5 @@ public class Project implements Iproject {
                 '}';
     }
 
-    public Project(String name, String description, String projectCreator) {
-        this.name = name;
-        this.description = description;
-        ProjectCreator = projectCreator;
 
-
-    }
 }

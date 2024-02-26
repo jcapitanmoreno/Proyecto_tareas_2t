@@ -2,6 +2,7 @@ package VIEW;
 
 import INTERFACES.Iview;
 import IO.Teclado;
+import MODEL.Task;
 
 import java.util.Scanner;
 
