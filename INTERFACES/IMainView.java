@@ -1,7 +1,7 @@
 package INTERFACES;
 
-public interface Iview {
-
+public interface IMainView {
+    int mainView();
     void IniciarSesion();
     void CrearUsuario();
     void EliminarUsuario();
