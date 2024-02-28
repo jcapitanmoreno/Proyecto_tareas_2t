@@ -5,11 +5,12 @@ import IO.Teclado;
 
 public class LogInView implements ILogInView {
     @Override
-    public int chooseLogin() {
+    public int chooseLogIn() {
         System.out.println("*********************************");
         System.out.println("* ¿Cómo desea logearse? *");
         System.out.println("1. Con el nombre de usuario.");
         System.out.println("2. Con el email.");
+        System.out.println("3. Para volver al menú");
         return Teclado.leerEntero("*********************************");
     }
 
@@ -30,11 +31,11 @@ public class LogInView implements ILogInView {
 
     @Override
     public void usernameEmailError() {
-        System.out.println("El correo o el usuario es incorrecto, por favor pruebe de nuevo: ");
+        System.out.println("Error, el usuario o el email es incorrecto, por favor pruebe de nuevo: ");
     }
 
     @Override
     public void passwordError() {
-        System.out.println("La contraseña es incorrecta, por favor pruebe de nuevo: ");
+        System.out.println("Error, la contraseña es incorrecta, por favor pruebe de nuevo: ");
     }
 }

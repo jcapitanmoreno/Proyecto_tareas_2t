@@ -1,7 +1,7 @@
 package INTERFACES;
 
 public interface ILogInView {
-    int chooseLogin();
+    int chooseLogIn();
     String enterUsername();
     String enterEmail();
     String enterPassword();
