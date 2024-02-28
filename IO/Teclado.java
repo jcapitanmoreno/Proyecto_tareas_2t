@@ -16,4 +16,14 @@ public class Teclado {
         }
         return scanner.nextInt();
     }
+
+    public String readString(String msg) {
+        System.out.print(msg + ": ");
+        return scanner.nextLine();
+    }
+
+    public void printMsg(String msg) {
+        System.out.println(msg);
+    }
+
 }
