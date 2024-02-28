@@ -9,7 +9,8 @@ public class Teclado {
         return scanner.nextLine();
     }
 
-    public static int leerEntero() {
+    public static int leerEntero(String msg) {
+        System.out.println(msg);
         while (!scanner.hasNextInt()) {
             System.out.println("Por favor, ingrese un valor valido: ");
             scanner.next();
@@ -17,8 +18,13 @@ public class Teclado {
         return scanner.nextInt();
     }
 
-    public String readString(String msg) {
-        System.out.print(msg + ": ");
+    //public String readString(String msg) {
+    //    System.out.print(msg + ": ");
+    //    return scanner.nextLine();
+    //}
+
+    public static String readString(String msg) {
+        System.out.println(msg);
         return scanner.nextLine();
     }
 
