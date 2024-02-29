@@ -1,5 +1,6 @@
 package VIEW;
 
+import CONTROLLER.Controller;
 import INTERFACES.Iview;
 import IO.Teclado;
 import MODEL.Task;
@@ -18,9 +19,13 @@ public class View implements Iview {
     }
     @Override
     public void CrearUsuario(){
-        System.out.println("*********************************");
+        System.out.println("***********");
         System.out.println("* \n Pulse 2 para crear Usuario  *");
-        System.out.println("*********************************");
+        System.out.println("***********");
+        if(Teclado.leerEntero()==2){
+            Controller.Crearusuario("","","","");
+        }
+
     }
     @Override
     public void EliminarUsuario(){
