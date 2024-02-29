@@ -44,10 +44,10 @@ public class User {
     @Override
     public String toString() {
         return "╔════════════════════════════════╗\n" +
-                String.format("║ %-10s: %-20s ║\n", "Name", name) +
-                String.format("║ %-10s: %-20s ║\n", "Username", user) +
-                String.format("║ %-10s: %-20s ║\n", "Password", password) +
-                String.format("║ %-10s: %-20s ║\n", "Email", mail) +
+                String.format("║ %-10s: %-18s ║\n", "Name", name) +
+                String.format("║ %-10s: %-18s ║\n", "Username", user) +
+                String.format("║ %-10s: %-18s ║\n", "Password", password) +
+                String.format("║ %-10s: %-18s ║\n", "Email", mail) +
                 "╚════════════════════════════════╝";
     }
 
