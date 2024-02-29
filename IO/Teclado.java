@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Teclado {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static String leerString() {
+    public  String leerString() {
         return scanner.nextLine();
     }
 
