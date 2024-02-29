@@ -8,12 +8,12 @@ public class CreateUserView implements ICreateUserView {
     @Override
     public String createInformation() {
         System.out.println("Para la creación de un usuario nuevo necesitamos cierta información, como puede ser:\n" +
-                "tu nombre completo, \n" +
-                "un usuario con el que identificarte, \n" +
+                "Tu nombre completo. \n" +
+                "Un usuario con el que identificarte \n" +
                 "una contraseña segura para poder iniciar sesión y \n" +
                 "un correo electrónico.");
-        return Teclado.readString("Escriba \"volver\" si desea volver al menú.\n" +
-                "Escriba \"crear\" para crear el usuario.");
+        return Teclado.readString("Escriba \"crear\" para crear el usuario." +
+                "Escriba \"volver\" si desea volver al menú.\n");
     }
 
     @Override
