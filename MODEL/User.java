@@ -1,5 +1,7 @@
 package MODEL;
 
+import java.util.Objects;
+
 public class User {
     protected String name;
     protected String user;
@@ -49,6 +51,19 @@ public class User {
                 String.format("║ %-10s: %-20s ║\n", "Password", password) +
                 String.format("║ %-10s: %-20s ║\n", "Email", mail) +
                 "╚════════════════════════════════╝";
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        User user1 = (User) object;
+        return Objects.equals(user, user1.user) && Objects.equals(password, user1.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(password);
     }
 
     public void setMail(String mail) {

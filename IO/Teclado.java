@@ -32,4 +32,10 @@ public class Teclado {
         System.out.println(msg);
     }
 
+    public static void pressEnter() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Press enter to continue.");
+        teclado.nextLine();
+    }
+
 }
