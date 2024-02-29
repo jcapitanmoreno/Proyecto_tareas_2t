@@ -1,8 +1,11 @@
 package VIEW;
 
 import CONTROLLER.Controller;
+import CONTROLLER.CreateUser;
 import INTERFACES.Iview;
 import IO.Teclado;
+
+import static CONTROLLER.Controller.Createuser;
 
 public class View implements Iview {
 
@@ -18,7 +21,9 @@ public class View implements Iview {
         System.out.println("*********************************");
         System.out.println("* \n Pulse 2 para crear Usuario  *");
         System.out.println("*********************************");
-    }
+        if(Teclado.leerEntero() == 2) {
+            Createuser();
+        }
 
     public void EliminarUsuario() {
         System.out.println("*********************************");
