@@ -2,10 +2,11 @@ package MODEL;
 
 import INTERFACES.Iproject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project implements Iproject {
+public class Project implements Iproject, Serializable {
 
     protected String name;
     protected String description;

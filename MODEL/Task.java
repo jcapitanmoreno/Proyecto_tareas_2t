@@ -1,8 +1,9 @@
 package MODEL;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Task {
+public class Task implements Serializable {
 
     protected String name;
     protected String description;
