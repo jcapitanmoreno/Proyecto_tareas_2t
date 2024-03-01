@@ -7,7 +7,7 @@ public class LogInView implements ILogInView {
     @Override
     public String chooseLogIn() {
         System.out.println("*********************************");
-        return Teclado.readString("Escriba \"iniciar\" para crear el usuario." +
+        return Teclado.readString("Escriba \"iniciar\" para iniciar sesión." +
                 "Escriba \"volver\" si desea volver al menú.\n");
     }
 

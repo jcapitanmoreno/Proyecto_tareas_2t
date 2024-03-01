@@ -6,6 +6,6 @@ public class MainViewTest {
     static MainView mainView = new MainView();
 
     public static void main(String[] args) {
-        mainView.mainView();
+        mainView.chooseOption();
     }
 }
