@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Teclado {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static String leerString() {
+    public  String leerString() {
         return scanner.nextLine();
     }
 
@@ -30,6 +30,12 @@ public class Teclado {
 
     public void printMsg(String msg) {
         System.out.println(msg);
+    }
+
+    public static void pressEnter() {
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("Press enter to continue.");
+        teclado.nextLine();
     }
 
 }

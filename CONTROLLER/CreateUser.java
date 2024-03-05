@@ -23,7 +23,7 @@ public class CreateUser {
     }
 
     //funcion con iterador para la rubrica
-    public User revoveUser(User u){
+    public User removeUser(User u){
         User userToRemove = null;
         Iterator<User> iterator = users.iterator();
         while (iterator.hasNext()){

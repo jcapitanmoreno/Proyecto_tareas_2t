@@ -1,6 +1,12 @@
 package MODEL;
 
-public class User {
+
+import java.io.Serializable;
+import java.util.Objects;
+
+public class User implements Serializable {
+
+
     protected String name;
     protected String user;
     private String password;
@@ -41,6 +47,16 @@ public class User {
         return mail;
     }
 
+    public void setMail(String mail) {
+        this.mail = mail;
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(password);
+    }
+
     @Override
     public String toString() {
         return "╔════════════════════════════════╗\n" +
@@ -51,8 +67,12 @@ public class User {
                 "╚════════════════════════════════╝";
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
 
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        User user1 = (User) object;
+        return Objects.equals(user, user1.user) && Objects.equals(password, user1.password);
     }
 }

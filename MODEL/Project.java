@@ -2,10 +2,11 @@ package MODEL;
 
 import INTERFACES.Iproject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project implements Iproject {
+public class Project implements Iproject, Serializable {
 
     protected String name;
     protected String description;
@@ -62,13 +63,22 @@ public class Project implements Iproject {
         ProjectCreator = projectCreator;
     }
 
-    @Override
+    /**@Override
     public String toString() {
         return "Project{" +
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", ProjectCreator='" + ProjectCreator + '\'' +
                 '}';
+    }**/
+
+    @Override
+    public String toString() {
+        return "╔═════════════════════════════════════╗\n" +
+                String.format("║ %-5s: %-28s ║\n", "Name", name) +
+                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", ProjectCreator) +
+                "╚═════════════════════════════════════╝\n" +
+                "Descripción:" + description;
     }
 
 
