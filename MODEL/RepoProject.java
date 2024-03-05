@@ -53,12 +53,12 @@ public class RepoProject extends Repository<Project, String>{
         }
         return result;
     }
-    public boolean delete(String id) {
-        return projects.remove(getByName(id));
+    public boolean delete(String p) {
+        return projects.remove(getByName(p));
     }
 
     public boolean save(){
-        return save(FILENAME);
+        return super.save(FILENAME);
     }
 
 
