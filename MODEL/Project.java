@@ -8,7 +8,6 @@ public class Project implements Serializable {
 
     protected String name;
     protected String description;
-
     protected User ProjectCreator;
     protected List<User> collaborators;
     protected List<Task> tasks;

@@ -1,10 +1,13 @@
 package VIEW;
 
 import INTERFACES.ICreateProyectView;
-import INTERFACES.IListProyect;
+import INTERFACES.IListProyectView;
 import IO.Teclado;
 import MODEL.Project;
 import MODEL.Task;
+import MODEL.User;
+
+
 
 
 public class CreateProyectView implements ICreateProyectView {
@@ -23,11 +26,11 @@ public class CreateProyectView implements ICreateProyectView {
     public Project createProyect() {
         String user = "";
         String Task = "";
-        /**Project proyectCreated = new Project(Teclado.readString("Introduce el nombre del proyecto: "),
+        Project proyectCreated = new Project(Teclado.readString("Introduce el nombre del proyecto: "),
                 Teclado.readString("Introduce una descripción para el proyecto: "),
+                ,
                 Teclado.readString(user),
-                Teclado.readString(user),
-                Teclado.readString(Task));**/
-        return null; /** proyectCreated;**/
+                Teclado.readString(Task));
+        return proyectCreated;
     }
 }
