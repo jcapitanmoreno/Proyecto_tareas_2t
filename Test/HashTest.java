@@ -1,27 +1,13 @@
 package Test;
 
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
+import IO.Security;
+import IO.Teclado;
+
 import java.security.NoSuchAlgorithmException;
 
 public class HashTest {
-    MessageDigest digest = MessageDigest.getInstance("SHA-256");
-    String originalString = "guerolaantonio";
-    byte[] encodedhash = digest.digest(
-            originalString.getBytes(StandardCharsets.UTF_8));
-
-    public HashTest() throws NoSuchAlgorithmException {
-    }
-
-    private static String bytesToHex(byte[] hash) {
-        StringBuilder hexString = new StringBuilder(2 * hash.length);
-        for (int i = 0; i < hash.length; i++) {
-            String hex = Integer.toHexString(0xff & hash[i]);
-            if (hex.length() == 1) {
-                hexString.append('0');
-            }
-            hexString.append(hex);
-        }
-        return hexString.toString();
+    public static void main(String[] args) throws NoSuchAlgorithmException {
+        System.out.println(Security.hashPassword("HolaMundo"));
+        System.out.println(Security.hashPassword("HolaMundo123"));
     }
 }

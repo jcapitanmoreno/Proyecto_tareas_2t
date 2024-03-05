@@ -1,6 +1,7 @@
 package VIEW;
 
 import INTERFACES.ICreateTaskView;
+import IO.StringToDate;
 import IO.Teclado;
 import MODEL.Task;
 import MODEL.User;

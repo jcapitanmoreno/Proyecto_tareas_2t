@@ -1,8 +1,6 @@
 package CONTROLLER;
 
 import MODEL.Project;
-import MODEL.User;
-import Serializator.Serializator;
 import VIEW.CreateProyectView;
 
 import java.util.Iterator;

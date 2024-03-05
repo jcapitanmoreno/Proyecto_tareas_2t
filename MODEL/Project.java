@@ -1,19 +1,16 @@
 package MODEL;
 
-import INTERFACES.Iproject;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Project implements Iproject, Serializable {
+public class Project implements Serializable {
 
-    protected String name;
-    protected String description;
-
-    protected User ProjectCreator;
-    protected List<User> collaborators;
-    protected List<Task> tasks;
+    private String name;
+    private String description;
+    private User ProjectCreator;
+    private List<User> collaborators;
+    private List<Task> tasks;
 
     public Project(String name, String description, User projectCreator, List<User> collaborators, List<Task> tasks) {
         this.name = name;

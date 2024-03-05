@@ -1,18 +1,19 @@
 package VIEW;
 
 import INTERFACES.ICreateProyectView;
+import INTERFACES.IListProyectView;
 import IO.Teclado;
 import MODEL.Project;
-import MODEL.Sesion;
+import MODEL.Session;
 import MODEL.Task;
 import MODEL.User;
-
 import java.util.ArrayList;
 
 
 
+
 public class CreateProyectView implements ICreateProyectView {
-    Sesion sesion = Sesion.setInstance();
+    Session session = Session.getInstance();
     @Override
     public String createInformation() {
         System.out.println("Para la creación de un proyecto nuevo se necesita cierta información, como puede ser:\n" +
@@ -30,7 +31,7 @@ public class CreateProyectView implements ICreateProyectView {
         String Task = "";
         Project proyectCreated = new Project(Teclado.readString("Introduce el nombre del proyecto: "),
                 Teclado.readString("Introduce una descripción para el proyecto: "),
-                sesion.getUser(),
+                session.getUser(),
                 new ArrayList<User>(),
                 new ArrayList<Task>());
         return proyectCreated;

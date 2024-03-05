@@ -1,11 +1,13 @@
 package Test;
 
+import CONTROLLER.Controller;
 import VIEW.MainView;
 
-public class MainViewTest {
-    static MainView mainView = new MainView();
-
+public class
+        MainViewTest {
     public static void main(String[] args) {
-        mainView.chooseOption();
+        Controller controller = new Controller();
+        MainView mainView = new MainView(controller);
+        mainView.mostrarMenu();
     }
 }

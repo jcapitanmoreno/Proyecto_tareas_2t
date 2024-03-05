@@ -4,6 +4,6 @@ import MODEL.Project;
 
 import java.util.List;
 
-public interface IListProyect {
+public interface IListProyectView {
     void listProyects(List<Project> proyects);
 }

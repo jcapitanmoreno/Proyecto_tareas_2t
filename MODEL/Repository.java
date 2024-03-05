@@ -14,9 +14,9 @@ public abstract class Repository<T, K> implements Serializable {
         return Serializator.serialize(this,filename);
     }
     public abstract T add(T data);
-    public abstract T getByName(K id);
+    public abstract T getByName(K p);
     public abstract Collection<T> getAll();
-    public abstract T update(T data);
-    public abstract boolean delete(K id);
+    public abstract T update(T p);
+    public abstract boolean delete(K p);
 
 }

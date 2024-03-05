@@ -1,11 +1,10 @@
 package INTERFACES;
 
-import MODEL.User;
-
 public interface Icontroller {
     void listarProyectos();
     void listarUsuarios();
-    User borrarUsuarios();
+    void borrarUsuarios();
+    void crearProyecto();
     void borrarProyecto();
     void accederProyecto();
     void cerrarSesion();

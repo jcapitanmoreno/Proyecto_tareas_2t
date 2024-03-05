@@ -10,16 +10,20 @@ import java.util.Objects;
 public class User implements Serializable {
 
 
-    protected String name;
-    protected String user;
+    private String name;
+    private String user;
     private String password;
-    protected String mail;
+    private String mail;
 
     public User(String name, String user, String password, String mail) {
         this.name = name;
         this.user = user;
         this.password = password;
         this.mail = mail;
+    }
+
+    public User(String user) {
+        this.user = user;
     }
 
     public String getName() {
@@ -41,9 +45,7 @@ public class User implements Serializable {
     public void setPassword(String password) throws NoSuchAlgorithmException {
         this.password = Security.hashPassword(password);
     }
-    public boolean isMyPassword(String password) throws NoSuchAlgorithmException {
-        return this.password.equals(Security.hashPassword(password));
-    }
+
     public String getMail() {
         return mail;
     }
@@ -53,9 +55,8 @@ public class User implements Serializable {
 
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(password);
+    public boolean isMyPassword(String password) throws NoSuchAlgorithmException {
+        return this.password.equals(Security.hashPassword(password));
     }
 
     @Override

@@ -29,12 +29,6 @@ public class Teclado {
         System.out.println(msg);
         return scanner.nextLine();
     }
-    public static LocalDate readDate(String msg) {
-        System.out.println(msg);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        return LocalDate.parse(scanner.nextLine(), formatter);
-    }
-
 
     public void printMsg(String msg) {
         System.out.println(msg);
@@ -44,6 +38,12 @@ public class Teclado {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Press enter to continue.");
         teclado.nextLine();
+    }
+
+    public static LocalDate readDate(String msg) {
+        System.out.println(msg);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        return LocalDate.parse(scanner.nextLine(), formatter);
     }
 
 }
