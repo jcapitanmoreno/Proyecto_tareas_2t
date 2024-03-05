@@ -1,7 +1,10 @@
 package MODEL;
 
 
+import IO.Security;
+
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
 public class User implements Serializable {
@@ -35,14 +38,12 @@ public class User implements Serializable {
         this.user = user;
     }
 
-    public String getPassword() {
-        return password;
+    public void setPassword(String password) throws NoSuchAlgorithmException {
+        this.password = Security.hashPassword(password);
     }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public boolean isMyPassword(String password) throws NoSuchAlgorithmException {
+        return this.password.equals(Security.hashPassword(password));
     }
-
     public String getMail() {
         return mail;
     }
