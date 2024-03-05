@@ -1,10 +1,15 @@
 package VIEW;
 
 import INTERFACES.ICreateTaskView;
+import IO.StringToDate;
 import IO.Teclado;
 import MODEL.Task;
+import MODEL.User;
+
+import static MODEL.TaskStatus.EN_TRAMITE;
 
 public class CreateTaskView implements ICreateTaskView {
+    User user = new User("juan","Juan1","1234","juan@gmail.com");
     @Override
     public String createInformation() {
         System.out.println("Para la creación de una tarea nueva necesitamos cierta información, como puede ser:\n" +
@@ -20,12 +25,12 @@ public class CreateTaskView implements ICreateTaskView {
 
     @Override
     public Task createTask() {
-        Task task = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
+        Task taskCreated = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
                 Teclado.readString("Introduce una descripción sobre la tarea: "),
-                Teclado.readString("Introduce la fecha de inicio de la tarea: "),
-                Teclado.readString("Introduce la fecha límite de la tarea: "),
-                Teclado.readString("Introduce al encargado de la tarea: "),
-                Teclado.readString("Introduce el estado de la tarea: ")
-                );
+                Teclado.readDate("Introduce la fecha de inicio de la tarea: "),
+                Teclado.readDate("Introduce la fecha límite de la tarea: "),
+                user,
+                EN_TRAMITE);
+        return taskCreated;
     }
 }
