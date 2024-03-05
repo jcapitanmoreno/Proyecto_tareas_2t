@@ -10,10 +10,10 @@ import java.util.Objects;
 public class User implements Serializable {
 
 
-    protected String name;
-    protected String user;
+    private String name;
+    private String user;
     private String password;
-    protected String mail;
+    private String mail;
 
     public User(String name, String user, String password, String mail) {
         this.name = name;
