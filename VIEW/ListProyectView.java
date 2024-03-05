@@ -1,11 +1,10 @@
 package VIEW;
-
-import INTERFACES.IListProyect;
+import INTERFACES.IListProyectView;
 import MODEL.Project;
 
 import java.util.List;
 
-public class ListProyect implements IListProyect {
+public class ListProyectView implements IListProyectView {
     @Override
     public void listProyects(List<Project> proyects) {
         System.out.println("**********************");

@@ -4,7 +4,7 @@ import IO.Teclado;
 import MODEL.Project;
 import MODEL.Task;
 import MODEL.User;
-import VIEW.ListProyect;
+import VIEW.ListProyectView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 public class ListProyectTest {
     private static List<MODEL.User> User;
     private static List<MODEL.Task> Task;
-    static ListProyect listProyect = new ListProyect();
+    static ListProyectView listProyect = new ListProyectView();
     static Project project = new Project("Proyecto_2a_Evaluación",
             "Proyecto de la 3a evaluación del módulo de Programación",
             (MODEL.User) User,
@@ -39,8 +39,8 @@ public class ListProyectTest {
                 (MODEL.User) User,
                 User,
                 Task));
-        projects.add(new Project("Proyecto_2a_Evaluación",
-                "Proyecto de la 3a evaluación del módulo de Programación",
+        projects.add(new Project("Proyecto_1a_Evaluación",
+                "Proyecto",
                 (MODEL.User) User,
                 User,
                 Task));
