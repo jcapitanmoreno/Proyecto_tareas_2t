@@ -17,7 +17,7 @@ public class ListTaskViewTest {
     static TaskMenuView taskMenuView = new TaskMenuView();
     static ListTaskView listTaskView = new ListTaskView();
     public static void main(String[] args) {
-        TaskStatus[] taskStatus = new TaskStatus[2];
+        TaskStatus[] taskStatus = new TaskStatus[3];
         taskStatus[0] = TaskStatus.SIN_INICIAR;
         taskStatus[1] = TaskStatus.EN_TRAMITE;
         taskStatus[2] = TaskStatus.FINALIZADA;

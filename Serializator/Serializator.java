@@ -5,7 +5,7 @@ import java.io.*;
 public class Serializator {
     /**
      * Metodo que serializa en disco cualquier tipo de objeto serializable
-     * @param obj debe ser un objeto que implement la interfaz Serializable
+     * @param obj debe ser un objeto que implemente la interfaz Serializable
      * @param filename nombre del archivo donde serializar el objeto
      * @return true si ha ido correctamente.
      * @param <T> Tipo de objeto a serializar.

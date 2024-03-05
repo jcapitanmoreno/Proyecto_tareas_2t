@@ -1,5 +1,7 @@
 package IO;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Teclado {
@@ -36,6 +38,12 @@ public class Teclado {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Press enter to continue.");
         teclado.nextLine();
+    }
+
+    public static LocalDate readDate(String msg) {
+        System.out.println(msg);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
+        return LocalDate.parse(scanner.nextLine(), formatter);
     }
 
 }
