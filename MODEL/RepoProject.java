@@ -1,12 +1,16 @@
 package MODEL;
 
-import java.io.Serializable;
+
+import VIEW.CreateProyectView;
+
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class RepoProject extends Repository<Project, String>{
     private final static String FILENAME = "repoProject.bin";
     private static RepoProject _instance;
+    CreateProyectView createProyectView = new CreateProyectView();
 
     private List<Project> projects;
 
@@ -20,7 +24,7 @@ public class RepoProject extends Repository<Project, String>{
         }
         return _instance;
     }
-    public Project add(Project p){
+    public  Project add(Project p){
         Project result = null;
         projects.add(p);
         result = p;
@@ -59,6 +63,32 @@ public class RepoProject extends Repository<Project, String>{
 
     public boolean save(){
         return super.save(FILENAME);
+    }
+
+    public boolean crearProyecto() {
+        //Crear proyecto
+        CreateProyectView v = new CreateProyectView();
+        Project p = v.createProyect();
+        add(p);
+        boolean projectAdded = false;
+        createProyectView.createProyect();
+        if (!projects.contains(p)) {
+            projectAdded =projects.add(p);
+        }
+        return projectAdded;
+
+    }
+    public Project removeproject(Project p){
+        Project projectToRemove = null;
+        Iterator<Project> iterator = projects.iterator();
+        while (iterator.hasNext()){
+            Project temporalProject = iterator.next();
+            if (temporalProject.equals(p)){
+                projectToRemove = temporalProject;
+                iterator.remove(delete(p));
+            }
+        }
+        return projectToRemove;
     }
 
 
