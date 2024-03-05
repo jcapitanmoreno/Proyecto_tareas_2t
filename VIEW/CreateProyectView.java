@@ -6,8 +6,6 @@ import IO.Teclado;
 import MODEL.Project;
 import MODEL.Task;
 
-import static Test.UserTest.user;
-
 
 public class CreateProyectView implements ICreateProyectView {
     @Override

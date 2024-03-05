@@ -1,4 +1,5 @@
 package INTERFACES;
 
-public interface IloginController {
+public interface ILoginController {
+    void startLogInProcess();
 }
