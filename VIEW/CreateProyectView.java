@@ -7,7 +7,6 @@ import MODEL.Project;
 import MODEL.Session;
 import MODEL.Task;
 import MODEL.User;
-
 import java.util.ArrayList;
 
 public class CreateProyectView implements ICreateProyectView {
