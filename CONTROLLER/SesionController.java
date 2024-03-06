@@ -22,17 +22,6 @@ public class SesionController implements ISesionController {
     }
 
 
-    //@Override
-    //public void crearUsuarios() {
-
-
-    //}
-
-    //@Override
-    //public void cerrarPrograma() {
-
-    //}
-
     // Método para manejar la opción seleccionada del menú
     public void manejarOpcionMenu(int opcion) {
         switch (opcion) {
