@@ -1,6 +1,8 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
+import MODEL.RepoProject;
+import MODEL.RepoUsers;
 import VIEW.DeleteProyectView;
 import VIEW.DeleteUserView;
 import VIEW.MainView;
@@ -11,6 +13,9 @@ public class Controller implements Icontroller {
     MainView mainView = new MainView();
     DeleteUserView deleteUserView = new DeleteUserView();
     DeleteProyectView deleteProyectView = new DeleteProyectView();
+
+    RepoProject repoProject =  RepoProject.get_Instance();
+    RepoUsers repoUsers = RepoUsers.getInstance();
 
     public void start(){
         int opcion=-1;
@@ -25,7 +30,6 @@ public class Controller implements Icontroller {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
-
                 break;
             case 2:
                 mainView.listUserMsg();
