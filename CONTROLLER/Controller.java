@@ -1,6 +1,8 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
+import MODEL.User;
+import Serializator.Serializator;
 
 public class Controller implements Icontroller {
     @Override

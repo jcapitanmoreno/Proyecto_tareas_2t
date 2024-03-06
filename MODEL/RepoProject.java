@@ -86,7 +86,7 @@ public class RepoProject extends Repository<Project, String>{
             if (temporalProject.equals(p)){
                 projectToRemove = temporalProject;
                 iterator.remove();
-                delete(temporalProject.getName());
+                //delete(temporalProject.getName());
             }
         }
         return projectToRemove;

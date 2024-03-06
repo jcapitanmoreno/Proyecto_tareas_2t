@@ -1,5 +1,6 @@
 package MODEL;
 
+import Serializator.Serializator;
 import VIEW.CreateProyectView;
 import VIEW.CreateTaskView;
 
