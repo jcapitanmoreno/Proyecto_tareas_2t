@@ -1,28 +1,22 @@
 package MODEL;
 
-import Serializator.Serializator;
-import VIEW.CreateProyectView;
 import VIEW.CreateTaskView;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Project implements Serializable {
 
     private String name;
     private String description;
-    private User ProjectCreator;
+    private User projectCreator;
     private List<User> collaborators;
     private List<Task> tasks;
 
     public Project(String name, String description, User projectCreator, List<User> collaborators, List<Task> tasks) {
         this.name = name;
         this.description = description;
-        ProjectCreator = projectCreator;
+        this.projectCreator = projectCreator;
         this.collaborators = collaborators;
         this.tasks = tasks;
     }
@@ -60,11 +54,19 @@ public class Project implements Serializable {
     }
 
     public User getProjectCreator() {
-        return ProjectCreator;
+        return projectCreator;
     }
 
     public void setProjectCreator(User projectCreator) {
-        ProjectCreator = projectCreator;
+        this.projectCreator = projectCreator;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return Objects.equals(name, project.name);
     }
 
     /**@Override
@@ -80,7 +82,7 @@ public class Project implements Serializable {
     public String toString() {
         return "╔═════════════════════════════════════╗\n" +
                 String.format("║ %-5s: %-28s ║\n", "Name", name) +
-                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", ProjectCreator) +
+                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", projectCreator) +
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;
     }

@@ -1,6 +1,7 @@
 package MODEL;
 
 
+import Serializator.Serializator;
 import VIEW.CreateProyectView;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class RepoProject extends Repository<Project, String> {
         this.projects = new ArrayList<>();
     }
 
-    public static RepoProject getInstance() {
+    public static RepoProject get_Instance() {
         if (_instance == null) {
             _instance = (RepoProject) load(FILENAME);
             if (_instance == null) {
@@ -30,8 +31,10 @@ public class RepoProject extends Repository<Project, String> {
     }
     @Override
     public Project add(Project p) {
-        Project result = null;
-        projects.add(p);
+        Project result;
+        if (!projects.contains(p)){
+            projects.add(p);
+        }
         result = p;
         return result;
     }
@@ -73,6 +76,10 @@ public class RepoProject extends Repository<Project, String> {
 
     public boolean save() {
         return super.save(FILENAME);
+    }
+
+    public static RepoProject load() {
+        return Serializator.desearize(FILENAME);
     }
 
     public boolean crearProyecto() {
