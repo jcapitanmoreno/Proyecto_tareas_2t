@@ -7,7 +7,7 @@ public class
         MainViewTest {
     public static void main(String[] args) {
         Controller controller = new Controller();
-        MainView mainView = new MainView(controller);
-        mainView.mostrarMenu();
+
+        controller.start();
     }
 }
