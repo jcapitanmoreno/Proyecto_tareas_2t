@@ -1,6 +1,6 @@
 package INTERFACES;
 
 public interface ISesionView {
-    int sesionView();
+   int chooseoption();
     void errorOption();
 }
