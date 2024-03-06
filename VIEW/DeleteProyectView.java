@@ -17,8 +17,9 @@ public class DeleteProyectView implements IDeleteProyectView {
         return Teclado.readString("Escriba \"No\", para cancelar.");
     }
 
-
+    @Override
     public void deleteProyectMsg() {
         System.out.println("Eliminando proyecto ...");
     }
 }
+

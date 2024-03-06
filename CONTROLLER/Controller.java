@@ -1,6 +1,7 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
+
 import VIEW.CreateProyectView;
 import VIEW.DeleteProyectView;
 import VIEW.DeleteUserView;
@@ -11,6 +12,9 @@ public class Controller implements Icontroller {
     MainView mainView = new MainView();
     DeleteProyectView deleteProyectView = new DeleteProyectView();
     DeleteUserView deleteUserView = new DeleteUserView();
+  
+    RepoProject repoProject =  RepoProject.get_Instance();
+    RepoUsers repoUsers = RepoUsers.getInstance();
 
     @Override
     public void start() {
@@ -21,7 +25,7 @@ public class Controller implements Icontroller {
         }while(option!=7);
     }
 
-    // Método para manejar la lógica del menú
+     // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) {
         switch (opcion) {
             case 1:

@@ -17,6 +17,7 @@ public class MainView implements IMainView {
         System.out.println("\t║ Pulse 7 para cerrar sesión.         ║\t");
         System.out.println("\t╚═════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
+
     }
 
     public void errorOption(){
@@ -25,27 +26,31 @@ public class MainView implements IMainView {
     }
 
 
+    @Overrid
     public void listProyectMsg() {
         System.out.println("Listando proyectos ...");
     }
 
 
+    @Override
     public void listUserMsg() {
         System.out.println("Listando usuarios ...");
     }
 
 
+    @Override
     public void createProyectMsg() {
         System.out.println("Creando proyectos ...");
     }
 
 
+    @Override
     public void accessToProyectMsg() {
         System.out.println("Accediendo al proyecto ...");
     }
-
-
+    @Override
     public void logOutMsg() {
         System.out.println("Cerrando sesión ...");
     }
 }
+

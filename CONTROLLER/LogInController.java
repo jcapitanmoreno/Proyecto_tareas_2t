@@ -1,7 +1,5 @@
 package CONTROLLER;
 
-
-
 import INTERFACES.ILoginController;
 import IO.Security;
 import VIEW.LogInView;
