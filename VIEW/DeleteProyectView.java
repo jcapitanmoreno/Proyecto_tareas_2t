@@ -22,3 +22,4 @@ public class DeleteProyectView implements IDeleteProyectView {
         System.out.println("Eliminando proyecto ...");
     }
 }
+

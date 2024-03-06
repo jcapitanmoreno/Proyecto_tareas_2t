@@ -2,6 +2,7 @@ package CONTROLLER;
 
 
 import INTERFACES.ISesionController;
+import IO.Teclado;
 import VIEW.CreateUserView;
 import VIEW.LogInView;
 import VIEW.SesionView;
@@ -30,12 +31,13 @@ public class SesionController implements ISesionController {
                 break;
             case 2:
             createUserView.createUser();
+                Teclado.pressEnter();
                 break;
             case 3:
              welcomeByeView.byeProgram();
                 break;
             default:
-                System.out.println("Gracias por usar");
+
         }
     }
 }

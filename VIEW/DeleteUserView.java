@@ -22,3 +22,4 @@ public class DeleteUserView implements IDeleteUserView {
         System.out.println("Eliminando usuario ...");
     }
 }
+

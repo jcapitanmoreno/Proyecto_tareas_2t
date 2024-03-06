@@ -18,6 +18,7 @@ public class CreateUserView implements ICreateUserView {
 
     @Override
     public User createUser() {
+        Teclado.readString("");
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Teclado.readString("Introduce una contraseña: "),

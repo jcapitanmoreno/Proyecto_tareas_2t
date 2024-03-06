@@ -1,28 +1,28 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
-import MODEL.RepoProject;
-import MODEL.RepoUsers;
+
+import VIEW.CreateProyectView;
 import VIEW.DeleteProyectView;
 import VIEW.DeleteUserView;
 import VIEW.MainView;
-import com.sun.tools.javac.Main;
-
 
 public class Controller implements Icontroller {
+    CreateProyectView createProyectView = new CreateProyectView();
     MainView mainView = new MainView();
-    DeleteUserView deleteUserView = new DeleteUserView();
     DeleteProyectView deleteProyectView = new DeleteProyectView();
-
+    DeleteUserView deleteUserView = new DeleteUserView();
+  
     RepoProject repoProject =  RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
 
-    public void start(){
-        int opcion=-1;
+    @Override
+    public void start() {
+        int option = -1;
         do{
-            opcion= mainView.chooseOption();
-            manejarOpcionMenu(opcion);
-        }while(opcion!=7);
+            option = mainView.chooseOption();
+            manejarOpcionMenu(option);
+        }while(option!=7);
     }
 
      // Método para manejar la lógica del menú
@@ -38,7 +38,7 @@ public class Controller implements Icontroller {
                 deleteUserView.deleteUserMsg();
                 break;
             case 4:
-                mainView.createProyectMsg();
+                createProyectView.createProyect();
                 break;
             case 5:
                 deleteProyectView.deleteProyectMsg();
