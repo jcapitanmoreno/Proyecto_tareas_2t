@@ -26,4 +26,9 @@ public class MainView {
             controller.manejarOpcionMenu(opcion);
         } while (opcion != 7);
     }
+
+    public void errorOption(){
+        System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 7.");
+        System.out.println("Pruebe de nuevo.");
+    }
 }
