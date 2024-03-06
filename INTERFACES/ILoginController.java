@@ -1,5 +1,7 @@
 package INTERFACES;
 
+import java.security.NoSuchAlgorithmException;
+
 public interface ILoginController {
-    void startLogInProcess();
+    void startLogInProcess() throws NoSuchAlgorithmException;
 }
