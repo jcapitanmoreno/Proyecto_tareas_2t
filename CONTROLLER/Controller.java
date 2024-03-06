@@ -3,6 +3,7 @@ package CONTROLLER;
 import INTERFACES.Icontroller;
 
 public class Controller implements Icontroller {
+    //metodos override main
     @Override
     public void listarProyectos() {
         System.out.println("Listando proyectos...");
@@ -37,7 +38,40 @@ public class Controller implements Icontroller {
     public void cerrarSesion() {
         System.out.println("Cerrando sesión...");
     }
+    //metodo override sesion
 
+    @Override
+    public void iniciarSesion() {
+        System.out.println("Iniciando sesión...");
+    }
+
+    @Override
+    public void crearUsuario() {
+        System.out.println("Creando Usuario...");
+    }
+
+    @Override
+    public void cerrarPrograma() {
+        System.out.println("Cerrando programa...");
+    }
+
+    //Metodo para manejar la logica del sesion
+    public void manejarOpcionSesion(int opcion) {
+        switch (opcion){
+            case 1:
+                iniciarSesion();
+                break;
+            case 2:
+                crearUsuario();
+                break;
+            case 3:
+                cerrarPrograma();
+                break;
+            default:
+                System.out.println("Opción no válida, por favor intente de nuevo.");
+                break;
+        }
+    }
     // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) {
         switch (opcion) {
