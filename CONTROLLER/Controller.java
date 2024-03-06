@@ -6,6 +6,7 @@ import VIEW.DeleteUserView;
 import VIEW.MainView;
 import com.sun.tools.javac.Main;
 
+
 public class Controller implements Icontroller {
     MainView mainView = new MainView();
     DeleteUserView deleteUserView = new DeleteUserView();
