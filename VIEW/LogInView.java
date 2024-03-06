@@ -23,12 +23,8 @@ public class LogInView implements ILogInView {
     }
 
     @Override
-    public void usernameError() {
-        System.out.println("Error, el usuario es incorrecto, por favor pruebe de nuevo: ");
-    }
-
-    @Override
-    public void passwordError() {
-        System.out.println("Error, la contraseña es incorrecta, por favor pruebe de nuevo: ");
+    public void usernamePasswordError() {
+        System.out.println("Error, el nombre de usuario o la contraseña es incorrecto.");
+        System.out.println("Pruebe de nuevo.");
     }
 }

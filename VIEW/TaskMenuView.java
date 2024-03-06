@@ -16,4 +16,9 @@ public class TaskMenuView implements ITaskMenuView {
         System.out.println("\t╚═══════════════════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
     }
+
+    public void errorOption(){
+        System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
+        System.out.println("Pruebe de nuevo.");
+    }
 }

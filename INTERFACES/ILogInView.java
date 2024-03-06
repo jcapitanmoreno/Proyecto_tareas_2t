@@ -4,6 +4,5 @@ public interface ILogInView {
     String chooseLogIn();
     String enterUsername();
     String enterPassword();
-    void usernameError();
-    void passwordError();
+    void usernamePasswordError();
 }

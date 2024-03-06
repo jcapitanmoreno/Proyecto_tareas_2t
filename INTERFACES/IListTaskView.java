@@ -4,6 +4,6 @@ import MODEL.Task;
 
 import java.util.List;
 
-public interface ITaskView {
+public interface IListTaskView {
     void listTask(List<Task> tasks);
 }
