@@ -64,4 +64,8 @@ public class RepoUsers extends Repository<User, String> {
     public boolean save(){
         return super.save(FILENAME);
     }
+
+    public boolean isUserExist(User u){
+        return users.contains(u);
+    }
 }

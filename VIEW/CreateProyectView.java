@@ -24,8 +24,9 @@ public class CreateProyectView implements ICreateProyectView {
     public Project createProyect() {
         String user = "";
         String Task = "";
+        Teclado.readString("");
         Project proyectCreated = new Project(Teclado.readString("Introduce el nombre del proyecto: "),
-                Teclado.readString("Introduce una descripción para el proyecto: "),
+                Teclado.readString("Introduce una descripción para el proyec"),
                 session.getUser(),
                 new ArrayList<User>(),
                 new ArrayList<Task>());

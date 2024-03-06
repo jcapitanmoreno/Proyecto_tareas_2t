@@ -1,31 +1,34 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
+import Serializator.Serializator;
+import VIEW.CreateProyectView;
 import VIEW.DeleteProyectView;
 import VIEW.DeleteUserView;
 import VIEW.MainView;
-import com.sun.tools.javac.Main;
 
+import java.io.Serializable;
 
-public class Controller implements Icontroller {
+public class Controller implements Icontroller, Serializable {
+    CreateProyectView createProyectView = new CreateProyectView();
     MainView mainView = new MainView();
-    DeleteUserView deleteUserView = new DeleteUserView();
     DeleteProyectView deleteProyectView = new DeleteProyectView();
+    DeleteUserView deleteUserView = new DeleteUserView();
 
-    public void start(){
-        int opcion=-1;
+    @Override
+    public void start() {
+        int option = -1;
         do{
-            opcion= mainView.chooseOption();
-            manejarOpcionMenu(opcion);
-        }while(opcion!=7);
+            option = mainView.chooseOption();
+            manejarOpcionMenu(option);
+        }while(option!=7);
     }
 
-     // Método para manejar la lógica del menú
+    // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
-
                 break;
             case 2:
                 mainView.listUserMsg();
@@ -34,7 +37,7 @@ public class Controller implements Icontroller {
                 deleteUserView.deleteUserMsg();
                 break;
             case 4:
-                mainView.createProyectMsg();
+                createProyectView.createProyect();
                 break;
             case 5:
                 deleteProyectView.deleteProyectMsg();

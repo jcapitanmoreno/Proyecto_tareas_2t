@@ -20,11 +20,6 @@ public class Teclado {
         return scanner.nextInt();
     }
 
-    //public String readString(String msg) {
-    //    System.out.print(msg + ": ");
-    //    return scanner.nextLine();
-    //}
-
     public static String readString(String msg) {
         System.out.println(msg);
         return scanner.nextLine();
