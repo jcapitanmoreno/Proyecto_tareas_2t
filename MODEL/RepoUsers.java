@@ -1,6 +1,7 @@
 package MODEL;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 public class RepoUsers extends Repository<User, String> {
@@ -9,11 +10,15 @@ public class RepoUsers extends Repository<User, String> {
     private static RepoUsers _instance;
     private Set<User> users;
 
+    public RepoUsers() {
+        this.users = new HashSet<>();
+    }
+
     public static RepoUsers getInstance() {
         if (_instance == null) {
             _instance = (RepoUsers) load(FILENAME);
             if (_instance == null) {
-
+                    _instance = new RepoUsers();
             }
         }
         return _instance;
@@ -64,4 +69,6 @@ public class RepoUsers extends Repository<User, String> {
     public boolean save(){
         return super.save(FILENAME);
     }
+
+
 }
