@@ -1,11 +1,12 @@
 package Test;
 
+import CONTROLLER.SesionController;
 import VIEW.SesionView;
 
 public class SesionViewTest {
-    static SesionView mainView = new SesionView();
-
+    SesionView sesionView= new SesionView();
     public static void main(String[] args) {
-        mainView.sesionView();
+        SesionController sesionController = new SesionController();
+        sesionController.chooseoption();
     }
 }
