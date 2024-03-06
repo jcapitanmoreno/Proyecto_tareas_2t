@@ -5,10 +5,11 @@ import INTERFACES.Icontroller;
 import IO.Teclado;
 
 public class SesionView implements ISesionView {
-    private Icontroller controller;
+    public Icontroller controller;
     public SesionView(Icontroller controller) {
         this.controller = controller;
     }
+
 
     @Override
     public int sesionView() {
