@@ -1,12 +1,11 @@
 package VIEW;
 
-import INTERFACES.ITaskView;
-import MODEL.Project;
+import INTERFACES.IListTaskView;
 import MODEL.Task;
 
 import java.util.List;
 
-public class ListTaskView implements ITaskView {
+public class ListTaskView implements IListTaskView {
 
     @Override
     public void listTask(List<Task> tasks) {

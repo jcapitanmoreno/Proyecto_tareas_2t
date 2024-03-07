@@ -2,99 +2,54 @@ package CONTROLLER;
 
 import INTERFACES.Icontroller;
 
+import MODEL.RepoProject;
+import MODEL.RepoUsers;
+import VIEW.CreateProyectView;
+import VIEW.DeleteProyectView;
+import VIEW.DeleteUserView;
+import VIEW.MainView;
+
 public class Controller implements Icontroller {
-    //metodos override main
-    @Override
-    public void listarProyectos() {
-        System.out.println("Listando proyectos...");
-    }
+    CreateProyectView createProyectView = new CreateProyectView();
+    MainView mainView = new MainView();
+    DeleteProyectView deleteProyectView = new DeleteProyectView();
+    DeleteUserView deleteUserView = new DeleteUserView();
+  
+    RepoProject repoProject =  RepoProject.get_Instance();
+    RepoUsers repoUsers = RepoUsers.getInstance();
 
     @Override
-    public void listarUsuarios() {
-        System.out.println("Listando usuarios...");
+    public void start() {
+        int option = -1;
+        do{
+            option = mainView.chooseOption();
+            manejarOpcionMenu(option);
+        }while(option!=7);
     }
 
-    @Override
-    public void borrarUsuarios() {
-        System.out.println("Borrando usuarios...");
-    }
-
-    @Override
-    public void crearProyecto() {
-        System.out.println("Creando proyecto...");
-    }
-
-    @Override
-    public void borrarProyecto() {
-        System.out.println("Borrando proyecto...");
-    }
-
-    @Override
-    public void accederProyecto() {
-        System.out.println("Accediendo al proyecto...");
-    }
-
-    @Override
-    public void cerrarSesion() {
-        System.out.println("Cerrando sesión...");
-    }
-    //metodo override sesion
-
-    @Override
-    public void iniciarSesion() {
-        System.out.println("Iniciando sesión...");
-    }
-
-    @Override
-    public void crearUsuario() {
-        System.out.println("Creando Usuario...");
-    }
-
-    @Override
-    public void cerrarPrograma() {
-        System.out.println("Cerrando programa...");
-    }
-
-    //Metodo para manejar la logica del sesion
-    public void manejarOpcionSesion(int opcion) {
-        switch (opcion){
-            case 1:
-                iniciarSesion();
-                break;
-            case 2:
-                crearUsuario();
-                break;
-            case 3:
-                cerrarPrograma();
-                break;
-            default:
-                System.out.println("Opción no válida, por favor intente de nuevo.");
-                break;
-        }
-    }
-    // Método para manejar la lógica del menú
+     // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) {
         switch (opcion) {
             case 1:
-                listarProyectos();
+                mainView.listProyectMsg();
                 break;
             case 2:
-                listarUsuarios();
+                mainView.listUserMsg();
                 break;
             case 3:
-                borrarUsuarios();
+                deleteUserView.deleteUserMsg();
                 break;
             case 4:
-                crearProyecto();
+                createProyectView.createProyect();
                 break;
             case 5:
-                borrarProyecto();
+                deleteProyectView.deleteProyectMsg();
                 break;
             case 6:
-                accederProyecto();
+                mainView.accessToProyectMsg();
                 break;
             case 7:
-                cerrarSesion();
+                mainView.logOutMsg();
                 break;
             default:
                 System.out.println("Opción no válida, por favor intente de nuevo.");

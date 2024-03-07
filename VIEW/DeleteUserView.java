@@ -16,4 +16,10 @@ public class DeleteUserView implements IDeleteUserView {
         System.out.println("Escriba \"Si\", para borrar el usuario.");
         return Teclado.readString("Escriba \"No\", para cancelar.");
     }
+
+    @Override
+    public void deleteUserMsg() {
+        System.out.println("Eliminando usuario ...");
+    }
 }
+

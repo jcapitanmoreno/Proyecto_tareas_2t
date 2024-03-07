@@ -1,32 +1,17 @@
 package CONTROLLER;
 
-
-
 import INTERFACES.ILoginController;
+import IO.Security;
 import VIEW.LogInView;
+import VIEW.MainView;
+
+import java.security.NoSuchAlgorithmException;
 
 public class LogInController implements ILoginController {
-    private LogInView logInView;
+    MainView mainView = new MainView();
+    LogInView logInView = new LogInView();
 
     public LogInController(LogInView logInView) {
         this.logInView = logInView;
-    }
-
-    public void startLogInProcess() {
-        String option = logInView.chooseLogIn();
-        switch (option.toLowerCase()) {
-            case "iniciar":
-                String username = logInView.enterUsername();
-                String password = logInView.enterPassword();
-
-                System.out.println("Inicio de sesión con usuario: " + username + " y contraseña: " + password);
-                break;
-            case "volver":
-
-                break;
-            default:
-                System.out.println("Opción no válida, por favor intente de nuevo.");
-                break;
-        }
     }
 }

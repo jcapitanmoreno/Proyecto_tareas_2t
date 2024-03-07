@@ -2,15 +2,16 @@ package MODEL;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Task implements Serializable {
 
-    protected String name;
-    protected String description;
-    protected LocalDate starterDate;
-    protected LocalDate limitDate;
-    protected User projectColaborator;
-    protected TaskStatus taskStatus;
+    private String name;
+    private String description;
+    private LocalDate starterDate;
+    private LocalDate limitDate;
+    private User projectColaborator;
+    private TaskStatus taskStatus;
 
     public Task(String name, String description, LocalDate starterDate, LocalDate limitDate, User projectColaborator, TaskStatus taskStatus) {
         this.name = name;
@@ -79,5 +80,13 @@ public class Task implements Serializable {
                 String.format("║ %-10s: %-13s ║\n", "Estado de la tarea", taskStatus) +
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Task task = (Task) o;
+        return Objects.equals(name, task.name);
     }
 }

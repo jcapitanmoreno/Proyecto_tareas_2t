@@ -1,9 +1,12 @@
 package INTERFACES;
 
+import java.security.NoSuchAlgorithmException;
+
 public interface ILogInView {
-    String chooseLogIn();
+    int chooseLogIn();
     String enterUsername();
     String enterPassword();
-    void usernameError();
-    void passwordError();
+    void usernamePasswordError();
+    void IniciarSesion() throws NoSuchAlgorithmException;
+    void Error();
 }

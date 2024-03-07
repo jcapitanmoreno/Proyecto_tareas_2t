@@ -19,18 +19,14 @@ public class Teclado {
         }
         return scanner.nextInt();
     }
-
-    //public String readString(String msg) {
-    //    System.out.print(msg + ": ");
-    //    return scanner.nextLine();
-    //}
-
     public static String readString(String msg) {
         System.out.println(msg);
-        return scanner.nextLine();
+        String line;
+        while(((line=scanner.nextLine()).trim().equals("")));
+        return line;
     }
 
-    public void printMsg(String msg) {
+    public static void printMsg(String msg) {
         System.out.println(msg);
     }
 

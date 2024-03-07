@@ -16,4 +16,10 @@ public class DeleteProyectView implements IDeleteProyectView {
         System.out.println("Escriba \"Si\", para borrar el proyecto.");
         return Teclado.readString("Escriba \"No\", para cancelar.");
     }
+
+    @Override
+    public void deleteProyectMsg() {
+        System.out.println("Eliminando proyecto ...");
+    }
 }
+
