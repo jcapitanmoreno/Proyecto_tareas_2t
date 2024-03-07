@@ -14,8 +14,24 @@ public class RepoUsers extends Repository<User, String> {
 
     private User user;
 
-    public RepoUsers() {
+    private RepoUsers() {
         this.users = new HashSet<>();
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public static RepoUsers getInstance() {
@@ -81,5 +97,15 @@ public class RepoUsers extends Repository<User, String> {
 
     public boolean isUserExist(User u) {
         return users.contains(u);
+    }
+    public boolean login(String u ,String c){
+        boolean login=false;
+         for( User user:users){
+             if(user.getUser().equals(u)&& user.getPassword().equals(c)){
+                 login=true;
+                 break;
+             }
+         }
+        return login;
     }
 }
