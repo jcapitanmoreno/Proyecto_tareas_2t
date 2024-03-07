@@ -82,20 +82,6 @@ public class RepoProject extends Repository<Project, String> {
         return Serializator.desearize(FILENAME);
     }
 
-    public boolean crearProyecto() {
-        //Crear proyecto
-        CreateProyectView v = new CreateProyectView();
-        Project p = v.createProyect();
-        add(p);
-        boolean projectAdded = false;
-        createProyectView.createProyect();
-        if (!projects.contains(p)) {
-            projectAdded = projects.add(p);
-        }
-        return projectAdded;
-
-    }
-
     public Project removeproject(Project p) {
         Project projectToRemove = null;
         Iterator<Project> iterator = projects.iterator();

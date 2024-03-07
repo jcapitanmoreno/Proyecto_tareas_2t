@@ -1,5 +1,6 @@
 package CONTROLLER;
 
+import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.CreateUserView;
 
@@ -9,18 +10,21 @@ import java.util.List;
 
 public class CreateUser {
     private List<User> users;
-    CreateUserView createUserView = new CreateUserView();
 
-    public boolean createUser(User u) {
+
+    public boolean createUser() {
+        CreateUserView view = new CreateUserView();
         boolean userAdded = false;
-        createUserView.createUser();
-        if (!users.contains(u)) {
-            users.add(u);
+        User u = view.createUser();
+        RepoUsers ru = RepoUsers.getInstance();
+        if (ru.add(u)!=null) {
             userAdded = true;
         }
         return userAdded;
 
     }
+
+
 
     //funcion con iterador para la rubrica
     public User removeUser(User u){
