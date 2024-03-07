@@ -26,7 +26,7 @@ public class MainView implements IMainView {
     }
 
 
-    @Overrid
+    @Override
     public void listProyectMsg() {
         System.out.println("Listando proyectos ...");
     }
