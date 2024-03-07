@@ -21,7 +21,9 @@ public class Teclado {
     }
     public static String readString(String msg) {
         System.out.println(msg);
-        return scanner.nextLine();
+        String line;
+        while(((line=scanner.nextLine()).trim().equals("")));
+        return line;
     }
 
     public void printMsg(String msg) {
