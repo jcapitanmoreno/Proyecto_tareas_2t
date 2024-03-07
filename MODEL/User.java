@@ -78,4 +78,8 @@ public class User implements Serializable {
         User user1 = (User) object;
         return Objects.equals(user, user1.user) && Objects.equals(password, user1.password);
     }
+
+    public String getPassword() {
+        return password;
+    }
 }

@@ -7,22 +7,30 @@ import java.util.Scanner;
 public class Teclado {
     private static Scanner scanner = new Scanner(System.in);
 
-    public  String leerString() {
+    public String leerString() {
         return scanner.nextLine();
     }
 
     public static int leerEntero(String msg) {
         System.out.println(msg);
-        while (!scanner.hasNextInt()) {
-            System.out.println("Por favor, ingrese un valor valido: ");
-            scanner.next();
+        int numero = 0;
+        boolean entradaValida = false;
+        while (!entradaValida) {
+            if (scanner.hasNextInt()) {
+                numero = scanner.nextInt();
+                entradaValida = true;
+            } else {
+                System.out.println("Entrada inválida. Por favor, ingresa un entero.");
+                scanner.next(); // Consume la entrada no válida
+            }
         }
-        return scanner.nextInt();
+        return numero;
     }
+
     public static String readString(String msg) {
         System.out.println(msg);
         String line;
-        while(((line=scanner.nextLine()).trim().equals("")));
+        while (((line = scanner.nextLine()).trim().equals(""))) ;
         return line;
     }
 

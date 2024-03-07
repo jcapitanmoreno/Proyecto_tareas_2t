@@ -3,7 +3,7 @@ package INTERFACES;
 import MODEL.User;
 
 public interface ICreateUserView {
-    String createInformation();
+    int createInformation();
     User createUser();
     void errorNameUser();
     void errorUsernameUser();
