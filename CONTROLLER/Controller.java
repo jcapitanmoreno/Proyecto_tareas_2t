@@ -2,6 +2,8 @@ package CONTROLLER;
 
 import INTERFACES.Icontroller;
 
+import MODEL.RepoProject;
+import MODEL.RepoUsers;
 import VIEW.CreateProyectView;
 import VIEW.DeleteProyectView;
 import VIEW.DeleteUserView;
