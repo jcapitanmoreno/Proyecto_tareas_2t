@@ -14,23 +14,4 @@ public class LogInController implements ILoginController {
     public LogInController(LogInView logInView) {
         this.logInView = logInView;
     }
-
-    public void startLogInProcess() throws NoSuchAlgorithmException {
-        String option = logInView.chooseLogIn();
-        do {
-            switch (option.toLowerCase()) {
-                case "iniciar":
-                    logInView.IniciarSesion();
-                    break;
-                case "volver":
-                    mainView.chooseOption();
-                    break;
-                default:
-                    logInView.Error();
-                    break;
-            }
-
-
-        } while (option != "iniciar" || option != "volver") ;
-    }
 }
