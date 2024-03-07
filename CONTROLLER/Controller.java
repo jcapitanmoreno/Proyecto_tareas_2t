@@ -4,16 +4,14 @@ import INTERFACES.Icontroller;
 
 import MODEL.RepoProject;
 import MODEL.RepoUsers;
-import VIEW.CreateProyectView;
-import VIEW.DeleteProyectView;
-import VIEW.DeleteUserView;
-import VIEW.MainView;
+import VIEW.*;
 
 public class Controller implements Icontroller {
     CreateProyectView createProyectView = new CreateProyectView();
     MainView mainView = new MainView();
     DeleteProyectView deleteProyectView = new DeleteProyectView();
     DeleteUserView deleteUserView = new DeleteUserView();
+    WelcomeByeView welcomeByeView= new WelcomeByeView();
   
     RepoProject repoProject =  RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
@@ -49,7 +47,7 @@ public class Controller implements Icontroller {
                 mainView.accessToProyectMsg();
                 break;
             case 7:
-                mainView.logOutMsg();
+               welcomeByeView.byeProgram();
                 break;
             default:
                 System.out.println("Opción no válida, por favor intente de nuevo.");

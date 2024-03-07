@@ -6,19 +6,18 @@ import MODEL.User;
 
 public class CreateUserView implements ICreateUserView {
     @Override
-    public String createInformation() {
+    public int createInformation() {
         System.out.println("Para la creación de un usuario nuevo necesitamos cierta información, como puede ser:\n" +
                 "Nombre completo. \n" +
                 "Usuario con el que identificarte. \n" +
                 "Una contraseña segura para poder iniciar sesión. \n" +
                 "Un correo electrónico.");
-        return Teclado.readString("Escriba \"crear\" para crear el usuario." +
-                "Escriba \"volver\" si desea volver al menú.\n");
+        return Teclado.leerEntero("Pulse \"1\" para crear el usuario." +
+                "Escriba \"2\" si desea volver al menú.\n");
     }
 
     @Override
     public User createUser() {
-        Teclado.readString("");
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Teclado.readString("Introduce una contraseña: "),

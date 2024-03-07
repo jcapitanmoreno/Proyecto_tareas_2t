@@ -17,9 +17,12 @@ public class CreateUser {
         boolean userAdded = false;
         User u = view.createUser();
         RepoUsers ru = RepoUsers.getInstance();
+        ru.add(u);
         if (ru.add(u)!=null) {
             userAdded = true;
+
         }
+        System.out.println(ru.save());
         return userAdded;
 
     }

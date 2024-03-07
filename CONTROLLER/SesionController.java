@@ -2,18 +2,22 @@ package CONTROLLER;
 
 import INTERFACES.ISesionController;
 import IO.Teclado;
-import VIEW.CreateUserView;
-import VIEW.LogInView;
-import VIEW.SesionView;
-import VIEW.WelcomeByeView;
+import MODEL.RepoUsers;
+import MODEL.Session;
+import VIEW.*;
 
 import java.security.NoSuchAlgorithmException;
 
 public class SesionController implements ISesionController {
+
     SesionView sesionView = new SesionView();
     LogInView login = new LogInView();
     CreateUserView createUserView = new CreateUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
+    MainView mainView = new MainView();
+    CreateUser createUser = new CreateUser();
+    RepoUsers repoUsers=RepoUsers.getInstance();
+
 
     @Override
     public int chooseoption() throws NoSuchAlgorithmException {
@@ -34,7 +38,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                createUserView.createInformation();
+                createUserView.createUser();
                 break;
             case 3:
                 welcomeByeView.byeProgram();
@@ -49,7 +53,7 @@ public class SesionController implements ISesionController {
         boolean continueLoop = true;
         do {
             opcionMenu = login.chooseLogIn();
-            if(opcionMenu == 2) {
+            if (opcionMenu == 2) {
                 continueLoop = false;
             } else {
                 switchToLogIn(opcionMenu);
@@ -58,9 +62,18 @@ public class SesionController implements ISesionController {
     }
 
     public void switchToLogIn(int opcionMenu) throws NoSuchAlgorithmException {
-        switch (opcionMenu){
+        switch (opcionMenu) {
             case 1:
-                login.IniciarSesion();
+
+               // login.IniciarSesion();
+
+                if (repoUsers.login(Teclado.readString(""),Teclado.readString(""))) {
+                    repoUsers.setUser();
+                    mainView.chooseOption();
+                }
+            case 2:
+                createUser.createUser();
+
                 break;
             default:
                 sesionView.errorOption();

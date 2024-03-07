@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Teclado {
     private static Scanner scanner = new Scanner(System.in);
 
-    public  String leerString() {
+    public String leerString() {
         return scanner.nextLine();
     }
 
@@ -30,7 +30,7 @@ public class Teclado {
     public static String readString(String msg) {
         System.out.println(msg);
         String line;
-        while(((line=scanner.nextLine()).trim().equals("")));
+        while (((line = scanner.nextLine()).trim().equals(""))) ;
         return line;
     }
 
