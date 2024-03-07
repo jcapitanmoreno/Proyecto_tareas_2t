@@ -4,6 +4,7 @@ import INTERFACES.ISesionController;
 import IO.Teclado;
 import MODEL.RepoUsers;
 import MODEL.Session;
+import MODEL.User;
 import VIEW.*;
 
 import java.security.NoSuchAlgorithmException;
@@ -17,6 +18,7 @@ public class SesionController implements ISesionController {
     MainView mainView = new MainView();
     CreateUser createUser = new CreateUser();
     RepoUsers repoUsers=RepoUsers.getInstance();
+    LogInView logInView = new LogInView();
 
 
     @Override
@@ -64,12 +66,14 @@ public class SesionController implements ISesionController {
     public void switchToLogIn(int opcionMenu) throws NoSuchAlgorithmException {
         switch (opcionMenu) {
             case 1:
-
+                User user = logInView.solicitateUser();
                // login.IniciarSesion();
-
-                if (repoUsers.login(Teclado.readString(""),Teclado.readString(""))) {
-                    repoUsers.setUser();
+                if (repoUsers.login(user)) {
+                    repoUsers.setUserLogin(user);
+                    System.out.println("true");
                     mainView.chooseOption();
+                }else {
+
                 }
             case 2:
                 createUser.createUser();
