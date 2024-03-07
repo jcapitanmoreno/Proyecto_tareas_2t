@@ -76,7 +76,7 @@ public class User implements Serializable {
         if (this == object) objeto= true;
         if (object == null || getClass() != object.getClass()) objeto = false;
         User user1 = (User) object;
-        return Objects.equals(user, user1.user) && Objects.equals(password, user1.password);
+        return Objects.equals(user, user1.user);
     }
 
     public String getPassword() {
