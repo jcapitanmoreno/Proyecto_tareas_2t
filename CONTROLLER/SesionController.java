@@ -64,6 +64,7 @@ public class SesionController implements ISesionController {
     public void switchToLogIn(int opcionMenu) throws NoSuchAlgorithmException {
         switch (opcionMenu) {
             case 1:
+
                // login.IniciarSesion();
 
                 if (repoUsers.login(Teclado.readString(""),Teclado.readString(""))) {
@@ -72,6 +73,7 @@ public class SesionController implements ISesionController {
                 }
             case 2:
                 createUser.createUser();
+
                 break;
             default:
                 sesionView.errorOption();
