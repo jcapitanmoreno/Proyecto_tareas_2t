@@ -12,6 +12,16 @@ import java.util.ArrayList;
 public class CreateProyectView implements ICreateProyectView {
     Session session = Session.getInstance();
     @Override
+    public int createInformation() {
+        System.out.println("Para la creación de un proyecto nuevo necesitamos cierta información, como puede ser:\n" +
+                "Nombre del proyecto. \n" +
+                "Descripción del proyecto. \n");
+        System.out.println("\t╔═══════════════════════════════════════╗\t");
+        System.out.println("\t║ Pulse 1 para crear usuario.           ║\t");
+        System.out.println("\t║ Pulse 2 si desea volver al menú.      ║\t");
+        return Teclado.leerEntero("\t╚═══════════════════════════════════════╝\t");
+    }
+    @Override
     public Project createProyect() {
         Teclado.readString("");
         String projectName = Teclado.readString("Introduce el nombre del proyecto: ");

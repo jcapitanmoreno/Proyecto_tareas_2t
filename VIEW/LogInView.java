@@ -10,10 +10,11 @@ import java.security.NoSuchAlgorithmException;
 
 public class LogInView implements ILogInView {
     @Override
-    public String chooseLogIn() {
-        System.out.println("Escriba \"iniciar\" para iniciar sesión.");
-        return Teclado.readString(
-                "Escriba \"volver\" si desea volver al menú.");
+    public int chooseLogIn() {
+        System.out.println("\t╔════════════════════════════════════════╗\t");
+        System.out.println("\t║ Pulse 1 para iniciar sesión.           ║\t");
+        System.out.println("\t║ Pulse 2 si desea volver al menú.       ║\t");
+        return Teclado.leerEntero("\t╚════════════════════════════════════════╝\t");
     }
 
     @Override
@@ -36,10 +37,11 @@ public class LogInView implements ILogInView {
     public void IniciarSesion() throws NoSuchAlgorithmException {
         String username = enterUsername();
         String password = Security.hashPassword(enterPassword());
-        System.out.println("Inicio de sesión con usuario: " +username + " y contraseña:" );
+        System.out.println("Iniciando sesión de " + username + "...");
     }
-        @Override
-    public void Error(){
-            System.out.println("Porfavor, escriba  \"iniciar\" o volver");
-        }
+
+    @Override
+    public void Error() {
+        System.out.println("Porfavor, pulse 1 o 2.");
+    }
 }

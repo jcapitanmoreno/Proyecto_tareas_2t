@@ -13,15 +13,15 @@ public class Teclado {
 
     public static int leerEntero(String msg) {
         System.out.println(msg);
-        while (!scanner.hasNextInt()) {
-            System.out.println("Por favor, ingrese un valor valido: ");
-            scanner.next();
-        }
-        return scanner.nextInt();
+        int line = scanner.nextInt();
+        return line;
     }
+
     public static String readString(String msg) {
         System.out.println(msg);
-        return scanner.nextLine();
+        String line;
+        while(((line=scanner.nextLine()).trim().equals("")));
+        return line;
     }
 
     public void printMsg(String msg) {
@@ -30,7 +30,7 @@ public class Teclado {
 
     public static void pressEnter() {
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Press enter to continue.");
+        System.out.println("Pulsa intro para continuar.");
         teclado.nextLine();
     }
 
