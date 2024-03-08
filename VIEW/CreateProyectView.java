@@ -8,6 +8,7 @@ import MODEL.Session;
 import MODEL.Task;
 import MODEL.User;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateProyectView implements ICreateProyectView {
     Session session = Session.getInstance();
@@ -31,5 +32,13 @@ public class CreateProyectView implements ICreateProyectView {
     public void errorSameProyectName() {
         System.out.println("Error, el proyecto no puede tener el mismo nombre que otro proyecto.");
         System.out.println("Pruebe de nuevo.");
+    }
+    public void printProjects(List<Project> projects) {
+        for (Project project : projects) {
+            System.out.println("Project Name: " + project.getName());
+            System.out.println("Project Creator: " + project.getProjectCreator());
+            System.out.println("Other Project Details: " + project.getDescription());
+            System.out.println("-----------------------------");
+        }
     }
 }

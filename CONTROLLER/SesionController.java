@@ -19,6 +19,7 @@ public class SesionController implements ISesionController {
     CreateUser createUser = new CreateUser();
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
+    Controller controller = new Controller();
 
 
     @Override
@@ -51,10 +52,9 @@ public class SesionController implements ISesionController {
     }
 
     public void chooseToLogIn() throws NoSuchAlgorithmException {
-        int opcionMenu = -1;
         boolean continueLoop = true;
         do {
-            opcionMenu = login.chooseLogIn();
+           int opcionMenu = login.chooseLogIn();
             if (opcionMenu == 2) {
                 continueLoop = false;
             } else {
@@ -67,14 +67,15 @@ public class SesionController implements ISesionController {
         switch (opcionMenu) {
             case 1:
                 User user = logInView.solicitateUser();
-               // login.IniciarSesion();
                 if (repoUsers.login(user)) {
                     repoUsers.setUserLogin(user);
                     System.out.println("true");
                     mainView.chooseOption();
+                    controller.start();
                 }else {
 
                 }
+                break;
             case 2:
                 createUser.createUser();
 

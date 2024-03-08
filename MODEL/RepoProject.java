@@ -95,5 +95,10 @@ public class RepoProject extends Repository<Project, String> {
         return projectToRemove;
     }
 
-
+    @Override
+    public String toString() {
+        return "RepoProject{" +
+                ", projects=" + projects +
+                '}';
+    }
 }

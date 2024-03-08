@@ -69,15 +69,6 @@ public class Project implements Serializable {
         return Objects.equals(name, project.name);
     }
 
-    /**@Override
-    public String toString() {
-        return "Project{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", ProjectCreator='" + ProjectCreator + '\'' +
-                '}';
-    }**/
-
     @Override
     public String toString() {
         return "╔═════════════════════════════════════╗\n" +
