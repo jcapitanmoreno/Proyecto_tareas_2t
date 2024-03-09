@@ -101,4 +101,8 @@ public class RepoProject extends Repository<Project, String> {
                 ", projects=" + projects +
                 '}';
     }
+    public boolean isProjectExist(Project project) {
+        return projects.contains(project);
+    }
+
 }

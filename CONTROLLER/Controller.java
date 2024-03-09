@@ -9,6 +9,7 @@ import MODEL.User;
 import VIEW.*;
 
 import java.awt.*;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 public class Controller implements Icontroller {
@@ -41,11 +42,16 @@ public class Controller implements Icontroller {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
-                listProyectView.listProyects();
+                List<Project> projects = (List<Project>) repoProject.getAll();
+                for (Project project : projects) {
+                    System.out.println(project);
+                }
                 break;
             case 2:
                 mainView.listUserMsg();
-                repoUsers.toString();
+                for (User user : repoUsers.getAll()) {
+                    System.out.println(user);
+                }
                 break;
             case 3:
                 deleteUserView.deleteUserMsg();
@@ -68,6 +74,35 @@ public class Controller implements Icontroller {
             default:
                 System.out.println("Opción no válida, por favor intente de nuevo.");
                 break;
+        }
+    }
+    public void chooseToCreate() throws NoSuchAlgorithmException {
+        boolean continueLoopToCreate = true;
+        do {
+            int opcionMenuToCreate = createProyectView.chooseoption();
+            if (opcionMenuToCreate == 2) {
+                continueLoopToCreate = false;
+            } else {
+                switchToCreate(opcionMenuToCreate);
+            }
+        } while (continueLoopToCreate);
+    }
+    public void switchToCreate(int opcionMenuToCreate) throws NoSuchAlgorithmException {
+        switch (opcionMenuToCreate) {
+            case 1:
+                Project project = createProyectView.createProyect();
+                if (repoProject.isProjectExist(project)){
+                    createProyectController.addProject();
+                }else {
+
+                }
+                break;
+            case 2:
+                start();
+
+                break;
+            default:
+                mainView.errorOption();
         }
     }
 }

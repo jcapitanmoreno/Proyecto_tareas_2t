@@ -41,4 +41,11 @@ public class CreateProyectView implements ICreateProyectView {
             System.out.println("-----------------------------");
         }
     }
+    @Override
+    public int chooseoption() {
+        System.out.println("1. Para crear el proyecto.");
+        return Teclado.leerEntero(
+                "2. Si desea volver al menú.");
+
+    }
 }

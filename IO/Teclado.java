@@ -34,7 +34,7 @@ public class Teclado {
         return line;
     }
 
-    public static void printMsg(String msg) {
+    public void printMsg(String msg) {
         System.out.println(msg);
     }
 
