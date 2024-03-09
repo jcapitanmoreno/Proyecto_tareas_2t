@@ -17,7 +17,7 @@ public class SesionController implements ISesionController {
     WelcomeByeView welcomeByeView = new WelcomeByeView();
     MainView mainView = new MainView();
     CreateUser createUser = new CreateUser();
-    RepoUsers repoUsers=RepoUsers.getInstance();
+    RepoUsers repoUsers = RepoUsers.getInstance();
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
 
@@ -27,9 +27,7 @@ public class SesionController implements ISesionController {
         int opcion = -1;
         do {
             opcion = sesionView.chooseoption();
-
             manejarOpcionMenu(opcion);
-
         } while (opcion != 3);
         return opcion;
     }
@@ -41,7 +39,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                createUserView.createUser();
+                chooseToCreate();
                 break;
             case 3:
                 welcomeByeView.byeProgram();
@@ -54,7 +52,7 @@ public class SesionController implements ISesionController {
     public void chooseToLogIn() throws NoSuchAlgorithmException {
         boolean continueLoop = true;
         do {
-           int opcionMenu = login.chooseLogIn();
+            int opcionMenu = login.chooseLogIn();
             if (opcionMenu == 2) {
                 continueLoop = false;
             } else {
@@ -72,16 +70,48 @@ public class SesionController implements ISesionController {
                     System.out.println("true");
                     mainView.chooseOption();
                     controller.start();
-                }else {
+                } else {
 
                 }
                 break;
             case 2:
-                createUser.createUser();
+                chooseoption();
 
                 break;
             default:
                 sesionView.errorOption();
         }
     }
+
+    public void chooseToCreate() throws NoSuchAlgorithmException {
+        boolean continueLoopToCreate = true;
+        do {
+            int opcionMenuToCreate = createUserView.createInformation();
+            if (opcionMenuToCreate == 2) {
+                continueLoopToCreate = false;
+            } else {
+                switchToCreate(opcionMenuToCreate);
+            }
+        } while (continueLoopToCreate);
+    }
+
+    public void switchToCreate(int opcionMenuToCreate) throws NoSuchAlgorithmException {
+        switch (opcionMenuToCreate) {
+            case 1:
+                User user = createUserView.createUser();
+                if (repoUsers.isUserExist(user)){
+                    createUser.createUser();
+                }else {
+
+                }
+                break;
+            case 2:
+                chooseoption();
+
+                break;
+            default:
+                sesionView.errorOption();
+        }
+    }
+
 }
