@@ -6,7 +6,11 @@ import java.io.Serializable;
 import java.util.Collection;
 
 public abstract class Repository<T, K> implements Serializable {
-
+    /**
+     * Se encarga de cargar el archivo de guardado de programa
+     * @param filename
+     * @return
+     */
     public static Repository load(String filename){
         return Serializator.desearize(filename);
     }

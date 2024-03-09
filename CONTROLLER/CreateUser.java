@@ -11,6 +11,12 @@ import java.util.List;
 public class CreateUser {
     private List<User> users;
 
+    /**
+     * Este método interactúa con la vista para obtener los datos de un nuevo usuario
+     * agrega el usuario al repositorio de usuarios y luego imprime el resultado de la operación de guardado.
+     * @return true si el usuario se agregó correctamente al repositorio, de lo contrario false.
+     *
+     */
 
     public boolean createUser() {
         CreateUserView view = new CreateUserView();
@@ -29,6 +35,11 @@ public class CreateUser {
 
 
 
+    /**
+     * Busca y elimina un usuario específico de una colección de usuarios utilizando un Iterator.
+     * @param u El usuario a eliminar
+     * @return El usuario eliminado, o null si no se encontró un usuario correspondiente
+     */
     //funcion con iterador para la rubrica
     public User removeUser(User u){
         User userToRemove = null;

@@ -4,6 +4,11 @@ import INTERFACES.ITaskMenuView;
 import IO.Teclado;
 
 public class TaskMenuView implements ITaskMenuView {
+    /**
+     * Muestra un menú de opciones de tareas y devuelve la opción seleccionada por el usuario.
+     *
+     * @return La opción seleccionada por el usuario
+     */
     @Override
     public int chooseTaskOption() {
         System.out.println("\t╔═══════════════════════════════════════════════════╗\t");
@@ -17,7 +22,10 @@ public class TaskMenuView implements ITaskMenuView {
         return Teclado.leerEntero("Elige una opción: ");
     }
 
-    public void errorOption(){
+    /**
+     * Muestra un mensaje de error cuando el usuario selecciona una opción inválida y sugiere intentarlo de nuevo.
+     */
+    public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
         System.out.println("Pruebe de nuevo.");
     }

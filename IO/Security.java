@@ -5,6 +5,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class Security {
+    /**
+     * Convierte un array de bytes en una representación hexadecimal.
+     * @param hash El array de bytes a convertir
+     * @return La representación hexadecimal del array de bytes
+     */
     private static String bytesToHex(byte[] hash) {
         StringBuilder hexString = new StringBuilder(2 * hash.length);
         for (int i = 0; i < hash.length; i++) {
@@ -16,7 +21,12 @@ public class Security {
         }
         return hexString.toString();
     }
-
+    /**
+     * Genera un hash SHA3-256 para una contraseña dada.
+     * @param password La contraseña a hashear
+     * @return El hash SHA3-256 de la contraseña
+     * @throws NoSuchAlgorithmException si el algoritmo de hash no está disponible
+     */
     public static String hashPassword(String password) throws NoSuchAlgorithmException {
         final MessageDigest digest = MessageDigest.getInstance("SHA3-256");
         final byte[] hashbytes = digest.digest(

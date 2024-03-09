@@ -5,6 +5,11 @@ import INTERFACES.ISesionView;
 import IO.Teclado;
 
 public class SesionView implements ISesionView {
+    /**
+     * Muestra un menú de opciones y devuelve la opción seleccionada por el usuario.
+     *
+     * @return La opción seleccionada por el usuario
+     */
 
     @Override
     public int chooseoption() {
@@ -17,6 +22,9 @@ public class SesionView implements ISesionView {
 
     }
 
+    /**
+     * Muestra un mensaje de error cuando el usuario selecciona una opción inválida y sugiere intentarlo de nuevo.
+     */
     public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 3.");
         System.out.println("Pruebe de nuevo.");

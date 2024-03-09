@@ -11,6 +11,10 @@ import java.util.ArrayList;
 
 public class CreateProyectView implements ICreateProyectView {
     Session session = Session.getInstance();
+    /**
+     * Crea un nuevo proyecto.
+     * @return El proyecto creado
+     */
     @Override
     public Project createProyect() {
         Teclado.readString("");
@@ -19,14 +23,18 @@ public class CreateProyectView implements ICreateProyectView {
         Project proyectCreated = new Project(projectName, projectDescription, session.getUser(), new ArrayList<User>(), new ArrayList<Task>());
         return proyectCreated;
     }
-
+    /**
+     * Muestra un mensaje de error cuando se intenta crear un proyecto con un nombre vacío.
+     */
     @Override
     public void errorProjectName() {
         System.out.println("Error, el proyecto no puede tener un nombre vacío.");
         System.out.println("Pruebe de nuevo.");
         System.out.println("Puede cambiarlo en la opción de modificar proyecto del menú de proyectos.");
     }
-
+    /**
+     * Muestra un mensaje de error cuando se intenta crear un proyecto con un nombre que ya existe.
+     */
     @Override
     public void errorSameProyectName() {
         System.out.println("Error, el proyecto no puede tener el mismo nombre que otro proyecto.");

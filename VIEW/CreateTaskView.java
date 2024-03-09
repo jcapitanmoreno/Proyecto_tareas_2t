@@ -11,6 +11,10 @@ import static MODEL.TaskStatus.EN_TRAMITE;
 
 public class CreateTaskView implements ICreateTaskView {
     Session session = Session.getInstance();
+    /**
+     * Muestra información necesaria para la creación de una tarea y solicita la acción del usuario.
+     * @return La acción seleccionada por el usuario
+     */
     @Override
     public String createInformation() {
         System.out.println("Para la creación de una tarea nueva necesitamos cierta información, como puede ser:\n" +
@@ -23,7 +27,15 @@ public class CreateTaskView implements ICreateTaskView {
         return Teclado.readString("Escriba \"crear\" para crear la tarea." +
                 "Escriba \"volver\" si desea volver al menú.\n");
     }
+    /**
+     * Crea una nueva tarea con la información proporcionada por el usuario.
+     * @return La tarea creada
+     */
 
+    /**
+     * Crea una nueva tarea con la información proporcionada por el usuario.
+     * @return La tarea creada
+     */
     @Override
     public Task createTask() {
         Task taskCreated = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
@@ -39,27 +51,35 @@ public class CreateTaskView implements ICreateTaskView {
                 EN_TRAMITE);
         return taskCreated;
     }
-
+    /**
+     * Muestra un mensaje de error cuando se intenta crear una tarea con un nombre vacío.
+     */
     @Override
     public void errorTaskName() {
         System.out.println("Error, la tarea no puede tener un nombre vacío.");
         System.out.println("Pruebe de nuevo.");
         System.out.println("Puede cambiarlo en la opción de modificar tarea del menú de tareas.");
     }
-
+    /**
+     * Muestra un mensaje de error cuando se intenta crear una tarea con un nombre que ya existe.
+     */
     @Override
     public void errorSameTaskName() {
         System.out.println("Error, la tarea no puede tener el mismo nombre que otra tarea.");
         System.out.println("Pruebe de nuevo.");
     }
-
+    /**
+     * Muestra un mensaje de error cuando se intenta crear una tarea con la misma fecha como inicio y límite.
+     */
     @Override
     public void errorTaskDates() {
         System.out.println("Error, la tarea no puede tener la misma fecha como inicio de la misma y como límite.");
         System.out.println("Pruebe de nuevo.");
         System.out.println("Puede cambiarlo en la opción de modificar tarea del menú de tareas.");
     }
-
+    /**
+     * Muestra un mensaje de error al intentar asignar un usuario a la tarea.
+     */
     @Override
     public void errorTaskUser() {
         System.out.println("Error al asignar el usuario encargado de la tarea.");

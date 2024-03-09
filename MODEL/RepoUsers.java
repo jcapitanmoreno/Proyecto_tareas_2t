@@ -33,7 +33,10 @@ public class RepoUsers extends Repository<User, String> {
     public void setUserLogin(User user) {
         this.userLogin = user;
     }
-
+    /**
+     * Obtiene una instancia de RepoUsers.
+     * @return La instancia de RepoUsers
+     */
     public static RepoUsers getInstance() {
         if (_instance == null) {
             _instance = (RepoUsers) load(FILENAME);
@@ -43,7 +46,11 @@ public class RepoUsers extends Repository<User, String> {
         }
         return _instance;
     }
-
+    /**
+     * Agrega un usuario a la lista de usuarios.
+     * @param u El usuario a agregar
+     * @return El usuario agregado, o null si el usuario ya existe en la lista
+     */
     @Override
     public User add(User u) {
         User result = null;
@@ -52,7 +59,11 @@ public class RepoUsers extends Repository<User, String> {
         }
         return result;
     }
-
+    /**
+     * Obtiene un usuario por su nombre de usuario.
+     * @param u El nombre de usuario
+     * @return El usuario con el nombre de usuario especificado, o null si no se encontró
+     */
     @Override
     public User getByName(String u) {
         User result = null;
@@ -64,12 +75,19 @@ public class RepoUsers extends Repository<User, String> {
         }
         return result;
     }
-
+    /**
+     * Obtiene todos los usuarios.
+     * @return Una colección de todos los usuarios
+     */
     @Override
     public Collection<User> getAll() {
         return users;
     }
-
+    /**
+     * Actualiza un usuario en la lista de usuarios.
+     * @param u El usuario con los datos actualizados
+     * @return El usuario actualizado, o null si el usuario no se encontró
+     */
     @Override
     public User update(User u) {
         User result = null;
@@ -81,12 +99,19 @@ public class RepoUsers extends Repository<User, String> {
         }
         return result;
     }
-
+    /**
+     * Elimina un usuario de la lista de usuarios por su nombre de usuario.
+     * @param u El nombre de usuario del usuario a eliminar
+     * @return true si se eliminó el usuario, false si el usuario no se encontró en la lista
+     */
     @Override
     public boolean delete(String u) {
         return users.remove(getByName(u));
     }
-
+    /**
+     * Guarda la instancia actual en un archivo.
+     * @return true si se guardó correctamente, false si ocurrió un error
+     */
     public boolean save() {
         return super.save(FILENAME);
     }
@@ -97,7 +122,11 @@ public class RepoUsers extends Repository<User, String> {
 
     public boolean isUserExist(User u) {
         return users.contains(u);
-    }
+    }/**
+     * Verifica si un usuario puede iniciar sesión.
+     * @param u El usuario que intenta iniciar sesión
+     * @return true si el usuario puede iniciar sesión, false si no puede
+     */
     public boolean login(User u){
         boolean login=false;
          for( User user:users){
@@ -108,7 +137,10 @@ public class RepoUsers extends Repository<User, String> {
          }
         return login;
     }
-
+    /**
+     * Establece un usuario específico en la lista de usuarios.
+     * @param u El usuario a establecer
+     */
     public void setUser(User u){
         for(User user : users){
             if (user.equals(u)){

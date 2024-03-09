@@ -86,13 +86,21 @@ public class Project implements Serializable {
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;
     }
-
+    /**
+     * Agrega una tarea a la lista de tareas.
+     * @param t La tarea a agregar
+     * @return La tarea agregada
+     */
     public  Task addTask(Task t){
         Task result = null;
         tasks.add(t);
         result = t;
         return result;
-    }
+    }/**
+     * Obtiene una tarea por su nombre desde la lista de tareas.
+     * @param name El nombre de la tarea a buscar
+     * @return La tarea encontrada, o null si no se encontró ninguna tarea con el nombre especificado
+     */
     public Task getByName(String name) {
         Task result = null;
         for (Task task: tasks){
@@ -103,6 +111,11 @@ public class Project implements Serializable {
         }
         return result;
     }
+    /**
+     * Obtiene una lista de tareas por su estado desde la lista de tareas.
+     * @param status El estado de las tareas a buscar
+     * @return La lista de tareas con el estado especificado
+     */
     public List<Task> getByStatus(Enum status) {
         List<Task> result = new ArrayList<>();
         for (Task task: tasks){
@@ -117,6 +130,11 @@ public class Project implements Serializable {
     public Collection<Task> getAll() {
         return tasks;
     }
+    /**
+     * Actualiza una tarea en la lista de tareas.
+     * @param t La tarea con los datos actualizados
+     * @return La tarea actualizada, o null si la tarea no se encontró
+     */
     public Task update(Task t) {
         Task result;
         result=getByName(t.getName());
@@ -127,6 +145,11 @@ public class Project implements Serializable {
         }
         return result;
     }
+    /**
+     * Elimina una tarea de la lista de tareas.
+     * @param t La tarea a eliminar
+     * @return La tarea eliminada, o null si la tarea no se encontró
+     */
     public Task removeTask(Task t){
         Task taskToRemove = null;
         Iterator<Task> iterator = tasks.iterator();
@@ -139,7 +162,10 @@ public class Project implements Serializable {
         }
         return taskToRemove;
     }
-
+    /**
+     * Crea una nueva tarea y la agrega a la lista de tareas.
+     * @return true si la tarea se agregó con éxito, false si no se agregó
+     */
     public boolean creartarea() {
         //Crear tarea
         CreateTaskView createTaskView= new CreateTaskView();

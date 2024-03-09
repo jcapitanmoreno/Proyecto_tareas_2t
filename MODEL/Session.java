@@ -6,7 +6,10 @@ public class Session {
 
     private Session() {
     }
-
+    /**
+     * Obtiene una instancia de Session.
+     * @return La instancia de Session
+     */
     public static Session getInstance() {
         if (_instance == null) {
             _instance = new Session();

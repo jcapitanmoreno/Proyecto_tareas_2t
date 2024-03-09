@@ -19,7 +19,10 @@ public class RepoProject extends Repository<Project, String> {
     public RepoProject() {
         this.projects = new ArrayList<>();
     }
-
+    /**
+     * Obtiene una instancia de RepoProject.
+     * @return La instancia de RepoProject
+     */
     public static RepoProject get_Instance() {
         if (_instance == null) {
             _instance = (RepoProject) load(FILENAME);
@@ -29,6 +32,11 @@ public class RepoProject extends Repository<Project, String> {
         }
         return _instance;
     }
+    /**
+     * Agrega un proyecto a la lista de proyectos.
+     * @param p El proyecto a agregar
+     * @return El proyecto agregado
+     */
     @Override
     public Project add(Project p) {
         Project result;
@@ -38,6 +46,11 @@ public class RepoProject extends Repository<Project, String> {
         result = p;
         return result;
     }
+    /**
+     * Obtiene un proyecto por su nombre de creador.
+     * @param name El nombre del creador del proyecto
+     * @return El proyecto con el nombre de creador especificado, o null si no se encontró
+     */
     @Override
     public Project getByName(String name) {
         boolean n = false;
@@ -51,12 +64,19 @@ public class RepoProject extends Repository<Project, String> {
         }
         return result;
     }
-
+    /**
+     * Obtiene todos los proyectos.
+     * @return Una colección de todos los proyectos
+     */
     @Override
     public Collection<Project> getAll() {
         return projects;
     }
-
+    /**
+     * Actualiza un proyecto en la lista de proyectos.
+     * @param p El proyecto con los datos actualizados
+     * @return El proyecto actualizado, o null si el proyecto no se encontró
+     */
     @Override
     public Project update(Project p) {
         Project result = null;
@@ -81,7 +101,11 @@ public class RepoProject extends Repository<Project, String> {
     public static RepoProject load() {
         return Serializator.desearize(FILENAME);
     }
-
+    /**
+     * Elimina un proyecto de la lista de proyectos.
+     * @param p El proyecto a eliminar
+     * @return El proyecto eliminado, o null si el proyecto no se encontró
+     */
     public Project removeproject(Project p) {
         Project projectToRemove = null;
         Iterator<Project> iterator = projects.iterator();

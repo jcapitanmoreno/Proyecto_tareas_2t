@@ -5,7 +5,11 @@ import INTERFACES.Icontroller;
 import IO.Teclado;
 
 public class MainView implements IMainView {
-
+    /**
+     * Muestra un menú de opciones y devuelve la opción seleccionada por el usuario.
+     *
+     * @return La opción seleccionada por el usuario
+     */
     public int chooseOption() {
         System.out.println("\t╔═════════════════════════════════════╗\t");
         System.out.println("\t║ Pulse 1 para listar proyectos.      ║\t");
@@ -20,34 +24,49 @@ public class MainView implements IMainView {
 
     }
 
-    public void errorOption(){
+    /**
+     * Muestra un mensaje de error cuando el usuario selecciona una opción inválida y sugiere intentarlo de nuevo.
+     */
+    public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 7.");
         System.out.println("Pruebe de nuevo.");
     }
 
-
+    /**
+     * Muestra un mensaje indicando que se están listando proyectos.
+     */
     @Override
     public void listProyectMsg() {
         System.out.println("Listando proyectos ...");
     }
 
-
+    /**
+     * Muestra un mensaje indicando que se están listando usuarios
+     */
     @Override
     public void listUserMsg() {
         System.out.println("Listando usuarios ...");
     }
 
-
+    /**
+     * Muestra un mensaje indicando que se esta creando proyectos
+     */
     @Override
     public void createProyectMsg() {
         System.out.println("Creando proyectos ...");
     }
 
-
+    /**
+     * Muestra un mensaje indicando que se está accediendo al proyecto.
+     */
     @Override
     public void accessToProyectMsg() {
         System.out.println("Accediendo al proyecto ...");
     }
+
+    /**
+     * Muestra un mensaje indicando que se está cerrando sesión.
+     */
     @Override
     public void logOutMsg() {
         System.out.println("Cerrando sesión ...");
