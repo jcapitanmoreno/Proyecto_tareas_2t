@@ -62,4 +62,6 @@ public class CreateUserView implements ICreateUserView {
     public void errorEmail() {
         System.out.println("El email debe contener \"@\" y \".com\" ó \".es\"");
     }
+
+
 }

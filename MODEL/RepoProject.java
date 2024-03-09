@@ -24,7 +24,7 @@ public class RepoProject extends Repository<Project, String> {
         if (_instance == null) {
             _instance = (RepoProject) load(FILENAME);
             if (_instance == null) {
-                _instance = new RepoProject();
+                    _instance = new RepoProject();
             }
         }
         return _instance;
@@ -101,9 +101,4 @@ public class RepoProject extends Repository<Project, String> {
                 ", projects=" + projects +
                 '}';
     }
-
-    public boolean isProjectExist(Project project) {
-        return projects.contains(project);
-    }
-
 }
