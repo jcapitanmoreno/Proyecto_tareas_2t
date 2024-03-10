@@ -8,11 +8,8 @@ import MODEL.RepoProject;
 import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.*;
-import VIEW.User.DeleteUserView;
-import VIEW.proyect.CreateProyectView;
-import VIEW.proyect.DeleteProyectView;
-import VIEW.proyect.ListProyectView;
 
+import java.awt.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
@@ -28,8 +25,8 @@ public class Controller implements Icontroller {
     CreateUser createUser = new CreateUser();
     CreateProyectController createProyectController = new CreateProyectController();
     ListProyectView listProyectView = new ListProyectView();
-    private static List<MODEL.User> User;
-    private static List<MODEL.Task> Task;
+    Teclado teclado = new Teclado();
+    ListProject_Users listProjectUsers = new ListProject_Users();
 
 
     @Override
@@ -46,40 +43,21 @@ public class Controller implements Icontroller {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
-                List<Project> projects = (List<Project>) repoProject.getAll();
-                for (Project project : projects) {
-                    System.out.println(project);
-                }
+                listProjectUsers.listProjects();
                 break;
             case 2:
                 mainView.listUserMsg();
-                for (User user : repoUsers.getAll()) {
-                    System.out.println(user);
-                }
+                listProjectUsers.listUsers();
                 break;
             case 3:
+                repoUsers.delete(deleteUserView.userToDelete());
                 deleteUserView.deleteUserMsg();
-                //createUser.removeUser();
-
                 break;
             case 4:
                 chooseToCreate();
                 break;
             case 5:
-                deleteProyectView.deleteProyectMsg();
-                String projectNameToDelete = Teclado.readString("Ingrese el nombre del proyecto a eliminar: ");
-                Project projectToDelete = repoProject.getByName(projectNameToDelete);
-
-                if (projectToDelete != null) {
-                    Project removedProject = repoProject.removeproject(projectToDelete);
-                    if (removedProject != null) {
-                        System.out.println("Proyecto eliminado exitosamente: " + removedProject);
-                    } else {
-                        System.out.println("No se pudo eliminar el proyecto.");
-                    }
-                } else {
-                    System.out.println("El proyecto no existe.");
-                }
+                deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
                 break;
             case 6:
                 mainView.accessToProyectMsg();
@@ -108,9 +86,10 @@ public class Controller implements Icontroller {
             case 1:
                 Project project = createProyectView.createProyect();
                 if (repoProject.isProjectExist(project)){
-                    createProyectController.addProject();
+                    teclado.printMsg("el proyecto existe en el repositorio");
                 }else {
-
+                    repoProject.add(project);
+                    repoProject.save();
                 }
                 break;
             case 2:

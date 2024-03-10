@@ -1,4 +1,4 @@
-package VIEW.Task;
+package VIEW;
 
 import INTERFACES.IListTaskView;
 import MODEL.Task;

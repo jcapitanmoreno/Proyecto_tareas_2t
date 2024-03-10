@@ -1,4 +1,4 @@
-package VIEW.User;
+package VIEW;
 
 import INTERFACES.ICreateUserView;
 import IO.Teclado;

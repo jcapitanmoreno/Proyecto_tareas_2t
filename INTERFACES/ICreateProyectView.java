@@ -1,7 +1,6 @@
 package INTERFACES;
 
 import MODEL.Project;
-import MODEL.Session;
 
 public interface ICreateProyectView {
     Project createProyect();

@@ -1,6 +1,6 @@
 package MODEL;
 
-import VIEW.Task.CreateTaskView;
+import VIEW.CreateTaskView;
 
 import java.io.Serializable;
 import java.util.*;
@@ -20,6 +20,7 @@ public class Project implements Serializable {
         this.collaborators = collaborators;
         this.tasks = tasks;
     }
+
 
     public List<User> getCollaborators() {
         return collaborators;

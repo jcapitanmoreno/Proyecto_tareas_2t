@@ -2,7 +2,9 @@ package Test;
 
 import IO.Teclado;
 import MODEL.Project;
-import VIEW.proyect.ListProyectView;
+import MODEL.Task;
+import MODEL.User;
+import VIEW.ListProyectView;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,7 +3,7 @@ package CONTROLLER;
 
 import MODEL.Project;
 import MODEL.RepoProject;
-import VIEW.proyect.CreateProyectView;
+import VIEW.CreateProyectView;
 
 
 public class CreateProyectController {

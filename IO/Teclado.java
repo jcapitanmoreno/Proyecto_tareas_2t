@@ -3,6 +3,7 @@ package IO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Teclado {
     private static Scanner scanner = new Scanner(System.in);
@@ -48,6 +49,11 @@ public class Teclado {
         System.out.println(msg);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
         return LocalDate.parse(scanner.nextLine(), formatter);
+    }
+    public boolean validateEmail(String email) {
+        Pattern pattern = Pattern.compile(".+@.+\\.(com|es)$");
+
+        return pattern.matcher(email).matches();
     }
 
 }

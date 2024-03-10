@@ -1,23 +1,22 @@
-package VIEW.proyect;
+package VIEW;
 
 import INTERFACES.ICreateProyectView;
-import INTERFACES.IListProyectView;
 import IO.Teclado;
 import MODEL.Project;
-import MODEL.Session;
+import MODEL.RepoUsers;
 import MODEL.Task;
 import MODEL.User;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CreateProyectView implements ICreateProyectView {
-    Session session = Session.getInstance();
+  RepoUsers repoUsers = RepoUsers.getInstance();
     @Override
     public Project createProyect() {
         Teclado.readString("");
         String projectName = Teclado.readString("Introduce el nombre del proyecto: ");
         String projectDescription = Teclado.readString("Introduce una descripción para el proyecto: ");
-        Project proyectCreated = new Project(projectName, projectDescription, session.getUser(), new ArrayList<User>(), new ArrayList<Task>());
+        Project proyectCreated = new Project(projectName, projectDescription, repoUsers.getUser(), new ArrayList<User>(), new ArrayList<Task>());
         return proyectCreated;
     }
 

@@ -4,7 +4,6 @@ import INTERFACES.ISesionController;
 import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.*;
-import VIEW.User.CreateUserView;
 
 import java.security.NoSuchAlgorithmException;
 

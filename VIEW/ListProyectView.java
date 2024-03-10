@@ -1,4 +1,4 @@
-package VIEW.proyect;
+package VIEW;
 import INTERFACES.IListProyectView;
 import MODEL.Project;
 
