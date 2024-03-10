@@ -55,7 +55,7 @@ public class Controller implements Icontroller {
                 deleteProyectView.deleteProyectMsg();
                 break;
             case 6:
-                mainView.accessToProyectMsg();
+                mainView.updateToProyectMsg();
                 break;
             case 7:
                welcomeByeView.byeProgram();

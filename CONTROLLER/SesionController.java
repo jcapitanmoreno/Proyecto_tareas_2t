@@ -19,7 +19,7 @@ public class SesionController implements ISesionController {
     CreateUser createUser = new CreateUser();
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
-
+    Controller controller = new Controller();
     /**
      * Este método permite al usuario elegir una opción y maneja la opción seleccionada hasta que se elija la opción de salida.
      * @return La opción elegida por el usuario
@@ -47,6 +47,7 @@ public class SesionController implements ISesionController {
         switch (opcion) {
             case 1:
                 chooseToLogIn();
+                mainView.chooseOption();
                 break;
             case 2:
                 createUserView.createUser();

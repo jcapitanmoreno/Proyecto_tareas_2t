@@ -6,6 +6,6 @@ public interface IMainView {
     void listProyectMsg();
     void listUserMsg();
     void createProyectMsg();
-    void accessToProyectMsg();
+    void updateToProyectMsg();
     void logOutMsg();
 }

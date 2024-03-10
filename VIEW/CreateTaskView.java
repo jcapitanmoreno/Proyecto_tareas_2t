@@ -27,10 +27,7 @@ public class CreateTaskView implements ICreateTaskView {
         return Teclado.readString("Escriba \"crear\" para crear la tarea." +
                 "Escriba \"volver\" si desea volver al menú.\n");
     }
-    /**
-     * Crea una nueva tarea con la información proporcionada por el usuario.
-     * @return La tarea creada
-     */
+
 
     /**
      * Crea una nueva tarea con la información proporcionada por el usuario.

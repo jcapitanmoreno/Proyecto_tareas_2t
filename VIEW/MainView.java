@@ -17,7 +17,7 @@ public class MainView implements IMainView {
         System.out.println("\t║ Pulse 3 para borrar usuarios.       ║\t");
         System.out.println("\t║ Pulse 4 para crear proyectos.       ║\t");
         System.out.println("\t║ Pulse 5 para borrar proyectos.      ║\t");
-        System.out.println("\t║ Pulse 6 para acceder a un proyecto. ║\t");
+        System.out.println("\t║ Pulse 6 para actualizar proyectos ║\t");
         System.out.println("\t║ Pulse 7 para cerrar sesión.         ║\t");
         System.out.println("\t╚═════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
@@ -60,7 +60,7 @@ public class MainView implements IMainView {
      * Muestra un mensaje indicando que se está accediendo al proyecto.
      */
     @Override
-    public void accessToProyectMsg() {
+    public void updateToProyectMsg() {
         System.out.println("Accediendo al proyecto ...");
     }
 
