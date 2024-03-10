@@ -104,5 +104,20 @@ public class RepoProject extends Repository<Project, String> {
     public boolean isProjectExist(Project project) {
         return projects.contains(project);
     }
+    public Task addTaskToProject(String projectName, Task task) {
+        Project project = getByName(projectName);
+        boolean result = false;
+
+        if (project != null) {
+            project.addTask(task);
+            // Actualiza el proyecto en el repositorio añadiendo esa tarea
+            update(project);
+            result = true;
+        } else {
+            // sacaria un mensaje que diria algo como "el proyecto no existe en el repositorio"
+            result = false;
+        }
+        return task;
+    }
 
 }
