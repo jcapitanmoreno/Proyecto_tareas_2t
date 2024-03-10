@@ -2,6 +2,7 @@ package CONTROLLER;
 
 import INTERFACES.Icontroller;
 
+import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
 import MODEL.RepoUsers;
@@ -29,7 +30,7 @@ public class Controller implements Icontroller {
 
 
     @Override
-    public void start() {
+    public void start() throws NoSuchAlgorithmException {
         int option = -1;
         do {
             option = mainView.chooseOption();
@@ -38,7 +39,7 @@ public class Controller implements Icontroller {
     }
 
     // Método para manejar la lógica del menú
-    public void manejarOpcionMenu(int opcion) {
+    public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
@@ -59,11 +60,23 @@ public class Controller implements Icontroller {
 
                 break;
             case 4:
-                createProyectController.addProject();
+                chooseToCreate();
                 break;
             case 5:
                 deleteProyectView.deleteProyectMsg();
-                //repoProject.removeproject();
+                String projectNameToDelete = Teclado.readString("Ingrese el nombre del proyecto a eliminar: ");
+                Project projectToDelete = repoProject.getByName(projectNameToDelete);
+
+                if (projectToDelete != null) {
+                    Project removedProject = repoProject.removeproject(projectToDelete);
+                    if (removedProject != null) {
+                        System.out.println("Proyecto eliminado exitosamente: " + removedProject);
+                    } else {
+                        System.out.println("No se pudo eliminar el proyecto.");
+                    }
+                } else {
+                    System.out.println("El proyecto no existe.");
+                }
                 break;
             case 6:
                 mainView.accessToProyectMsg();
