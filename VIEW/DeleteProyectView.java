@@ -18,8 +18,13 @@ public class DeleteProyectView implements IDeleteProyectView {
     }
 
     @Override
-    public void deleteProyectMsg() {
-        System.out.println("Eliminando proyecto ...");
+    public void deleteProyectMsg(boolean result) {
+        if (result){
+            System.out.println("Eliminando proyecto ...");
+        } else {
+            System.out.println("el proyecto no ha podido ser eliminado");
+        }
+
     }
 }
 

@@ -4,7 +4,7 @@ import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.CreateUserView;
 
-import javax.swing.text.View;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -25,22 +25,6 @@ public class CreateUser {
         System.out.println(ru.save());
         return userAdded;
 
-    }
-
-
-
-    //funcion con iterador para la rubrica
-    public User removeUser(User u){
-        User userToRemove = null;
-        Iterator<User> iterator = users.iterator();
-        while (iterator.hasNext()){
-            User temporalUser = iterator.next();
-            if (temporalUser.equals(u)){
-                userToRemove = temporalUser;
-                iterator.remove();
-            }
-        }
-        return userToRemove;
     }
 
 
