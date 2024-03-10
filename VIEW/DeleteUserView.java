@@ -11,10 +11,13 @@ public class DeleteUserView implements IDeleteUserView {
     }
 
     @Override
-    public String sureToDelete() {
-        System.out.println("¿Estás seguro de querer borrar el usuario?");
-        System.out.println("Escriba \"Si\", para borrar el usuario.");
-        return Teclado.readString("Escriba \"No\", para cancelar.");
+    public int sureToDelete() {
+        System.out.println("\t╔════════════════════════════════════════════════╗\t");
+        System.out.println("\t║ ¿Estás seguro de querer borrar el usuario?     ║\t");
+        System.out.println("\t║ Pulse 1 para borrar el usuario.                ║\t");
+        System.out.println("\t║ Pulse 2 para volver al menú.                   ║\t");
+        System.out.println("\t╚════════════════════════════════════════════════╝\t");
+        return Teclado.leerEntero("Elige una opción: ");
     }
 
     @Override
