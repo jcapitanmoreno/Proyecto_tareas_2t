@@ -1,16 +1,14 @@
 package VIEW;
 
 import INTERFACES.ICreateTaskView;
-import IO.StringToDate;
 import IO.Teclado;
-import MODEL.Session;
+import MODEL.RepoUsers;
 import MODEL.Task;
-import MODEL.User;
 
 import static MODEL.TaskStatus.EN_TRAMITE;
 
 public class CreateTaskView implements ICreateTaskView {
-    Session session = Session.getInstance();
+    RepoUsers repoUsers = RepoUsers.getInstance();
     @Override
     public String createInformation() {
         System.out.println("Para la creación de una tarea nueva necesitamos cierta información, como puede ser:\n" +
@@ -35,7 +33,7 @@ public class CreateTaskView implements ICreateTaskView {
                 //Debe de recorrerse la lista de usuarios en un if y si el usuario introducido es igual al de alguno de la lista se asigna.
                 //Si no se asigna el usuario con el else se asigna el usuario que ha iniciado sesión.
                 //Luego ha de haber una opción de modificar tarea y que se pueda asignar un usuario.
-                session.getUser(),
+                repoUsers.getUser(),
                 EN_TRAMITE);
         return taskCreated;
     }

@@ -21,6 +21,7 @@ public class Project implements Serializable {
         this.tasks = tasks;
     }
 
+
     public List<User> getCollaborators() {
         return collaborators;
     }

@@ -14,7 +14,7 @@ public class RepoUsers extends Repository<User, String> {
 
     private User userLogin;
 
-    private RepoUsers() {
+    public RepoUsers() {
         this.users = new HashSet<>();
     }
 

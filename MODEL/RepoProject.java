@@ -1,8 +1,8 @@
 package MODEL;
 
 
+import IO.Teclado;
 import Serializator.Serializator;
-import VIEW.CreateProyectView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,6 @@ import java.util.List;
 public class RepoProject extends Repository<Project, String> {
     private final static String FILENAME = "repoProject.bin";
     private static RepoProject _instance;
-    CreateProyectView createProyectView = new CreateProyectView();
 
     private List<Project> projects;
 
@@ -24,26 +23,28 @@ public class RepoProject extends Repository<Project, String> {
         if (_instance == null) {
             _instance = (RepoProject) load(FILENAME);
             if (_instance == null) {
-                    _instance = new RepoProject();
+                _instance = new RepoProject();
             }
         }
         return _instance;
     }
+
     @Override
     public Project add(Project p) {
         Project result;
-        if (!projects.contains(p)){
+        if (!projects.contains(p)) {
             projects.add(p);
         }
         result = p;
         return result;
     }
+
     @Override
     public Project getByName(String name) {
         boolean n = false;
         Project result = null;
         for (Project project : projects) {
-            if (project.getProjectCreator().equals(name)) {
+            if (project.getName().equals(name)) {
                 n = true;
                 result = project;
 
@@ -71,7 +72,13 @@ public class RepoProject extends Repository<Project, String> {
 
     @Override
     public boolean delete(String p) {
-        return projects.remove(getByName(p));
+        boolean result = false;
+        Project project = getByName(p);
+        if (project != null){
+            projects.remove(project);
+            result = true;
+        }
+            return result;
     }
 
     public boolean save() {
@@ -101,9 +108,11 @@ public class RepoProject extends Repository<Project, String> {
                 ", projects=" + projects +
                 '}';
     }
+
     public boolean isProjectExist(Project project) {
         return projects.contains(project);
     }
+
     public Task addTaskToProject(String projectName, Task task) {
         Project project = getByName(projectName);
         boolean result = false;
