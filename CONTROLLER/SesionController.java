@@ -1,30 +1,38 @@
 package CONTROLLER;
 
-
 import INTERFACES.ISesionController;
 import IO.Teclado;
-import VIEW.CreateUserView;
-import VIEW.LogInView;
-import VIEW.SesionView;
-import VIEW.WelcomeByeView;
+import MODEL.RepoUsers;
+import MODEL.Session;
+import MODEL.User;
+import VIEW.*;
 
 import java.security.NoSuchAlgorithmException;
 
 public class SesionController implements ISesionController {
+
     SesionView sesionView = new SesionView();
     LogInView login = new LogInView();
     CreateUserView createUserView = new CreateUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
+    MainView mainView = new MainView();
+    CreateUser createUser = new CreateUser();
+    RepoUsers repoUsers=RepoUsers.getInstance();
+    LogInView logInView = new LogInView();
+    Controller controller = new Controller();
+
 
     @Override
-    public void chooseoption() throws NoSuchAlgorithmException {
+    public int chooseoption() throws NoSuchAlgorithmException {
         int opcion = -1;
         do {
             opcion = sesionView.chooseoption();
-            manejarOpcionMenu(opcion);
-        } while (opcion != 3);
-    }
 
+            manejarOpcionMenu(opcion);
+
+        } while (opcion != 3);
+        return opcion;
+    }
 
     // Método para manejar la opción seleccionada del menú
     public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
@@ -33,32 +41,44 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                createUserView.createInformation();
+                createUserView.createUser();
                 break;
             case 3:
                 welcomeByeView.byeProgram();
                 break;
             default:
-
+                sesionView.errorOption();
         }
     }
 
-
     public void chooseToLogIn() throws NoSuchAlgorithmException {
-        int opcionMenu = -1;
+        boolean continueLoop = true;
         do {
-            opcionMenu = login.chooseLogIn();
-            switchToLogIn(opcionMenu);
-        } while (opcionMenu != 2);
+           int opcionMenu = login.chooseLogIn();
+            if (opcionMenu == 2) {
+                continueLoop = false;
+            } else {
+                switchToLogIn(opcionMenu);
+            }
+        } while (continueLoop);
     }
 
     public void switchToLogIn(int opcionMenu) throws NoSuchAlgorithmException {
-        switch (opcionMenu){
+        switch (opcionMenu) {
             case 1:
-                login.IniciarSesion();
+                User user = logInView.solicitateUser();
+                if (repoUsers.login(user)) {
+                    repoUsers.setUserLogin(user);
+                    System.out.println("true");
+                    mainView.chooseOption();
+                    controller.start();
+                }else {
+
+                }
                 break;
             case 2:
-                sesionView.chooseoption();
+                createUser.createUser();
+
                 break;
             default:
                 sesionView.errorOption();

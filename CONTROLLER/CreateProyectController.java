@@ -25,6 +25,7 @@ public class CreateProyectController {
         CreateProyectView view = new CreateProyectView();
         Project p =view.createProyect();
         RepoProject rp = RepoProject.get_Instance();
+        rp.add(p);
         if(rp.add(p)!=null){
             result=true;
         }

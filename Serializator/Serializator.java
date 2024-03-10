@@ -18,7 +18,7 @@ public class Serializator {
             oos.writeObject(obj);
             result = true;
         }catch (IOException e){
-
+            System.out.println(e.toString());
 
         }
 

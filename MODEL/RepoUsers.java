@@ -12,10 +12,26 @@ public class RepoUsers extends Repository<User, String> {
     private static RepoUsers _instance;
     private Set<User> users;
 
-    private User user;
+    private User userLogin;
 
-    public RepoUsers() {
+    private RepoUsers() {
         this.users = new HashSet<>();
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public User getUser() {
+        return userLogin;
+    }
+
+    public void setUserLogin(User user) {
+        this.userLogin = user;
     }
 
     public static RepoUsers getInstance() {
@@ -81,5 +97,23 @@ public class RepoUsers extends Repository<User, String> {
 
     public boolean isUserExist(User u) {
         return users.contains(u);
+    }
+    public boolean login(User u){
+        boolean login=false;
+         for( User user:users){
+             if(u.equals(user)){
+                 login=true;
+                 break;
+             }
+         }
+        return login;
+    }
+
+    public void setUser(User u){
+        for(User user : users){
+            if (user.equals(u)){
+
+            }
+        }
     }
 }
