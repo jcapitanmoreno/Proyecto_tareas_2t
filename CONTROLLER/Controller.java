@@ -47,7 +47,7 @@ public class Controller implements Icontroller {
                 break;
             case 2:
                 mainView.listUserMsg();
-                listProjectUsers.listUsers();
+                //listProjectUsers.listUsers();
                 break;
             case 3:
                 repoUsers.delete(deleteUserView.userToDelete());
