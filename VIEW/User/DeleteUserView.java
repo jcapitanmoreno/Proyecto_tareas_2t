@@ -1,4 +1,4 @@
-package VIEW;
+package VIEW.User;
 
 import INTERFACES.IDeleteUserView;
 import IO.Teclado;

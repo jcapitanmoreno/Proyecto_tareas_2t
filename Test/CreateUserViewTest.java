@@ -1,6 +1,6 @@
 package Test;
 
-import VIEW.CreateUserView;
+import VIEW.User.CreateUserView;
 
 public class CreateUserViewTest {
     static CreateUserView createUserView = new CreateUserView();

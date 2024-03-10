@@ -1,4 +1,4 @@
-package VIEW;
+package VIEW.proyect;
 
 import INTERFACES.IDeleteProyectView;
 import IO.Teclado;

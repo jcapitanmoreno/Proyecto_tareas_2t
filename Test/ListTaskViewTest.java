@@ -1,12 +1,10 @@
 package Test;
 
-import IO.Teclado;
-import MODEL.Project;
 import MODEL.Task;
 import MODEL.TaskStatus;
 import MODEL.User;
-import VIEW.ListTaskView;
-import VIEW.TaskMenuView;
+import VIEW.Task.ListTaskView;
+import VIEW.Task.TaskMenuView;
 
 import java.util.ArrayList;
 import java.util.List;

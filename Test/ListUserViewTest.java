@@ -1,7 +1,7 @@
 package Test;
 
 import MODEL.User;
-import VIEW.ListUserView;
+import VIEW.User.ListUserView;
 
 import java.util.ArrayList;
 import java.util.List;

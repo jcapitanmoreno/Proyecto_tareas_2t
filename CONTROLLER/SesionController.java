@@ -1,11 +1,10 @@
 package CONTROLLER;
 
 import INTERFACES.ISesionController;
-import IO.Teclado;
 import MODEL.RepoUsers;
-import MODEL.Session;
 import MODEL.User;
 import VIEW.*;
+import VIEW.User.CreateUserView;
 
 import java.security.NoSuchAlgorithmException;
 

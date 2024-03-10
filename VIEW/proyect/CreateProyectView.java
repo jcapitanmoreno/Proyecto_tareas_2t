@@ -1,4 +1,4 @@
-package VIEW;
+package VIEW.proyect;
 
 import INTERFACES.ICreateProyectView;
 import INTERFACES.IListProyectView;

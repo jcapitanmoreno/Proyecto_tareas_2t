@@ -2,7 +2,7 @@ package MODEL;
 
 
 import Serializator.Serializator;
-import VIEW.CreateProyectView;
+import VIEW.proyect.CreateProyectView;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -1,6 +1,6 @@
 package MODEL;
 
-import VIEW.CreateTaskView;
+import VIEW.Task.CreateTaskView;
 
 import java.io.Serializable;
 import java.util.*;

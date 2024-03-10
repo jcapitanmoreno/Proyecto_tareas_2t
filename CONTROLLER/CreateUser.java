@@ -2,9 +2,8 @@ package CONTROLLER;
 
 import MODEL.RepoUsers;
 import MODEL.User;
-import VIEW.CreateUserView;
+import VIEW.User.CreateUserView;
 
-import javax.swing.text.View;
 import java.util.Iterator;
 import java.util.List;
 

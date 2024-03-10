@@ -1,4 +1,4 @@
-package VIEW;
+package VIEW.Task;
 
 import INTERFACES.ICreateTaskView;
 import IO.StringToDate;

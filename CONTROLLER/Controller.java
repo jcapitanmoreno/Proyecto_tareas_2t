@@ -8,8 +8,11 @@ import MODEL.RepoProject;
 import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.*;
+import VIEW.User.DeleteUserView;
+import VIEW.proyect.CreateProyectView;
+import VIEW.proyect.DeleteProyectView;
+import VIEW.proyect.ListProyectView;
 
-import java.awt.*;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
