@@ -1,7 +1,6 @@
 package MODEL;
 
 
-import IO.Teclado;
 import Serializator.Serializator;
 
 import java.util.ArrayList;
