@@ -11,9 +11,7 @@ public class SesionController implements ISesionController {
 
     SesionView sesionView = new SesionView();
     LogInView login = new LogInView();
-    CreateUserView createUserView = new CreateUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
-    MainView mainView = new MainView();
     CreateUser createUser = new CreateUser();
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
