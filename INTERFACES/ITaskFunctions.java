@@ -1,6 +1,6 @@
 package INTERFACES;
 
-public interface IMenuTaskController {
+public interface ITaskFunctions {
     void start();
     void manejarOpcionMenu(int opcion);
 }
