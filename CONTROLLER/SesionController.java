@@ -39,7 +39,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                createUserView.createUser();
+                createUser.createUser();
                 break;
             case 3:
                 welcomeByeView.byeProgram();
@@ -68,7 +68,6 @@ public class SesionController implements ISesionController {
                 if (repoUsers.login(user)) {
                     repoUsers.setUserLogin(user);
                     System.out.println("true");
-                    mainView.chooseOption();
                     controller.start();
                 }else {
 

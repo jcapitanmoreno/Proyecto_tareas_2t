@@ -27,6 +27,8 @@ public class Controller implements Icontroller {
     ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
     ListProject_Users listProjectUsers = new ListProject_Users();
+    MenuTaskController menuTaskController = new MenuTaskController();
+    AccessToProjectView accessToProjectView = new AccessToProjectView();
 
 
     @Override
@@ -60,7 +62,15 @@ public class Controller implements Icontroller {
                 deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
                 break;
             case 6:
-                mainView.accessToProyectMsg();
+                Project project = accessToProjectView.soliciteNameProject();
+                if (repoProject.access(project)){
+                    repoProject.setProjectToAccess(project);
+                    System.out.println("true");
+                    mainView.accessToProyectMsg();
+                    menuTaskController.start();
+                }else{
+
+                }
                 break;
             case 7:
                 welcomeByeView.byeProgram();

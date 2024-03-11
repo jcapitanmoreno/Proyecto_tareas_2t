@@ -12,7 +12,7 @@ public class TaskMenuView implements ITaskMenuView {
         System.out.println("\t║ Pulse 3 para listar las tareas según el estado.   ║\t");
         System.out.println("\t║ Pulse 4 para borrar tareas.                       ║\t");
         System.out.println("\t║ Pulse 5 para cambiar el estado de una tarea.      ║\t");
-        System.out.println("\t║ Pulse 6 para cerrar sesión.                       ║\t");
+        System.out.println("\t║ Pulse 6 para volver al menu anterior.             ║\t");
         System.out.println("\t╚═══════════════════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
     }
