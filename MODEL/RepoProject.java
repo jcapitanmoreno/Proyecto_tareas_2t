@@ -11,6 +11,7 @@ import java.util.List;
 public class RepoProject extends Repository<Project, String> {
     private final static String FILENAME = "repoProject.bin";
     private static RepoProject _instance;
+    private Project projectToAccess;
 
     private List<Project> projects;
 
@@ -26,6 +27,10 @@ public class RepoProject extends Repository<Project, String> {
             }
         }
         return _instance;
+    }
+
+    public void setProjectToAccess(Project project) {
+        this.projectToAccess = project;
     }
 
     @Override
@@ -126,6 +131,25 @@ public class RepoProject extends Repository<Project, String> {
             result = false;
         }
         return task;
+    }
+
+    public List<Task> getTasks() {
+        List<Task> allTasks = new ArrayList<>();
+        for (Project project : projects) {
+            allTasks.addAll(project.getTasks());
+        }
+        return allTasks;
+    }
+
+    public boolean access(Project p){
+        boolean access = false;
+        for(Project project : projects){
+            if(p.equals(project)){
+                access=true;
+                break;
+            }
+        }
+        return access;
     }
 
 }
