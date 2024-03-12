@@ -26,38 +26,7 @@ public class CreateUserView implements ICreateUserView {
                 createEmail());
         return userCreated;
     }
-
-    @Override
-    public void errorNameUser() {
-
-    }
-
-    @Override
-    public void errorUsernameUser() {
-
-    }
-
-    @Override
-    public void errorPasswordUser() {
-
-    }
-
-    @Override
-    public void errorSameUsernameUser() {
-
-    }
-
-    @Override
-    public void errorSameEmailUser() {
-
-    }
-
-    @Override
-    public void errorEmail() {
-
-    }
-
-
+    
     public String createEmail() {
         String email;
         CreateUser createUser = new CreateUser();

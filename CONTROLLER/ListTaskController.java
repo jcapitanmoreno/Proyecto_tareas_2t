@@ -21,9 +21,8 @@ public class ListTaskController {
         }
 
         List<Task> tasks = repoProject.getTasks(p);// Convierte el conjunto a lista
-
         if (tasks.isEmpty()) {
-            System.out.println("No hay tareas guardadasz.");
+            System.out.println("No hay tareas guardadas.");
         } else {
             System.out.println("Tareas guardadas:");
             for (Task task : tasks) {
