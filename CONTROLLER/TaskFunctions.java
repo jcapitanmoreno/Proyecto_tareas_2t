@@ -4,7 +4,7 @@ import INTERFACES.ITaskFunctions;
 import MODEL.Project;
 import MODEL.RepoProject;
 import VIEW.CreateTaskView;
-import VIEW.ListTaskByStatus;
+import VIEW.DeleteTaskView;
 import VIEW.TaskMenuView;
 
 import java.security.NoSuchAlgorithmException;
@@ -15,7 +15,8 @@ public class TaskFunctions implements ITaskFunctions {
     CreateTaskView createTaskView = new CreateTaskView();
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
-
+    DeleteTaskView deleteTaskView = new DeleteTaskView();
+    DeleteTaskController deleteTaskController = new DeleteTaskController();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
@@ -34,7 +35,7 @@ public class TaskFunctions implements ITaskFunctions {
                     listByEnumController.listTaskStatus();
                     break;
                 case 4:
-
+                    deleteTaskController.deleteTask(project);
                     break;
                 case 5:
 
@@ -47,8 +48,6 @@ public class TaskFunctions implements ITaskFunctions {
                     System.out.println("Opción no válida, por favor intente de nuevo.");
             }
         } while (option != 6);
-
-
     }
 
     @Override
@@ -60,13 +59,4 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenu(int opcion) {
 
     }
-    // public boolean creartarea() {
-    //Crear tarea
-    //   boolean taskAdded = false;
-    // createTaskView.createTask();
-    //if (!task.contains(task)) {
-    //  taskAdded =task.add(task);
-    //}
-    //return taskAdded;
-
 }

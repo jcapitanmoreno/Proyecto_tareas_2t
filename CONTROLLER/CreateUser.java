@@ -17,8 +17,6 @@ public class CreateUser {
 
 
     public boolean createUser() throws NoSuchAlgorithmException {
-        CreateUserView view = new CreateUserView();
-
         boolean userAdded = false;
         User u = createUserView.createUser();
         RepoUsers ru = RepoUsers.getInstance();

@@ -23,14 +23,44 @@ public class CreateUserView implements ICreateUserView {
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Security.hashPassword(Teclado.readString("Introduce una contraseña: ")),
-                Teclado.readString("Introduce un correo electrónico: "));
+                createEmail());
         return userCreated;
+    }
+
+    @Override
+    public void errorNameUser() {
+
+    }
+
+    @Override
+    public void errorUsernameUser() {
+
+    }
+
+    @Override
+    public void errorPasswordUser() {
+
+    }
+
+    @Override
+    public void errorSameUsernameUser() {
+
+    }
+
+    @Override
+    public void errorSameEmailUser() {
+
+    }
+
+    @Override
+    public void errorEmail() {
+
     }
 
 
     public String createEmail() {
         String email;
-        CreateUser createUser=new CreateUser();
+        CreateUser createUser = new CreateUser();
         do {
             email = Teclado.readString("Introduce un correo: ");
             if (!createUser.validateEmail(email)) {
@@ -38,11 +68,7 @@ public class CreateUserView implements ICreateUserView {
             }
         } while (!createUser.validateEmail(email));
         return email;
-}
-
-
-
-
+    }
 
     @Override
     public String getNewEmail() {
