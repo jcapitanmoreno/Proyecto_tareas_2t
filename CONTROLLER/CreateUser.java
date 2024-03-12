@@ -5,6 +5,7 @@ import MODEL.User;
 import VIEW.CreateUserView;
 
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class CreateUser {
     private List<User> users;
 
 
-    public boolean createUser() {
+    public boolean createUser() throws NoSuchAlgorithmException {
         CreateUserView view = new CreateUserView();
         boolean userAdded = false;
         User u = view.createUser();

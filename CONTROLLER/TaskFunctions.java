@@ -17,15 +17,17 @@ public class TaskFunctions implements ITaskFunctions {
     ListByEnumController listByEnumController = new ListByEnumController();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
+        int option = -1;
         do {
-            switch (taskMenuView.chooseTaskOption()) {
+            option  = taskMenuView.chooseTaskOption();
+            switch (option) {
                 case 1:
                     //creartarea();
                     repoProject.addTaskToProject(project.getName(), createTaskView.createTask());
                     repoProject.save();
                     break;
                 case 2:
-                    listTaskController.listTask();
+                    listTaskController.listTask(project);
                     break;
                 case 3:
                     listByEnumController.listTaskStatus();
@@ -43,7 +45,7 @@ public class TaskFunctions implements ITaskFunctions {
                 default:
                     System.out.println("Opción no válida, por favor intente de nuevo.");
             }
-        } while (taskMenuView.chooseTaskOption() != 7);
+        } while (option != 6);
 
 
     }

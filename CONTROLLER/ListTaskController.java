@@ -14,13 +14,13 @@ public class ListTaskController {
         this.repoProject = RepoProject.get_Instance();
     }
 
-    public void listTask() {
+    public void listTask(Project p) {
         if (repoProject==null) {
             System.out.println("El repositorio de proyectos no está inicializado.");
             return;
         }
 
-        List<Task> tasks = repoProject.getTasks();// Convierte el conjunto a lista
+        List<Task> tasks = repoProject.getTasks(p);// Convierte el conjunto a lista
         if (tasks.isEmpty()) {
             System.out.println("No hay tareas guardadas.");
         } else {
