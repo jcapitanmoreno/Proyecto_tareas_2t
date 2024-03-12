@@ -120,13 +120,13 @@ public class RepoProject extends Repository<Project, String> {
         return task;
     }
 
+
     public List<Task> getTasks(Project p) {  ///lo que recibes
         List<Task> allTasks = new ArrayList<>();
         for (Project project : projects) {
             if(project.equals(p)){
                 allTasks.addAll(project.getTasks());
             }
-
         }
         return allTasks;
     }
@@ -156,5 +156,4 @@ public class RepoProject extends Repository<Project, String> {
         }
         return result; // La tarea no se encontró en ningún proyecto
     }
-
 }

@@ -24,7 +24,7 @@ public class ListUserController {
         if (users.isEmpty()) {
             System.out.println("No hay usuarios guardados.");
         } else {
-            System.out.println("Usuarios guardados:");
+            System.out.println("Hay "+users.size()+" Usuarios guardados:");
             for (User user : users) {
                 System.out.println(user);
             }

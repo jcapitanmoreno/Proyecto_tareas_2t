@@ -21,6 +21,7 @@ public class ListByEnumController {
             option = listTaskByStatus.byStatus();
             ListByEnumSwitch(option);
         } while (option != 4);
+
     }
 
     public void ListByEnumSwitch(int opcion) {

@@ -1,6 +1,7 @@
 package CONTROLLER;
 
 import INTERFACES.ISesionController;
+import IO.Teclado;
 import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.*;
@@ -16,7 +17,9 @@ public class SesionController implements ISesionController {
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
+    Teclado teclado = new Teclado();
     CreateUserView createUserView = new CreateUserView();
+
 
     public void start() throws NoSuchAlgorithmException {
         welcomeByeView.welcomeProgram();
@@ -46,7 +49,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                chooseToCreate();
+                chooseToCreate()
                 break;
             case 3:
                 welcomeByeView.byeProgram();
@@ -74,14 +77,13 @@ public class SesionController implements ISesionController {
                 User user = logInView.solicitateUser();
                 if (repoUsers.login(user)) {
                     repoUsers.setUserLogin(user);
-                    System.out.println("true");
+                    teclado.printMsg("El usuario es valido");
                     controller.start();
                 }else {
 
                 }
                 break;
             case 2:
-
                 break;
             default:
                 sesionView.errorOption();
