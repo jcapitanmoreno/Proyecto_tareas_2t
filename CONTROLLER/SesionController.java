@@ -18,6 +18,10 @@ public class SesionController implements ISesionController {
     Controller controller = new Controller();
     CreateUserView createUserView = new CreateUserView();
 
+    public void start() throws NoSuchAlgorithmException {
+        welcomeByeView.welcomeProgram();
+        chooseoption();
+    }
 
     public void start() throws NoSuchAlgorithmException {
         welcomeByeView.welcomeProgram();
