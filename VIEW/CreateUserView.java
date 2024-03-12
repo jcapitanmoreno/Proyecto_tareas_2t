@@ -1,5 +1,6 @@
 package VIEW;
 
+import CONTROLLER.CreateUser;
 import INTERFACES.ICreateUserView;
 import IO.Security;
 import IO.Teclado;
@@ -8,6 +9,9 @@ import MODEL.User;
 import java.security.NoSuchAlgorithmException;
 
 public class CreateUserView implements ICreateUserView {
+    Teclado teclado = new Teclado();
+    //;
+
     @Override
     public int wantToCreate() {
         System.out.println("1. Para crear usuario.");
@@ -23,43 +27,26 @@ public class CreateUserView implements ICreateUserView {
         return userCreated;
     }
 
-    @Override
-    public void errorNameUser() {
-        System.out.println("Error, el usuario no puede tener un nombre vacío.");
-        System.out.println("Pruebe de nuevo.");
-        System.out.println("Puede cambiarlo en la opción de modificar usuario del menú de usuarios.");
-    }
+
+    public String createEmail() {
+        String email;
+        CreateUser createUser=new CreateUser();
+        do {
+            email = Teclado.readString("Introduce un correo: ");
+            if (!createUser.validateEmail(email)) {
+                email = getNewEmail();  // Prompt the user to enter a new email
+            }
+        } while (!createUser.validateEmail(email));
+        return email;
+}
+
+
+
+
 
     @Override
-    public void errorUsernameUser() {
-        System.out.println("Error, el usuario no puede tener un usuario vacío.");
-        System.out.println("Pruebe de nuevo.");
-        System.out.println("Puede cambiarlo en la opción de modificar usuario del menú de usuarios.");
+    public String getNewEmail() {
+        return Teclado.readString("Error al validar correo, escribe un nuevo email");
     }
-
-    @Override
-    public void errorPasswordUser() {
-        System.out.println("Error, el usuario no puede tener una contraseña vacía.");
-        System.out.println("Pruebe de nuevo.");
-        System.out.println("Puede cambiarlo en la opción de modificar usuario del menú de usuarios.");
-    }
-
-    @Override
-    public void errorSameUsernameUser() {
-        System.out.println("Error, el usuario no puede tener el mismo nombre de usuario que otro usuario.");
-        System.out.println("Pruebe de nuevo.");
-    }
-
-    @Override
-    public void errorSameEmailUser() {
-        System.out.println("Error, el usuario no puede tener el mismo email que otro usuario.");
-        System.out.println("Pruebe de nuevo.");
-    }
-
-    @Override
-    public void errorEmail() {
-        System.out.println("El email debe contener \"@\" y \".com\" ó \".es\"");
-    }
-
 
 }
