@@ -8,6 +8,7 @@ import VIEW.CreateUserView;
 import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Pattern;
 
 public class CreateUser {
@@ -17,25 +18,37 @@ public class CreateUser {
 
 
     public boolean createUser() throws NoSuchAlgorithmException {
+
         boolean userAdded = false;
+
         User u = createUserView.createUser();
-        RepoUsers ru = RepoUsers.getInstance();
-        if (ru.add(u) != null) {
-            userAdded = true;
+        User existingUser = findUser(u.getUser(), u.getMail());
+
+        if (existingUser == null) {
+
+            RepoUsers ru = RepoUsers.getInstance();
+            if (ru.add(u) != null) {
+                System.out.println(ru.save());
+                return true;
+            }
+        } else {
+
+            createUserView.errorNameUserOrEmail();
+
         }
-        System.out.println(ru.save());
-        return userAdded;
+        return false;
     }
+
     public User findUser(String username, String email) {
         User foundUser = null;
         boolean isFound = false;
-        for (User user : this.users) {
+        Set<User> users = RepoUsers.getInstance().getUsers();
+        Iterator<User> iterator = users.iterator();
+        while (!isFound && iterator.hasNext()) {
+            User user = iterator.next();
             if (user.getUser().equals(username) || user.getMail().equals(email)) {
                 foundUser = user;
                 isFound = true;
-            }
-            if (isFound) {
-                break;
             }
         }
         return foundUser;

@@ -23,6 +23,11 @@ public class SesionController implements ISesionController {
         chooseoption();
     }
 
+    public void start() throws NoSuchAlgorithmException {
+        welcomeByeView.welcomeProgram();
+        chooseoption();
+    }
+
     @Override
     public int chooseoption() throws NoSuchAlgorithmException {
         int opcion = -1;
@@ -102,7 +107,6 @@ public class SesionController implements ISesionController {
                 chooseoption();
                 break;
             case 2:
-
                 break;
             default:
                 sesionView.errorOption();

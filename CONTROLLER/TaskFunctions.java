@@ -3,11 +3,13 @@ package CONTROLLER;
 import INTERFACES.ITaskFunctions;
 import MODEL.Project;
 import MODEL.RepoProject;
+import MODEL.Task;
+import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
 import VIEW.DeleteTaskView;
 import VIEW.TaskMenuView;
-
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -21,7 +23,7 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
         do {
-            option  = taskMenuView.chooseTaskOption();
+            option = taskMenuView.chooseTaskOption();
             switch (option) {
                 case 1:
                     //creartarea();
@@ -38,7 +40,7 @@ public class TaskFunctions implements ITaskFunctions {
                     deleteTaskController.deleteTask(project);
                     break;
                 case 5:
-
+                    changeTaskStatusByName(project);
                     break;
                 case 6:
 
@@ -58,5 +60,22 @@ public class TaskFunctions implements ITaskFunctions {
     @Override
     public void manejarOpcionMenu(int opcion) {
 
+    }
+    public void changeTaskStatusByName(Project project) {
+        String name =taskMenuView.taskName();
+        TaskStatus newStatus =taskMenuView.newStatus();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
+        for (Task task : tasks) {
+            if (task.getName().equals(name)) {
+                task.setTaskStatus(newStatus);
+                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
+                taskFound = true;
+                break;
+            }
+        }
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + name);
+        }
     }
 }
