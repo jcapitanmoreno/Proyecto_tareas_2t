@@ -3,6 +3,7 @@ package CONTROLLER;
 import INTERFACES.ITaskFunctions;
 import MODEL.Project;
 import MODEL.RepoProject;
+import MODEL.Task;
 import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
 import VIEW.DeleteTaskView;
@@ -10,6 +11,7 @@ import VIEW.ListTaskByStatus;
 import VIEW.TaskMenuView;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -18,7 +20,6 @@ public class TaskFunctions implements ITaskFunctions {
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
     DeleteTaskView deleteTaskView = new DeleteTaskView();
-
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
@@ -41,7 +42,7 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 case 5:
-
+                    changeTaskStatusByName(project);
                     break;
                 case 6:
 
@@ -51,8 +52,6 @@ public class TaskFunctions implements ITaskFunctions {
                     System.out.println("Opción no válida, por favor intente de nuevo.");
             }
         } while (option != 6);
-
-
     }
 
     @Override
@@ -63,5 +62,22 @@ public class TaskFunctions implements ITaskFunctions {
     @Override
     public void manejarOpcionMenu(int opcion) {
 
+    }
+    public void changeTaskStatusByName(Project project) {
+        String name =taskMenuView.taskName();
+        TaskStatus newStatus =taskMenuView.newStatus();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
+        for (Task task : tasks) {
+            if (task.getName().equals(name)) {
+                task.setTaskStatus(newStatus);
+                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
+                taskFound = true;
+                break;
+            }
+        }
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + name);
+        }
     }
 }

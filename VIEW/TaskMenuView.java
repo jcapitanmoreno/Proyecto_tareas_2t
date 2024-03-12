@@ -18,31 +18,28 @@ public class TaskMenuView implements ITaskMenuView {
         return Teclado.leerEntero("Elige una opción: ");
     }
 
-    public void errorOption(){
+    public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
         System.out.println("Pruebe de nuevo.");
     }
-    public String getTaskNameToUpdate() {
-        System.out.println("Ingrese el nombre de la tarea que desea actualizar:");
-        return Teclado.readString("Escriba \"volver\", para volver al menú.");
+    public String taskName() {
+        return Teclado.readString("Escriba el nombre de la tarea que quiere cambiarle el estado: ");
     }
 
-    public TaskStatus getNewTaskStatus() {
-        System.out.println("Ingrese el nuevo estado de la tarea:");
-        System.out.println("1. SIN_INICIAR");
-        System.out.println("2. EN_TRAMITE");
-        System.out.println("3. FINALIZADA");
-
-        int choice = Teclado.leerEntero("Elija una opción:");
-
-        return switch (choice) {
-            case 1 -> TaskStatus.SIN_INICIAR;
-            case 2 -> TaskStatus.EN_TRAMITE;
-            case 3 -> TaskStatus.FINALIZADA;
-            default -> {
-                System.out.println("Opción no válida. Se establecerá como SIN_INICIAR por defecto.");
-                yield TaskStatus.SIN_INICIAR;
-            }
-        };
+    public TaskStatus newStatus() {
+        TaskStatus taskStatus = null;
+        int option = Teclado.readNumber("Escriba el nombre del estado al que desee que la tarea tenga: ", 1, 3);
+        switch (option) {
+            case 1:
+                    taskStatus=TaskStatus.SIN_INICIAR;
+                    break;
+            case 2:
+                taskStatus=TaskStatus.EN_TRAMITE;
+                break;
+            case 3:
+                taskStatus= TaskStatus.FINALIZADA;
+                break;
+        }
+        return taskStatus;
     }
 }

@@ -68,7 +68,6 @@ public class Controller implements Icontroller {
                 Project project = accessToProjectView.soliciteNameProject();
                 if (repoProject.access(project)){
                     repoProject.setProjectToAccess(project);
-                    System.out.println("true");
                     mainView.accessToProyectMsg();
                     taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
