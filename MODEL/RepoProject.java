@@ -152,5 +152,14 @@ public class RepoProject extends Repository<Project, String> {
         }
         return access;
     }
+    public boolean deleteTask(String t) {
+        boolean result = false;
+        Project task = getByName(t);
+        if (task != null){
+            projects.remove(task);
+            result = true;
+        }
+        return result;
+    }
 
 }

@@ -26,7 +26,6 @@ public class Controller implements Icontroller {
     CreateProyectController createProyectController = new CreateProyectController();
     ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
-    ListProject_Users listProjectUsers = new ListProject_Users();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();

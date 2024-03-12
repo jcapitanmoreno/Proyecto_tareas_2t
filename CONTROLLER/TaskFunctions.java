@@ -16,6 +16,7 @@ public class TaskFunctions implements ITaskFunctions {
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
 
+
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         do {
             switch (taskMenuView.chooseTaskOption()) {
