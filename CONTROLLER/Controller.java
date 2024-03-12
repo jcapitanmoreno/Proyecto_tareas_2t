@@ -68,11 +68,9 @@ public class Controller implements Icontroller {
                 Project project = accessToProjectView.soliciteNameProject();
                 if (repoProject.access(project)){
                     repoProject.setProjectToAccess(project);
-                    System.out.println("true");
                     mainView.accessToProyectMsg();
                     taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
-
                 }
                 break;
             case 7:
@@ -80,7 +78,7 @@ public class Controller implements Icontroller {
                 System. exit(0);
                 break;
             default:
-                System.out.println("Opción no válida, por favor intente de nuevo.");
+                teclado.printMsg("Opción no válida, por favor intente de nuevo.");
                 break;
         }
     }
@@ -104,6 +102,7 @@ public class Controller implements Icontroller {
                 }else {
                     repoProject.add(project);
                     repoProject.save();
+                    teclado.printMsg("Proyecto creado");
                 }
                 break;
             case 2:
@@ -114,4 +113,5 @@ public class Controller implements Icontroller {
                 mainView.errorOption();
         }
     }
+
 }

@@ -43,5 +43,11 @@ public class CreateUserView implements ICreateUserView {
     public String getNewEmail() {
         return Teclado.readString("Error al validar correo, escribe un nuevo email");
     }
+@Override
+public void errorNameUserOrEmail(){
+    System.out.println("El nombre de usuario o correo electrónico ya está en uso. Por favor, elige otro.");
+}
 
 }
+
+

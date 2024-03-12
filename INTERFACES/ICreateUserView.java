@@ -10,4 +10,5 @@ public interface ICreateUserView {
     User createUser() throws NoSuchAlgorithmException;
     String getNewEmail();
     String createEmail();
+    void errorNameUserOrEmail();
 }

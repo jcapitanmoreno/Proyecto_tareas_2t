@@ -56,4 +56,25 @@ public class Teclado {
         return pattern.matcher(email).matches();
     }
 
+    public static int readNumber(String msg, int numMenor, int numMayor){
+        int numero = 0;
+        do{
+            System.out.print(msg);
+            try {
+                numero = scanner.nextInt();
+
+            } catch (Exception e) {
+                scanner.nextLine();
+                System.out.println("Por favor, introduce un número valido.");
+
+            }
+
+            if (numero < numMenor || numero > numMayor){
+                System.out.println("La opción introducida no se contempla. Pruebe de nuevo.");
+
+            }
+
+        } while(numero < numMenor || numero > numMayor);
+        return numero;
+    }
 }
