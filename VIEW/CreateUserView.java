@@ -2,32 +2,29 @@ package VIEW;
 
 import CONTROLLER.CreateUser;
 import INTERFACES.ICreateUserView;
+import IO.Security;
 import IO.Teclado;
 import MODEL.User;
+
+import java.security.NoSuchAlgorithmException;
 
 public class CreateUserView implements ICreateUserView {
     Teclado teclado = new Teclado();
     //;
 
     @Override
-    public int createInformation() {
-        System.out.println("Para la creación de un usuario nuevo necesitamos cierta información, como puede ser:\n" +
-                "Nombre completo. \n" +
-                "Usuario con el que identificarte. \n" +
-                "Una contraseña segura para poder iniciar sesión. \n" +
-                "Un correo electrónico.");
-        return Teclado.leerEntero("Pulse \"1\" para crear el usuario." +
-                "Escriba \"2\" si desea volver al menú.\n");
+    public int wantToCreate() {
+        System.out.println("1. Para crear usuario.");
+        return Teclado.leerEntero("2. Si desea volver al menú.");
     }
 
     @Override
-    public User createUser() {
-        return new User(
-                Teclado.readString("Introduce un nombre: "),
+    public User createUser() throws NoSuchAlgorithmException {
+        User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
-                Teclado.readString("Introduce una contraseña: "),
-                createEmail()
-        );
+                Security.hashPassword(Teclado.readString("Introduce una contraseña: ")),
+                Teclado.readString("Introduce un correo electrónico: "));
+        return userCreated;
     }
 
 

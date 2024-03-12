@@ -64,7 +64,7 @@ public class User implements Serializable {
         return "╔════════════════════════════════╗\n" +
                 String.format("║ %-10s: %-18s ║\n", "Name", name) +
                 String.format("║ %-10s: %-18s ║\n", "Username", user) +
-                String.format("║ %-10s: %-18s ║\n", "Password", password) +
+                String.format("║ %-10s: %-18s ║\n", "Password", "********") +
                 String.format("║ %-10s: %-18s ║\n", "Email", mail) +
                 "╚════════════════════════════════╝";
     }
@@ -76,7 +76,7 @@ public class User implements Serializable {
         if (this == object) objeto= true;
         if (object == null || getClass() != object.getClass()) objeto = false;
         User user1 = (User) object;
-        return Objects.equals(user, user1.user);
+        return Objects.equals(user, user1.getUser()) && Objects.equals(password, user1.getPassword());
     }
 
     public String getPassword() {

@@ -5,6 +5,8 @@ import MODEL.User;
 import VIEW.CreateUserView;
 
 
+import java.security.NoSuchAlgorithmException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 
@@ -13,7 +15,10 @@ public class CreateUser {
     CreateUserView createUserView = new CreateUserView();
 
 
-    public boolean createUser() {
+
+    public boolean createUser() throws NoSuchAlgorithmException {
+        CreateUserView view = new CreateUserView();
+
         boolean userAdded = false;
         User u = createUserView.createUser();
         RepoUsers ru = RepoUsers.getInstance();
