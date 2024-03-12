@@ -3,7 +3,9 @@ package CONTROLLER;
 import INTERFACES.ITaskFunctions;
 import MODEL.Project;
 import MODEL.RepoProject;
+import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
+import VIEW.DeleteTaskView;
 import VIEW.ListTaskByStatus;
 import VIEW.TaskMenuView;
 
@@ -15,12 +17,13 @@ public class TaskFunctions implements ITaskFunctions {
     CreateTaskView createTaskView = new CreateTaskView();
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
+    DeleteTaskView deleteTaskView = new DeleteTaskView();
 
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
         do {
-            option  = taskMenuView.chooseTaskOption();
+            option = taskMenuView.chooseTaskOption();
             switch (option) {
                 case 1:
                     //creartarea();
@@ -34,6 +37,7 @@ public class TaskFunctions implements ITaskFunctions {
                     listByEnumController.listTaskStatus();
                     break;
                 case 4:
+                    repoProject.deleteTask(deleteTaskView.taskToDelete());
 
                     break;
                 case 5:
@@ -60,13 +64,4 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenu(int opcion) {
 
     }
-    // public boolean creartarea() {
-    //Crear tarea
-    //   boolean taskAdded = false;
-    // createTaskView.createTask();
-    //if (!task.contains(task)) {
-    //  taskAdded =task.add(task);
-    //}
-    //return taskAdded;
-
 }
