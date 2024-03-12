@@ -26,11 +26,6 @@ public class SesionController implements ISesionController {
         chooseoption();
     }
 
-    public void start() throws NoSuchAlgorithmException {
-        welcomeByeView.welcomeProgram();
-        chooseoption();
-    }
-
     @Override
     public int chooseoption() throws NoSuchAlgorithmException {
         int opcion = -1;
@@ -49,7 +44,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                chooseToCreate()
+                chooseToCreate();
                 break;
             case 3:
                 welcomeByeView.byeProgram();

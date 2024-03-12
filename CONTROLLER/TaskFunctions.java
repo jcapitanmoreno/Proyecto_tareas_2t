@@ -7,7 +7,6 @@ import MODEL.RepoProject;
 import MODEL.Task;
 import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
-import VIEW.DeleteTaskView;
 import VIEW.TaskMenuView;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -18,7 +17,6 @@ public class TaskFunctions implements ITaskFunctions {
     CreateTaskView createTaskView = new CreateTaskView();
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
-    DeleteTaskView deleteTaskView = new DeleteTaskView();
     DeleteTaskController deleteTaskController = new DeleteTaskController();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
@@ -27,7 +25,6 @@ public class TaskFunctions implements ITaskFunctions {
             option = taskMenuView.chooseTaskOption();
             switch (option) {
                 case 1:
-                    //creartarea();
                     repoProject.addTaskToProject(project.getName(), createTaskView.createTask());
                     repoProject.save();
                     break;
