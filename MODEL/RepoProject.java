@@ -1,7 +1,6 @@
 package MODEL;
 
 
-import IO.Teclado;
 import Serializator.Serializator;
 
 import java.util.ArrayList;
@@ -94,19 +93,6 @@ public class RepoProject extends Repository<Project, String> {
         return Serializator.desearize(FILENAME);
     }
 
-    public Project removeproject(Project p) {
-        Project projectToRemove = null;
-        Iterator<Project> iterator = projects.iterator();
-        while (iterator.hasNext()) {
-            Project temporalProject = iterator.next();
-            if (temporalProject.equals(p)) {
-                projectToRemove = temporalProject;
-                iterator.remove();
-            }
-        }
-        return projectToRemove;
-    }
-
     @Override
     public String toString() {
         return "RepoProject{" +
@@ -134,10 +120,13 @@ public class RepoProject extends Repository<Project, String> {
         return task;
     }
 
-    public List<Task> getTasks() {
+
+    public List<Task> getTasks(Project p) {  ///lo que recibes
         List<Task> allTasks = new ArrayList<>();
         for (Project project : projects) {
-            allTasks.addAll(project.getTasks());
+            if(project.equals(p)){
+                allTasks.addAll(project.getTasks());
+            }
         }
         return allTasks;
     }
@@ -152,5 +141,19 @@ public class RepoProject extends Repository<Project, String> {
         }
         return access;
     }
-
+    public boolean deleteTask(String taskName) {
+        boolean result = false;
+        for (Project project : projects) {
+            List<Task> tasks = project.getTasks();
+            Iterator<Task> iterator = tasks.iterator();
+            while (iterator.hasNext()) {
+                Task task = iterator.next();
+                if (task.getName().equals(taskName)) {
+                    iterator.remove(); // Elimina la tarea de la lista de tareas del proyecto
+                    result = true;
+                }
+            }
+        }
+        return result; // La tarea no se encontró en ningún proyecto
+    }
 }

@@ -18,16 +18,26 @@ public class SesionController implements ISesionController {
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
     Teclado teclado = new Teclado();
+    CreateUserView createUserView = new CreateUserView();
 
+
+    public void start() throws NoSuchAlgorithmException {
+        welcomeByeView.welcomeProgram();
+        chooseoption();
+    }
+
+    public void start() throws NoSuchAlgorithmException {
+        welcomeByeView.welcomeProgram();
+        chooseoption();
+    }
 
     @Override
     public int chooseoption() throws NoSuchAlgorithmException {
         int opcion = -1;
+
         do {
             opcion = sesionView.chooseoption();
-
             manejarOpcionMenu(opcion);
-
         } while (opcion != 3);
         return opcion;
     }
@@ -39,7 +49,7 @@ public class SesionController implements ISesionController {
                 chooseToLogIn();
                 break;
             case 2:
-                createUser.createUser();
+                chooseToCreate()
                 break;
             case 3:
                 welcomeByeView.byeProgram();
@@ -74,8 +84,31 @@ public class SesionController implements ISesionController {
                 }
                 break;
             case 2:
-                createUser.createUser();
+                break;
+            default:
+                sesionView.errorOption();
+        }
+    }
 
+    public void chooseToCreate() throws NoSuchAlgorithmException {
+        boolean continueLoopCreate = true;
+        do {
+            int opcionMenuCreate = createUserView.wantToCreate();
+            if (opcionMenuCreate == 2) {
+                continueLoopCreate = false;
+            } else {
+                switchToCreate(opcionMenuCreate);
+            }
+        } while (continueLoopCreate);
+    }
+
+    public void switchToCreate(int opcionMenu) throws NoSuchAlgorithmException {
+        switch (opcionMenu) {
+            case 1:
+                createUser.createUser();
+                chooseoption();
+                break;
+            case 2:
                 break;
             default:
                 sesionView.errorOption();

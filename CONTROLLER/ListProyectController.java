@@ -10,6 +10,7 @@ public class ListProyectController {
     private RepoProject repoProject;
     Teclado teclado = new Teclado();
 
+
     public ListProyectController() {
         // Corrige el nombre del constructor
         this.repoProject = RepoProject.get_Instance();

@@ -23,7 +23,7 @@ public class Task implements Serializable {
         this.starterDate = starterDate;
         this.limitDate = limitDate;
         this.projectColaborator = projectColaborator;
-        this.taskStatus = taskStatus;
+        this.taskStatus = TaskStatus.SIN_INICIAR;
     }
 
     public String getName() {
@@ -81,7 +81,7 @@ public class Task implements Serializable {
                 String.format("║ %-10s: %-13s ║\n", "F. inicio de la tarea", starterDate) +
                 String.format("║ %-10s: %-13s ║\n", "F. límite de la tarea", limitDate) +
                 String.format("║ %-10s: %-13s ║\n", "Encargado de la tarea", projectColaborator.getUser()) +
-                String.format("║ %-10s: %-13s ║\n", "Estado de la tarea", TaskStatus.SIN_INICIAR) +
+                String.format("║ %-10s: %-13s ║\n", "Estado de la tarea", taskStatus) +
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;
     }

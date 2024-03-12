@@ -154,9 +154,7 @@ public class Project implements Serializable {
     }
 
     public List<Task> getTasksByStatus(TaskStatus status) {
-        return tasks.stream()
-                .filter(task -> task.getTaskStatus().equals(status))
-                .collect(Collectors.toList());
+        return tasks.stream().filter(task -> task.getTaskStatus().equals(status)).collect(Collectors.toList());
     }
 
 }

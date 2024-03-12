@@ -17,14 +17,28 @@ public class TaskMenuView implements ITaskMenuView {
         System.out.println("\t╚═══════════════════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
     }
-    public void stateChange(){
-        System.out.println("a que estado la quieres cambiar: ");
-        System.out.println("SIN_INICIAR");
-        System.out.println("EN_TRAMITE");
-        System.out.println("FINALIZADA");
-    }
-    public void errorOption(){
+    public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
         System.out.println("Pruebe de nuevo.");
+    }
+    public String taskName() {
+        return Teclado.readString("Escriba el nombre de la tarea que quiere cambiarle el estado: ");
+    }
+
+    public TaskStatus newStatus() {
+        TaskStatus taskStatus = null;
+        int option = Teclado.readNumber("Escriba el nombre del estado al que desee que la tarea tenga: ", 1, 3);
+        switch (option) {
+            case 1:
+                    taskStatus=TaskStatus.SIN_INICIAR;
+                    break;
+            case 2:
+                taskStatus=TaskStatus.EN_TRAMITE;
+                break;
+            case 3:
+                taskStatus= TaskStatus.FINALIZADA;
+                break;
+        }
+        return taskStatus;
     }
 }

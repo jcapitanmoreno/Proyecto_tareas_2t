@@ -20,7 +20,8 @@ public class ListByEnumController {
         do {
             option = listTaskByStatus.byStatus();
             ListByEnumSwitch(option);
-        } while (option != 3);
+        } while (option != 4);
+
     }
 
     public void ListByEnumSwitch(int opcion) {
@@ -35,6 +36,8 @@ public class ListByEnumController {
             case 3:
                 listTaskByStatus.listTasksFinalizadas(projects);
                 break;
+            case 4:
+                System.out.println("saliendo ...");
             default:
                 System.out.println(("Opción no válida. Elige otra opción"));
         }

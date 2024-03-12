@@ -53,20 +53,21 @@ public class Controller implements Icontroller {
                 listUserController.listUser();
                 break;
             case 3:
-                repoUsers.delete(deleteUserView.userToDelete());
                 deleteUserView.deleteUserMsg();
+                repoUsers.delete(deleteUserView.userToDelete());
+                repoUsers.save();
                 break;
             case 4:
                 chooseToCreate();
                 break;
             case 5:
                 deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
+                repoProject.save();
                 break;
             case 6:
                 Project project = accessToProjectView.soliciteNameProject();
                 if (repoProject.access(project)){
                     repoProject.setProjectToAccess(project);
-                    System.out.println("true");
                     mainView.accessToProyectMsg();
                     taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
@@ -112,4 +113,5 @@ public class Controller implements Icontroller {
                 mainView.errorOption();
         }
     }
+
 }

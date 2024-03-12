@@ -6,10 +6,11 @@ import MODEL.Project;
 import MODEL.RepoProject;
 import MODEL.Task;
 import MODEL.TaskStatus;
-import VIEW.*;
-
+import VIEW.CreateTaskView;
+import VIEW.DeleteTaskView;
+import VIEW.TaskMenuView;
 import java.security.NoSuchAlgorithmException;
-
+import java.util.List;
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -17,43 +18,39 @@ public class TaskFunctions implements ITaskFunctions {
     CreateTaskView createTaskView = new CreateTaskView();
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
-    UpdateStateController updateStateController = new UpdateStateController();
-    UpdateStateTaskView updateStateTaskView = new UpdateStateTaskView();
-    Teclado teclado = new Teclado();
-
+    DeleteTaskView deleteTaskView = new DeleteTaskView();
+    DeleteTaskController deleteTaskController = new DeleteTaskController();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
+        int option = -1;
         do {
-            switch (taskMenuView.chooseTaskOption()) {
+            option = taskMenuView.chooseTaskOption();
+            switch (option) {
                 case 1:
                     //creartarea();
                     repoProject.addTaskToProject(project.getName(), createTaskView.createTask());
                     repoProject.save();
                     break;
                 case 2:
-                    listTaskController.listTask();
+                    listTaskController.listTask(project);
                     break;
                 case 3:
                     listByEnumController.listTaskStatus();
                     break;
                 case 4:
-
+                    deleteTaskController.deleteTask(project);
                     break;
                 case 5:
-                    taskMenuView.stateChange();
-                    updateStateController.changeTaskStatusByName();
-                    //actualizar tarea.
+                    changeTaskStatusByName(project);
                     break;
                 case 6:
-                    //ir a la opcion de main menu
+
                     break;
 
                 default:
-                    teclado.printMsg("Opción no válida, por favor intente de nuevo.");
+                    System.out.println("Opción no válida, por favor intente de nuevo.");
             }
-        } while (taskMenuView.chooseTaskOption() != 7);
-
-
+        } while (option != 6);
     }
 
     @Override
@@ -65,14 +62,21 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenu(int opcion) {
 
     }
-
-    // public boolean creartarea() {
-    //Crear tarea
-    //   boolean taskAdded = false;
-    // createTaskView.createTask();
-    //if (!task.contains(task)) {
-    //  taskAdded =task.add(task);
-    //}
-    //return taskAdded;
-
+    public void changeTaskStatusByName(Project project) {
+        String name =taskMenuView.taskName();
+        TaskStatus newStatus =taskMenuView.newStatus();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
+        for (Task task : tasks) {
+            if (task.getName().equals(name)) {
+                task.setTaskStatus(newStatus);
+                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
+                taskFound = true;
+                break;
+            }
+        }
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + name);
+        }
+    }
 }
