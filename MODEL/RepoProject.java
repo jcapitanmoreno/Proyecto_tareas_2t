@@ -133,10 +133,13 @@ public class RepoProject extends Repository<Project, String> {
         return task;
     }
 
-    public List<Task> getTasks() {
+    public List<Task> getTasks(Project p) {  ///lo que recibes
         List<Task> allTasks = new ArrayList<>();
         for (Project project : projects) {
-            allTasks.addAll(project.getTasks());
+            if(project.equals(p)){
+                allTasks.addAll(project.getTasks());
+            }
+
         }
         return allTasks;
     }
