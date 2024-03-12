@@ -14,7 +14,7 @@ public class AccessToProjectView {
         return projectToAccess;
     }
 
-    public static String enterNameProject() {
+    public String enterNameProject() {
         return Teclado.readString("Introduce el nombre del proyecto: ");
     }
 }

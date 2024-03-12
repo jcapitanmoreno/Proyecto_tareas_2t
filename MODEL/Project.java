@@ -4,6 +4,7 @@ import VIEW.CreateTaskView;
 
 import java.io.Serializable;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Project implements Serializable {
 
@@ -74,14 +75,16 @@ public class Project implements Serializable {
     public String toString() {
         return "╔═════════════════════════════════════╗\n" +
                 String.format("║ %-5s: %-28s ║\n", "Name", name) +
-                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", projectCreator) +
+                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", projectCreator.getUser()) +
                 "╚═════════════════════════════════════╝\n" +
-                "Descripción:" + description;
+                "Descripción:" + description+ "\n\n";
     }
 
     public  Task addTask(Task t){
         Task result = null;
-        tasks.add(t);
+        if (!tasks.contains(t)){
+            tasks.add(t);
+        }
         result = t;
         return result;
     }
@@ -145,6 +148,12 @@ public class Project implements Serializable {
         }
         return taskAdded;
 
+    }
+
+    public List<Task> getTasksByStatus(TaskStatus status) {
+        return tasks.stream()
+                .filter(task -> task.getTaskStatus().equals(status))
+                .collect(Collectors.toList());
     }
 
 }

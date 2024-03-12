@@ -11,7 +11,7 @@ public class ListTaskView implements IListTaskView {
     public void listTask(List<Task> tasks) {
         System.out.println("**********************");
         for (Task task : tasks) {
-            System.out.println(tasks);
+            System.out.println(task);
         }
         System.out.println("**********************");
     }

@@ -19,7 +19,7 @@ public class Controller implements Icontroller {
     DeleteProyectView deleteProyectView = new DeleteProyectView();
     DeleteUserView deleteUserView = new DeleteUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
-
+    TaskMenuView taskMenuView = new TaskMenuView();
     RepoProject repoProject = RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
     CreateUser createUser = new CreateUser();
@@ -27,8 +27,10 @@ public class Controller implements Icontroller {
     ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
     ListProject_Users listProjectUsers = new ListProject_Users();
-    MenuTaskController menuTaskController = new MenuTaskController();
+    TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
+    ListProyectController listProyectController = new ListProyectController();
+    ListUserController listUserController = new ListUserController();
 
 
     @Override
@@ -45,11 +47,11 @@ public class Controller implements Icontroller {
         switch (opcion) {
             case 1:
                 mainView.listProyectMsg();
-                listProjectUsers.listProjects();
+                listProyectController.listProjects();
                 break;
             case 2:
                 mainView.listUserMsg();
-                //listProjectUsers.listUsers();
+                listUserController.listUser();
                 break;
             case 3:
                 repoUsers.delete(deleteUserView.userToDelete());
@@ -67,13 +69,14 @@ public class Controller implements Icontroller {
                     repoProject.setProjectToAccess(project);
                     System.out.println("true");
                     mainView.accessToProyectMsg();
-                    menuTaskController.start();
+                    taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
 
                 }
                 break;
             case 7:
                 welcomeByeView.byeProgram();
+                System. exit(0);
                 break;
             default:
                 System.out.println("Opción no válida, por favor intente de nuevo.");

@@ -29,6 +29,7 @@ public class RepoProject extends Repository<Project, String> {
         }
         return _instance;
     }
+
     public void setProjectToAccess(Project project) {
         this.projectToAccess = project;
     }
@@ -132,6 +133,15 @@ public class RepoProject extends Repository<Project, String> {
         }
         return task;
     }
+
+    public List<Task> getTasks() {
+        List<Task> allTasks = new ArrayList<>();
+        for (Project project : projects) {
+            allTasks.addAll(project.getTasks());
+        }
+        return allTasks;
+    }
+
     public boolean access(Project p){
         boolean access = false;
         for(Project project : projects){
@@ -142,4 +152,5 @@ public class RepoProject extends Repository<Project, String> {
         }
         return access;
     }
+
 }
