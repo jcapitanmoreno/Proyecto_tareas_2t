@@ -23,7 +23,7 @@ public class CreateUserView implements ICreateUserView {
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Security.hashPassword(Teclado.readString("Introduce una contraseña: ")),
-                Teclado.readString("Introduce un correo electrónico: "));
+                createEmail());
         return userCreated;
     }
 
@@ -48,5 +48,11 @@ public class CreateUserView implements ICreateUserView {
     public String getNewEmail() {
         return Teclado.readString("Error al validar correo, escribe un nuevo email");
     }
+@Override
+public void errorNameUserOrEmail(){
+    System.out.println("El nombre de usuario o correo electrónico ya está en uso. Por favor, elige otro.");
+}
 
 }
+
+

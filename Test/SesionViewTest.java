@@ -9,6 +9,6 @@ import java.security.NoSuchAlgorithmException;
 public class SesionViewTest  {
     public static void main(String[] args) throws NoSuchAlgorithmException {
         SesionController sesionController = new SesionController();
-        sesionController.chooseoption();
+        sesionController.start();
     }
 }

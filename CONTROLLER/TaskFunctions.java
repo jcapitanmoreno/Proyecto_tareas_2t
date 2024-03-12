@@ -3,11 +3,14 @@ package CONTROLLER;
 import INTERFACES.ITaskFunctions;
 import MODEL.Project;
 import MODEL.RepoProject;
+import MODEL.Task;
+import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
 import VIEW.ListTaskByStatus;
 import VIEW.TaskMenuView;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -16,11 +19,10 @@ public class TaskFunctions implements ITaskFunctions {
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
 
-
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
         do {
-            option  = taskMenuView.chooseTaskOption();
+            option = taskMenuView.chooseTaskOption();
             switch (option) {
                 case 1:
                     //creartarea();
@@ -37,7 +39,7 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 case 5:
-
+                    changeTaskStatusByName(project);
                     break;
                 case 6:
 
@@ -47,8 +49,6 @@ public class TaskFunctions implements ITaskFunctions {
                     System.out.println("Opción no válida, por favor intente de nuevo.");
             }
         } while (option != 6);
-
-
     }
 
     @Override
@@ -60,13 +60,22 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenu(int opcion) {
 
     }
-    // public boolean creartarea() {
-    //Crear tarea
-    //   boolean taskAdded = false;
-    // createTaskView.createTask();
-    //if (!task.contains(task)) {
-    //  taskAdded =task.add(task);
-    //}
-    //return taskAdded;
 
+    public void changeTaskStatusByName(Project project) {
+        String name =taskMenuView.taskName();
+        TaskStatus newStatus =taskMenuView.newStatus();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
+        for (Task task : tasks) {
+            if (task.getName().equals(name)) {
+                task.setTaskStatus(newStatus);
+                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
+                taskFound = true;
+                break;
+            }
+        }
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + name);
+        }
+    }
 }
