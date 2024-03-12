@@ -1,6 +1,7 @@
 package CONTROLLER;
 
 import INTERFACES.ISesionController;
+import IO.Teclado;
 import MODEL.RepoUsers;
 import MODEL.User;
 import VIEW.*;
@@ -16,6 +17,7 @@ public class SesionController implements ISesionController {
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
+    Teclado teclado = new Teclado();
 
 
     @Override
@@ -65,7 +67,7 @@ public class SesionController implements ISesionController {
                 User user = logInView.solicitateUser();
                 if (repoUsers.login(user)) {
                     repoUsers.setUserLogin(user);
-                    System.out.println("true");
+                    teclado.printMsg("El usuario es valido");
                     controller.start();
                 }else {
 

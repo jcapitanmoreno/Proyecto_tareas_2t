@@ -1,13 +1,15 @@
 package CONTROLLER;
 
 import INTERFACES.ITaskFunctions;
+import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
-import VIEW.CreateTaskView;
-import VIEW.ListTaskByStatus;
-import VIEW.TaskMenuView;
+import MODEL.Task;
+import MODEL.TaskStatus;
+import VIEW.*;
 
 import java.security.NoSuchAlgorithmException;
+
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -15,6 +17,10 @@ public class TaskFunctions implements ITaskFunctions {
     CreateTaskView createTaskView = new CreateTaskView();
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
+    UpdateStateController updateStateController = new UpdateStateController();
+    UpdateStateTaskView updateStateTaskView = new UpdateStateTaskView();
+    Teclado teclado = new Teclado();
+
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         do {
@@ -34,14 +40,16 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 case 5:
-
+                    taskMenuView.stateChange();
+                    updateStateController.changeTaskStatusByName();
+                    //actualizar tarea.
                     break;
                 case 6:
-
+                    //ir a la opcion de main menu
                     break;
 
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    teclado.printMsg("Opción no válida, por favor intente de nuevo.");
             }
         } while (taskMenuView.chooseTaskOption() != 7);
 
@@ -57,6 +65,7 @@ public class TaskFunctions implements ITaskFunctions {
     public void manejarOpcionMenu(int opcion) {
 
     }
+
     // public boolean creartarea() {
     //Crear tarea
     //   boolean taskAdded = false;

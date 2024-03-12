@@ -2,6 +2,7 @@ package VIEW;
 
 import INTERFACES.ITaskMenuView;
 import IO.Teclado;
+import MODEL.TaskStatus;
 
 public class TaskMenuView implements ITaskMenuView {
     @Override
@@ -16,7 +17,12 @@ public class TaskMenuView implements ITaskMenuView {
         System.out.println("\t╚═══════════════════════════════════════════════════╝\t");
         return Teclado.leerEntero("Elige una opción: ");
     }
-
+    public void stateChange(){
+        System.out.println("a que estado la quieres cambiar: ");
+        System.out.println("SIN_INICIAR");
+        System.out.println("EN_TRAMITE");
+        System.out.println("FINALIZADA");
+    }
     public void errorOption(){
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
         System.out.println("Pruebe de nuevo.");

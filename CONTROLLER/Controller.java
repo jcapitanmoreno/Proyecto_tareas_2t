@@ -26,7 +26,6 @@ public class Controller implements Icontroller {
     CreateProyectController createProyectController = new CreateProyectController();
     ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
-    ListProject_Users listProjectUsers = new ListProject_Users();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();
@@ -71,7 +70,6 @@ public class Controller implements Icontroller {
                     mainView.accessToProyectMsg();
                     taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
-
                 }
                 break;
             case 7:
@@ -79,7 +77,7 @@ public class Controller implements Icontroller {
                 System. exit(0);
                 break;
             default:
-                System.out.println("Opción no válida, por favor intente de nuevo.");
+                teclado.printMsg("Opción no válida, por favor intente de nuevo.");
                 break;
         }
     }
@@ -103,6 +101,7 @@ public class Controller implements Icontroller {
                 }else {
                     repoProject.add(project);
                     repoProject.save();
+                    teclado.printMsg("Proyecto creado");
                 }
                 break;
             case 2:

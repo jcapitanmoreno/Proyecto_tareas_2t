@@ -14,6 +14,9 @@ public class Project implements Serializable {
     private List<User> collaborators;
     private List<Task> tasks;
 
+    public Project() {
+    }
+
     public Project(String name, String description, User projectCreator, List<User> collaborators, List<Task> tasks) {
         this.name = name;
         this.description = description;

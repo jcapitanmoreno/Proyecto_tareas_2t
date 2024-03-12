@@ -3,6 +3,7 @@ package MODEL;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Task implements Serializable {
 
@@ -12,6 +13,9 @@ public class Task implements Serializable {
     private LocalDate limitDate;
     private User projectColaborator;
     private TaskStatus taskStatus;
+
+    public Task() {
+    }
 
     public Task(String name, String description, LocalDate starterDate, LocalDate limitDate, User projectColaborator, TaskStatus taskStatus) {
         this.name = name;
