@@ -22,8 +22,6 @@ public class TaskMenuView implements ITaskMenuView {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 6.");
         System.out.println("Pruebe de nuevo.");
     }
-
-
     public String taskName() {
         return Teclado.readString("Escriba el nombre de la tarea que quiere cambiarle el estado: ");
     }
