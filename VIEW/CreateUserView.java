@@ -23,7 +23,7 @@ public class CreateUserView implements ICreateUserView {
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Security.hashPassword(Teclado.readString("Introduce una contraseña: ")),
-                Teclado.readString("Introduce un correo electrónico: "));
+                createEmail());
         return userCreated;
     }
 

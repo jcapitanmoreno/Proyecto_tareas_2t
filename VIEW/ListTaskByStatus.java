@@ -13,7 +13,8 @@ public class ListTaskByStatus implements IListTaskByStatus {
         System.out.println("Elige el estado de la tarea para buscar: ");
         System.out.println("1. Sin iniciar.");
         System.out.println("2. En trámite.");
-        return IO.Teclado.leerEntero("3. Finalizada.");
+        System.out.println("3. Finalizada.");
+        return IO.Teclado.leerEntero("4. Para salir");
     }
 
     public void listTasksByStatus(TaskStatus status, List<Project> projects) {
