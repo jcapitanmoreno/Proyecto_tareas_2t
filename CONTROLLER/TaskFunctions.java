@@ -1,6 +1,8 @@
 package CONTROLLER;
 
 import INTERFACES.ITaskFunctions;
+import IO.Teclado;
+import MODEL.*;
 import MODEL.Project;
 import MODEL.RepoProject;
 import VIEW.CreateTaskView;
@@ -47,6 +49,9 @@ public class TaskFunctions implements ITaskFunctions {
                     repoProject.save();
                     break;
                 case 6:
+                    updateStateController.addColaboratorsByName(project);
+                    break;
+                case 7:
 
                     break;
                 default:

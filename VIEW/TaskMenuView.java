@@ -39,12 +39,20 @@ public class TaskMenuView implements ITaskMenuView {
     public String taskName() {
         return Teclado.readString("Escriba el nombre de la tarea que quiere cambiarle el estado: ");
     }
+    public String taskNameForColaborator(){
+        return Teclado.readString("Introduce el nombre de la tarea: ");
+    }
+
+    public String userNameForColaborator(){
+        return Teclado.readString("Introduce el nombre del usuario: ");
+    }
 
     /**
      * Solicita al usuario seleccionar el nuevo estado para la tarea y lo devuelve.
      *
      * @return El nuevo estado seleccionado por el usuario.
      */
+
     public TaskStatus newStatus() {
         TaskStatus taskStatus = null;
         System.out.println("Elige el estado que desee que la tarea tenga: ");

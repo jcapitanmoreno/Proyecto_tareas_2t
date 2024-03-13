@@ -36,4 +36,22 @@ public class UpdateStateController {
             teclado.printMsg("No se encontró ninguna tarea con el nombre " + name);
         }
     }
+
+    public void addColaboratorsByName(Project project) {
+        String taskName =taskMenuView.taskNameForColaborator();
+        String colaboratorName = taskMenuView.userNameForColaborator();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
+        for (Task task : tasks) {
+            if (task.getName().equals(taskName)) {
+                task.setProjectColaborator(colaboratorName);
+                System.out.println("Añadido el usuario " + colaboratorName + " a la tarea " + taskName +".");
+                taskFound = true;
+                break;
+            }
+        }
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + taskName);
+        }
+    }
 }

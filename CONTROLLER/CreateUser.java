@@ -16,6 +16,7 @@ public class CreateUser {
     CreateUserView createUserView = new CreateUserView();
 
 
+
     /**
      * Crea un nuevo usuario.
      * Solicita al usuario que introduzca los detalles del nuevo usuario mediante la vista createUserView.
@@ -27,6 +28,7 @@ public class CreateUser {
     public boolean createUser() throws NoSuchAlgorithmException {
         boolean userAdded = false;
         User u = createUserView.createUser();
+        RepoUsers ru = RepoUsers.getInstance();
         User existingUser = findUser(u.getUser(), u.getMail());
         RepoUsers ru = RepoUsers.getInstance();
         if (existingUser == null) {
@@ -39,7 +41,10 @@ public class CreateUser {
             createUserView.errorNameUserOrEmail();
         }
         return userAdded;
-    }/**
+    }
+
+
+     /**
      * Busca un usuario en el repositorio de usuarios utilizando el nombre de usuario o el correo electrónico.
      * @param username El nombre de usuario a buscar.
      * @param email El correo electrónico del usuario a buscar.

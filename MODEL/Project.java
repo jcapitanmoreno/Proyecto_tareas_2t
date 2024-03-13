@@ -65,6 +65,7 @@ public class Project implements Serializable {
     public void setProjectCreator(User projectCreator) {
         this.projectCreator = projectCreator;
     }
+    RepoProject repoProject = RepoProject.get_Instance();
 
     @Override
     public boolean equals(Object o) {
