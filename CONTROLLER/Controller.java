@@ -27,6 +27,12 @@ public class Controller implements Icontroller {
     ListUserController listUserController = new ListUserController();
 
 
+    /**
+     * Inicia el programa ejecutando un bucle que solicita al usuario que elija una opción del menú principal.
+     * El bucle se ejecuta hasta que el usuario selecciona la opción de salida (7).
+     * En cada iteración, se obtiene la opción seleccionada por el usuario y se maneja llamando al método manejarOpcionMenu().
+     * @throws NoSuchAlgorithmException si ocurre un error relacionado con el algoritmo de hash (en caso de que se use).
+     */
     @Override
     public void start() throws NoSuchAlgorithmException {
         int option = -1;
@@ -35,6 +41,12 @@ public class Controller implements Icontroller {
             manejarOpcionMenu(option);
         } while (option != 7);
     }
+    /**
+     * Maneja la opción seleccionada por el usuario en el menú principal.
+     * Ejecuta la acción correspondiente según la opción seleccionada.
+     * @param opcion La opción seleccionada por el usuario.
+     * @throws NoSuchAlgorithmException si ocurre un error relacionado con el algoritmo de hash (en caso de que se use).
+     */
     public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
         switch (opcion) {
             case 1:
@@ -79,6 +91,14 @@ public class Controller implements Icontroller {
                 break;
         }
     }
+
+    /**
+     * Maneja la creación de un nuevo proyecto.
+     * Muestra un menú para que el usuario elija entre crear un nuevo proyecto o volver al menú principal.
+     * Si elige crear un nuevo proyecto, llama al método switchToCreate().
+     * @throws NoSuchAlgorithmException si ocurre un error relacionado con el algoritmo de hash (en caso de que se use).
+     */
+
     public void chooseToCreate() throws NoSuchAlgorithmException {
         boolean continueLoopToCreate = true;
         do {
@@ -89,7 +109,16 @@ public class Controller implements Icontroller {
                 switchToCreate(opcionMenuToCreate);
             }
         } while (continueLoopToCreate);
+
     }
+    /**
+     * Maneja las opciones relacionadas con la creación de un proyecto.
+     * Si el usuario elige crear un nuevo proyecto (opción 1), solicita los detalles del proyecto,
+     * comprueba si el proyecto ya existe en el repositorio y, si no existe, lo añade al repositorio y lo guarda.
+     * Si el usuario elige volver al menú principal (opción 2), llama al método start() para reiniciar el ciclo.
+     * @param opcionMenuToCreate La opción seleccionada por el usuario relacionada con la creación de proyectos.
+     * @throws NoSuchAlgorithmException si ocurre un error relacionado con el algoritmo de hash (en caso de que se use).
+     */
     public void switchToCreate(int opcionMenuToCreate) throws NoSuchAlgorithmException {
         switch (opcionMenuToCreate) {
             case 1:

@@ -12,11 +12,23 @@ public class CreateUserView implements ICreateUserView {
     Teclado teclado = new Teclado();
     //;
 
+    /**
+     * Solicita al usuario que elija entre crear un nuevo usuario o volver al menú.
+     *
+     * @return La opción seleccionada por el usuario.
+     */
     @Override
     public int wantToCreate() {
         System.out.println("1. Para crear usuario.");
         return Teclado.leerEntero("2. Si desea volver al menú.");
     }
+
+    /**
+     * Crea un nuevo usuario con la información proporcionada por el usuario.
+     *
+     * @return El usuario creado.
+     * @throws NoSuchAlgorithmException sí ocurre un error al generar el hash de la contraseña.
+     */
 
     @Override
     public User createUser() throws NoSuchAlgorithmException {
@@ -27,6 +39,11 @@ public class CreateUserView implements ICreateUserView {
         return userCreated;
     }
 
+    /**
+     * Crea un correo electrónico válido.
+     *
+     * @return El correo electrónico válido ingresado por el usuario.
+     */
     public String createEmail() {
         String email;
         CreateUser createUser = new CreateUser();
@@ -39,16 +56,28 @@ public class CreateUserView implements ICreateUserView {
         return email;
     }
 
+    /**
+     * Solicita al usuario que ingrese un nuevo correo electrónico válido.
+     *
+     * @return El nuevo correo electrónico ingresado por el usuario.
+     */
     @Override
     public String getNewEmail() {
         return Teclado.readString("Error al validar correo, escribe un nuevo email");
     }
 
+    /**
+     * Muestra un mensaje de error cuando el nombre de usuario o correo electrónico ya está en uso.
+     */
     @Override
     public void errorNameUserOrEmail() {
         System.out.println("El nombre de usuario o correo electrónico ya está en uso. Por favor, elige otro.");
     }
-    public void printMsg1(){
+
+    /**
+     * Muestra un mensaje de confirmación después de que se haya creado correctamente un usuario.
+     */
+    public void printMsg1() {
         System.out.println("El usuario ha sido creado correctamente. Puede continuar");
     }
 

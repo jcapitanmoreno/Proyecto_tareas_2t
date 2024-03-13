@@ -9,6 +9,12 @@ import static MODEL.TaskStatus.EN_TRAMITE;
 
 public class CreateTaskView implements ICreateTaskView {
     RepoUsers repoUsers = RepoUsers.getInstance();
+
+    /**
+     * Muestra la información necesaria para crear una nueva tarea y solicita al usuario que tome una acción.
+     *
+     * @return La acción seleccionada por el usuario (crear o volver).
+     */
     @Override
     public String createInformation() {
         System.out.println("Para la creación de una tarea nueva necesitamos cierta información, como puede ser:\n" +
@@ -22,6 +28,11 @@ public class CreateTaskView implements ICreateTaskView {
                 "Escriba \"volver\" si desea volver al menú.\n");
     }
 
+    /**
+     * Crea una nueva tarea con la información proporcionada por el usuario.
+     *
+     * @return La tarea creada.
+     */
     @Override
     public Task createTask() {
         Task taskCreated = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
@@ -38,6 +49,9 @@ public class CreateTaskView implements ICreateTaskView {
         return taskCreated;
     }
 
+    /**
+     * Muestra un mensaje de error cuando el nombre de la tarea es inválido.
+     */
     @Override
     public void errorTaskName() {
         System.out.println("Error, la tarea no puede tener un nombre vacío.");
@@ -45,12 +59,18 @@ public class CreateTaskView implements ICreateTaskView {
         System.out.println("Puede cambiarlo en la opción de modificar tarea del menú de tareas.");
     }
 
+    /**
+     * Muestra un mensaje de error cuando el nombre de la tarea ya existe.
+     */
     @Override
     public void errorSameTaskName() {
         System.out.println("Error, la tarea no puede tener el mismo nombre que otra tarea.");
         System.out.println("Pruebe de nuevo.");
     }
 
+    /**
+     * Muestra un mensaje de error cuando las fechas de inicio y límite de la tarea son iguales.
+     */
     @Override
     public void errorTaskDates() {
         System.out.println("Error, la tarea no puede tener la misma fecha como inicio de la misma y como límite.");
@@ -58,6 +78,9 @@ public class CreateTaskView implements ICreateTaskView {
         System.out.println("Puede cambiarlo en la opción de modificar tarea del menú de tareas.");
     }
 
+    /**
+     * Muestra un mensaje de error cuando no se puede asignar el usuario encargado de la tarea.
+     */
     @Override
     public void errorTaskUser() {
         System.out.println("Error al asignar el usuario encargado de la tarea.");

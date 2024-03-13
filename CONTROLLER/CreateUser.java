@@ -16,11 +16,17 @@ public class CreateUser {
     CreateUserView createUserView = new CreateUserView();
 
 
-
+    /**
+     * Crea un nuevo usuario.
+     * Solicita al usuario que introduzca los detalles del nuevo usuario mediante la vista createUserView.
+     * Busca si el usuario ya existe en el repositorio de usuarios.
+     * Si el usuario no existe, lo añade al repositorio y guarda los cambios.
+     * @return true si el usuario fue añadido con éxito, false si no se añadió.
+     * @throws NoSuchAlgorithmException si ocurre un error relacionado con el algoritmo de hash (en caso de que se use).
+     */
     public boolean createUser() throws NoSuchAlgorithmException {
         boolean userAdded = false;
         User u = createUserView.createUser();
-        RepoUsers ru = RepoUsers.getInstance();
         User existingUser = findUser(u.getUser(), u.getMail());
         RepoUsers ru = RepoUsers.getInstance();
         if (existingUser == null) {
@@ -33,7 +39,12 @@ public class CreateUser {
             createUserView.errorNameUserOrEmail();
         }
         return userAdded;
-    }
+    }/**
+     * Busca un usuario en el repositorio de usuarios utilizando el nombre de usuario o el correo electrónico.
+     * @param username El nombre de usuario a buscar.
+     * @param email El correo electrónico del usuario a buscar.
+     * @return El usuario encontrado, o null si no se encontró ningún usuario con el nombre de usuario o correo electrónico especificados.
+     */
     public User findUser(String username, String email) {
         User foundUser = null;
         boolean isFound = false;
@@ -50,6 +61,11 @@ public class CreateUser {
     }
 
 
+    /**
+     * Valída si una dirección de correo electrónico es válida según un patrón específico.
+     * @param email La dirección de correo electrónico a validar.
+     * @return true si la dirección de correo electrónico es válida, false de lo contrario.
+     */
     public boolean validateEmail(String email) {
         Pattern pattern = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
         return pattern.matcher(email).matches();

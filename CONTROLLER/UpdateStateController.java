@@ -14,10 +14,14 @@ public class UpdateStateController {
     RepoProject repoProject = RepoProject.get_Instance();
     Teclado teclado = new Teclado();
 
-
+    /**
+     * Método para cambiar el estado de una tarea por su nombre en un proyecto dado.
+     *
+     * @param project El proyecto en el que se busca la tarea.
+     */
     public void changeTaskStatusByName(Project project) {
-        String name =taskMenuView.taskName();
-        TaskStatus newStatus =taskMenuView.newStatus();
+        String name = taskMenuView.taskName();
+        TaskStatus newStatus = taskMenuView.newStatus();
         List<Task> tasks = repoProject.getTasks(project);
         boolean taskFound = false;
         for (Task task : tasks) {
