@@ -1,16 +1,11 @@
 package CONTROLLER;
 
-import IO.Teclado;
 import MODEL.*;
-import VIEW.ListTaskByStatus;
 import VIEW.TaskMenuView;
-
 import java.util.List;
 
 public class ListTaskController {
     private RepoProject repoProject;
-    ListTaskByStatus listTaskByStatus = new ListTaskByStatus();
-    Teclado teclado = new Teclado();
     TaskMenuView taskMenuView = new TaskMenuView();
 
 

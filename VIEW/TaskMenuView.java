@@ -53,5 +53,11 @@ public class TaskMenuView implements ITaskMenuView {
     public void printMsg3(){
         System.out.println("Tareas guardadas:");
     }
+    public void  printMsg4(){
+        System.out.println("Opción no válida, por favor intente de nuevo.");
+    }
+    public void printMsg5(){
+        System.out.println("");
+    }
 
 }

@@ -110,18 +110,16 @@ public class RepoProject extends Repository<Project, String> {
 
         if (project != null) {
             project.addTask(task);
-            // Actualiza el proyecto en el repositorio añadiendo esa tarea
             update(project);
             result = true;
         } else {
-            // sacaria un mensaje que diria algo como "el proyecto no existe en el repositorio"
             result = false;
         }
         return task;
     }
 
 
-    public List<Task> getTasks(Project p) {  ///lo que recibes
+    public List<Task> getTasks(Project p) {
         List<Task> allTasks = new ArrayList<>();
         for (Project project : projects) {
             if(project.equals(p)){
@@ -149,11 +147,11 @@ public class RepoProject extends Repository<Project, String> {
             while (iterator.hasNext()) {
                 Task task = iterator.next();
                 if (task.getName().equals(taskName)) {
-                    iterator.remove(); // Elimina la tarea de la lista de tareas del proyecto
+                    iterator.remove();
                     result = true;
                 }
             }
         }
-        return result; // La tarea no se encontró en ningún proyecto
+        return result;
     }
 }
