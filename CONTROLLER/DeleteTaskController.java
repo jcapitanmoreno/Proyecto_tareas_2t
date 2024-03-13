@@ -1,5 +1,6 @@
 package CONTROLLER;
 
+import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
 import VIEW.DeleteTaskView;
@@ -7,6 +8,7 @@ import VIEW.DeleteTaskView;
 public class DeleteTaskController {
     private RepoProject repoProject = RepoProject.get_Instance();
     private DeleteTaskView deleteTaskView = new DeleteTaskView();
+    Teclado teclado = new Teclado();
 
     public Project deleteTask(Project project) {
         String taskNameToDelete = deleteTaskView.taskToDelete();
@@ -16,9 +18,9 @@ public class DeleteTaskController {
             if (projectToDeleteFrom != null) {
                 boolean deleted = repoProject.deleteTask(taskNameToDelete);
                 if (deleted) {
-                    System.out.println("Tarea eliminada exitosamente.");
+                    teclado.printMsg("Tarea eliminada exitosamente.");
                 } else {
-                    System.out.println("No se pudo eliminar la tarea. La tarea no existe.");
+                    teclado.printMsg("No se pudo eliminar la tarea. La tarea no existe.");
                 }
             }
         }

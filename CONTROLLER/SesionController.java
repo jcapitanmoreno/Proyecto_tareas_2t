@@ -101,7 +101,6 @@ public class SesionController implements ISesionController {
         switch (opcionMenu) {
             case 1:
                 createUser.createUser();
-                chooseoption();
                 break;
             case 2:
                 break;

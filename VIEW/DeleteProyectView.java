@@ -2,19 +2,25 @@ package VIEW;
 
 import INTERFACES.IDeleteProyectView;
 import IO.Teclado;
+import MODEL.Project;
 
 public class DeleteProyectView implements IDeleteProyectView {
     @Override
     public String proyectToDelete() {
-        System.out.println("Escriba el nombre del proyecto que desea borrar.");
-        return Teclado.readString("Escriba \"volver\", para volver al menú.");
+        System.out.println("\t===================================\t");
+        System.out.println("\t    🔵 BORRADO DE PROYECTO 🔵      \t");
+        System.out.println("\t===================================\t");
+        System.out.println("Por favor, introduzca el nombre de proyecto que desea eliminar:");
+        String userInput = Teclado.readString("\t===================================\t");
+
+        return userInput;
     }
 
     @Override
-    public String sureToDelete() {
+    public int sureToDelete() {
         System.out.println("¿Estás seguro de querer borrar el proyecto?");
-        System.out.println("Escriba \"Si\", para borrar el proyecto.");
-        return Teclado.readString("Escriba \"No\", para cancelar.");
+        System.out.println("Pulsa 1 para borrar el proyecto.");
+        return Teclado.leerEntero("Pulsa 2 para cancelar.");
     }
 
     @Override

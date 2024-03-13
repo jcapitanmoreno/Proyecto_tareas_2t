@@ -1,5 +1,6 @@
 package CONTROLLER;
 
+import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
 import VIEW.ListTaskByStatus;
@@ -10,6 +11,7 @@ import java.util.List;
 public class ListByEnumController {
     ListTaskByStatus listTaskByStatus = new ListTaskByStatus();
     private RepoProject repoProject;
+    Teclado teclado = new Teclado();
 
     public ListByEnumController() {
         this.repoProject = RepoProject.get_Instance();
@@ -37,9 +39,9 @@ public class ListByEnumController {
                 listTaskByStatus.listTasksFinalizadas(projects);
                 break;
             case 4:
-                System.out.println("saliendo ...");
+                teclado.printMsg("saliendo ...");
             default:
-                System.out.println(("Opción no válida. Elige otra opción"));
+                teclado.printMsg(("Opción no válida. Elige otra opción"));
         }
     }
 }

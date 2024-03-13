@@ -9,13 +9,12 @@ import MODEL.User;
 import java.security.NoSuchAlgorithmException;
 
 public class CreateUserView implements ICreateUserView {
-    Teclado teclado = new Teclado();
     //;
 
     @Override
     public int wantToCreate() {
-        System.out.println("1. Para crear usuario.");
-        return Teclado.leerEntero("2. Si desea volver al menú.");
+        System.out.println("\t║     1. Para crear usuario.          ║\t");
+        return Teclado.leerEntero("\t║     2. Si desea volver al menú.     ║\t");
     }
 
     @Override

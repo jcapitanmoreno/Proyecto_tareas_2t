@@ -30,6 +30,7 @@ public class Controller implements Icontroller {
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();
     ListUserController listUserController = new ListUserController();
+    DeleteProyect deleteProyect = new DeleteProyect();
 
 
     @Override
@@ -65,7 +66,6 @@ public class Controller implements Icontroller {
                 break;
             case 5:
                 deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
-                repoProject.save();
                 break;
             case 6:
                 Project project = accessToProjectView.soliciteNameProject();

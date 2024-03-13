@@ -19,6 +19,7 @@ public class TaskFunctions implements ITaskFunctions {
     ListByEnumController listByEnumController = new ListByEnumController();
     DeleteTaskController deleteTaskController = new DeleteTaskController();
     UpdateStateController updateStateController = new UpdateStateController();
+    Teclado teclado = new Teclado();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
@@ -45,11 +46,10 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    teclado.printMsg("Opción no válida, por favor intente de nuevo.");
             }
         } while (option != 6);
     }
-
     @Override
     public void start() {
 
