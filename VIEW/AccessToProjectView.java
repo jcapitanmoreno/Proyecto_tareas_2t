@@ -28,6 +28,7 @@ public class AccessToProjectView {
         return Teclado.readString("Introduce el nombre del proyecto: ");
     }
 
+
     /**
      * Muestra un mensaje de error cuando no se puede acceder al proyecto.
      */

@@ -2,6 +2,7 @@ package VIEW;
 
 import INTERFACES.IDeleteProyectView;
 import IO.Teclado;
+import MODEL.Project;
 
 public class DeleteProyectView implements IDeleteProyectView {
 
@@ -27,10 +28,10 @@ public class DeleteProyectView implements IDeleteProyectView {
      * @return La confirmación del usuario para eliminar el proyecto.
      */
     @Override
-    public String sureToDelete() {
+    public int sureToDelete() {
         System.out.println("¿Estás seguro de querer borrar el proyecto?");
-        System.out.println("Escriba \"Si\", para borrar el proyecto.");
-        return Teclado.readString("Escriba \"No\", para cancelar.");
+        System.out.println("Pulsa 1 para borrar el proyecto.");
+        return Teclado.leerEntero("Pulsa 2 para cancelar.");
     }
 
     /**

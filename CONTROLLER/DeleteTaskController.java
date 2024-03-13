@@ -8,6 +8,8 @@ import VIEW.DeleteTaskView;
 public class DeleteTaskController {
     private RepoProject repoProject = RepoProject.get_Instance();
     private DeleteTaskView deleteTaskView = new DeleteTaskView();
+
+
     /**
      * Elimina una tarea de un proyecto especificado.
      * Solicita al usuario el nombre de la tarea que desea eliminar mediante la vista deleteTaskView.
@@ -18,6 +20,7 @@ public class DeleteTaskController {
      * @param project El proyecto del que se eliminará la tarea.
      * @return El proyecto modificado con la tarea eliminada, o null si no se encontró el proyecto.
      */
+
     public Project deleteTask(Project project) {
         String taskNameToDelete = deleteTaskView.taskToDelete();
         Project projectToDeleteFrom = null;
@@ -29,6 +32,7 @@ public class DeleteTaskController {
                     deleteTaskView.printMsg1();
                 } else {
                     deleteTaskView.printMsg2();
+
                 }
             }
         }

@@ -57,10 +57,10 @@ public class TaskFunctions implements ITaskFunctions {
                     break;
                 default:
                     taskMenuView.printMsg4();
+
             }
         } while (option != 6);
     }
-
     @Override
     public void start() {
 

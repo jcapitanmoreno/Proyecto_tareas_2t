@@ -25,6 +25,7 @@ public class Controller implements Icontroller {
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();
     ListUserController listUserController = new ListUserController();
+    DeleteProyect deleteProyect = new DeleteProyect();
 
     /**
      * Inicia el programa ejecutando un bucle que solicita al usuario que elija una opción del menú principal.
@@ -68,7 +69,7 @@ public class Controller implements Icontroller {
                 chooseToCreate();
                 break;
             case 5:
-                chooseToDeleteProyect();
+                chooseToDeleteProyect()
                 break;
             case 6:
                 Project project = accessToProjectView.soliciteNameProject();

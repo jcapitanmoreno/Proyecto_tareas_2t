@@ -14,6 +14,7 @@ public class ListUserController {
     Teclado teclado = new Teclado();
     ListUserView listUserView = new ListUserView();
 
+
     public ListUserController() {
         this.repoUser = RepoUsers.getInstance();
     }
