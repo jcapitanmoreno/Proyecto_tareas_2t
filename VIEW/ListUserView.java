@@ -23,7 +23,4 @@ public class ListUserView implements IListUserView {
     public void printMsg2(){
         System.out.println("No hay usuarios guardados.");
     }
-    public void printMsg3(){
-        System.out.println("");
-    }
 }

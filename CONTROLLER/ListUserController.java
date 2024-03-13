@@ -21,13 +21,12 @@ public class ListUserController {
     public void listUser() {
         if (repoUser == null) {
             listUserView.printMsg1();
-            System.out.println("El repositorio de usuarios no está inicializado.");
             return;
         }
 
         List<User> users = new ArrayList<>(repoUser.getAll()); // Convierte el conjunto a lista
         if (users.isEmpty()) {
-            System.out.println("No hay usuarios guardados.");
+            listUserView.printMsg2();
         } else {
             teclado.printMsg("Hay "+users.size()+" Usuarios guardados:");
             for (User user : users) {
