@@ -4,6 +4,12 @@ import INTERFACES.iLogOutView;
 import IO.Teclado;
 
 public class LogOutView implements iLogOutView {
+
+    /**
+     * Solicita al usuario que confirme si desea cerrar sesión.
+     *
+     * @return La respuesta del usuario.
+     */
     @Override
     public String logOut() {
         System.out.println("¿Estás seguro de querer cerrar sesión?");

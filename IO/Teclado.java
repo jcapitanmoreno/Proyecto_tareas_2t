@@ -13,6 +13,12 @@ public class Teclado {
         return scanner.nextLine();
     }
 
+    /**
+     * Método para leer un número entero desde la entrada estándar.
+     *
+     * @param msg El mensaje a mostrar al usuario.
+     * @return El número entero leído.
+     */
     public static int leerEntero(String msg) {
         System.out.println(msg);
         int numero = 0;
@@ -29,6 +35,12 @@ public class Teclado {
         return numero;
     }
 
+    /**
+     * Método para leer una cadena de texto desde la entrada estándar.
+     *
+     * @param msg El mensaje a mostrar al usuario.
+     * @return La cadena de texto leída.
+     */
     public static String readString(String msg) {
         System.out.println(msg);
         String line;
@@ -36,67 +48,89 @@ public class Teclado {
         return line;
     }
 
+    /**
+     * Método para imprimir un mensaje en la consola.
+     *
+     * @param msg El mensaje a imprimir.
+     */
     public void printMsg(String msg) {
         System.out.println(msg);
     }
 
+    /**
+     * Método para esperar a que el usuario presione Enter.
+     */
     public static void pressEnter() {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Press enter to continue.");
         teclado.nextLine();
     }
 
+    /**
+     * Método para leer una fecha desde la entrada estándar.
+     *
+     * @param msg El mensaje a mostrar al usuario.
+     * @return La fecha leída.
+     */
     public static LocalDate readDate(String msg) {
         System.out.println(msg);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
         //Valida el string con expresiones regulares para asegurate que tenga formato xd xm yyyy
-        boolean valida=false;
-        String primerosDigitos="";
-        String segundosDigitos="";
-        String tercerosDigitos="";
+        boolean valida = false;
+        String primerosDigitos = "";
+        String segundosDigitos = "";
+        String tercerosDigitos = "";
         do {
             String loqueinserta = scanner.nextLine();
             String regex = "\\b(\\d{1,2})\\s(\\d{1,2})\\s(\\d{4})\\b";
             Pattern pattern = Pattern.compile(regex);
             Matcher matcher = pattern.matcher(loqueinserta);
             valida = matcher.matches();
-            if(!valida) {
+            if (!valida) {
                 System.out.println("El formato es incorrecto, porfavor escriba la fecha de nuevo");
-            }else{
+            } else {
                 primerosDigitos = matcher.group(1);
                 segundosDigitos = matcher.group(2);
                 tercerosDigitos = matcher.group(3);
             }
-        }while(!valida);
-        primerosDigitos = primerosDigitos.length()==2?primerosDigitos:"0"+primerosDigitos;
-        segundosDigitos = segundosDigitos.length()==2?segundosDigitos:"0"+segundosDigitos;
+        } while (!valida);
+        primerosDigitos = primerosDigitos.length() == 2 ? primerosDigitos : "0" + primerosDigitos;
+        segundosDigitos = segundosDigitos.length() == 2 ? segundosDigitos : "0" + segundosDigitos;
 
 
-        return LocalDate.parse(primerosDigitos+" "+segundosDigitos+" "+tercerosDigitos, formatter);
+        return LocalDate.parse(primerosDigitos + " " + segundosDigitos + " " + tercerosDigitos, formatter);
     }
 
-    public static LocalDate readDateBeforeToday(String msg){
-        LocalDate fecha=null;
+    /**
+     * Método para leer una fecha desde la entrada estándar, asegurando que sea anterior a la fecha actual.
+     *
+     * @param msg El mensaje a mostrar al usuario.
+     * @return La fecha leída.
+     */
+    public static LocalDate readDateBeforeToday(String msg) {
+        LocalDate fecha = null;
         boolean valida = false;
         do {
             fecha = readDate(msg);
             valida = LocalDate.now().isBefore(fecha);
-            if(!valida){
+            if (!valida) {
                 System.out.println("La fecha no puede ser anterior a hoy");
             }
-        }while(!valida);
+        } while (!valida);
         return fecha;
     }
 
-    public boolean validateEmail(String email) {
-        Pattern pattern = Pattern.compile(".+@.+\\.(com|es)$");
-
-        return pattern.matcher(email).matches();
-    }
-
-    public static int readNumber(String msg, int numMenor, int numMayor){
+    /**
+     * Método para leer un número desde la entrada estándar, dentro de un rango especificado.
+     *
+     * @param msg      El mensaje a mostrar al usuario.
+     * @param numMenor El límite inferior del rango.
+     * @param numMayor El límite superior del rango.
+     * @return El número leído.
+     */
+    public static int readNumber(String msg, int numMenor, int numMayor) {
         int numero = 0;
-        do{
+        do {
             System.out.print(msg);
             try {
                 numero = scanner.nextInt();
@@ -107,12 +141,12 @@ public class Teclado {
 
             }
 
-            if (numero < numMenor || numero > numMayor){
+            if (numero < numMenor || numero > numMayor) {
                 System.out.println("La opción introducida no se contempla. Pruebe de nuevo.");
 
             }
 
-        } while(numero < numMenor || numero > numMayor);
+        } while (numero < numMenor || numero > numMayor);
         return numero;
     }
 }

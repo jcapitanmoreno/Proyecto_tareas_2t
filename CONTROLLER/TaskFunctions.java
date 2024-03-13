@@ -5,6 +5,7 @@ import MODEL.Project;
 import MODEL.RepoProject;
 import VIEW.CreateTaskView;
 import VIEW.TaskMenuView;
+
 import java.security.NoSuchAlgorithmException;
 
 
@@ -17,6 +18,12 @@ public class TaskFunctions implements ITaskFunctions {
     DeleteTaskController deleteTaskController = new DeleteTaskController();
     UpdateStateController updateStateController = new UpdateStateController();
 
+    /**
+     * Método para manejar las opciones del menú relacionadas con las tareas.
+     *
+     * @param project El proyecto en el que se realizarán las operaciones.
+     * @throws NoSuchAlgorithmException Si ocurre un error relacionado con el algoritmo de hash.
+     */
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
         do {
@@ -36,7 +43,7 @@ public class TaskFunctions implements ITaskFunctions {
                     deleteTaskController.deleteTask(project);
                     break;
                 case 5:
-                    changeTaskStatusByName(project);
+                    updateStateController.changeTaskStatusByName(project);
                     repoProject.save();
                     break;
                 case 6:
