@@ -78,10 +78,10 @@ public class Project implements Serializable {
     @Override
     public String toString() {
         return "╔═════════════════════════════════════╗\n" +
-                String.format("║ %-5s: %-28s ║\n", "Name", name) +
-                String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", projectCreator.getUser()) +
+                String.format("║ %-5s: %-28s \n", "Name", name) +
+                String.format("║ %-10s: %-13s \n", "Creador del Proyecto", projectCreator.getUser()) +
                 "╚═════════════════════════════════════╝\n" +
-                "Descripción:" + description + "\n\n";
+                "Descripción:" + description + "\n";
     }
 
     /**

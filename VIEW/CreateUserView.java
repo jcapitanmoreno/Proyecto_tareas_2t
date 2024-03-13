@@ -18,6 +18,7 @@ public class CreateUserView implements ICreateUserView {
      */
     @Override
     public int wantToCreate() {
+        System.out.println("");
         System.out.println("\t║     1. Para crear usuario.          ║\t");
         return Teclado.leerEntero("\t║     2. Si desea volver al menú.     ║\t");
     }
@@ -31,6 +32,7 @@ public class CreateUserView implements ICreateUserView {
 
     @Override
     public User createUser() throws NoSuchAlgorithmException {
+        System.out.println("");
         User userCreated = new User(Teclado.readString("Introduce un nombre: "),
                 Teclado.readString("Introduce un usuario: "),
                 Security.hashPassword(Teclado.readString("Introduce una contraseña: ")),
@@ -62,7 +64,7 @@ public class CreateUserView implements ICreateUserView {
      */
     @Override
     public String getNewEmail() {
-        return Teclado.readString("Error al validar correo, escribe un nuevo email");
+        return Teclado.readString("Error al validar correo, escribe un nuevo email.");
     }
 
     /**
@@ -77,7 +79,7 @@ public class CreateUserView implements ICreateUserView {
      * Muestra un mensaje de confirmación después de que se haya creado correctamente un usuario.
      */
     public void printMsg1() {
-        System.out.println("El usuario ha sido creado correctamente. Puede continuar");
+        System.out.println("El usuario ha sido creado correctamente. Puede continuar.");
     }
 
 }

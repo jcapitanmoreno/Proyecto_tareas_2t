@@ -1,17 +1,12 @@
 package CONTROLLER;
 
 import INTERFACES.Icontroller;
-
 import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
 import MODEL.RepoUsers;
-import MODEL.User;
 import VIEW.*;
-
-import java.awt.*;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
 
 public class Controller implements Icontroller {
     CreateProyectView createProyectView = new CreateProyectView();
@@ -25,7 +20,7 @@ public class Controller implements Icontroller {
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();
     ListUserController listUserController = new ListUserController();
-    DeleteProyect deleteProyect = new DeleteProyect();
+    Teclado teclado = new Teclado();
 
     /**
      * Inicia el programa ejecutando un bucle que solicita al usuario que elija una opción del menú principal.
@@ -41,6 +36,7 @@ public class Controller implements Icontroller {
             manejarOpcionMenu(option);
         } while (option != 7);
     }
+
     /**
      * Maneja la opción seleccionada por el usuario en el menú principal.
      * Ejecuta la acción correspondiente según la opción seleccionada.
@@ -50,26 +46,22 @@ public class Controller implements Icontroller {
     public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
         switch (opcion) {
             case 1:
-                mainView.listProyectMsg();
                 listProyectController.listProjects();
+                teclado.pressEnter();
                 break;
             case 2:
                 mainView.listUserMsg();
                 listUserController.listUser();
+                teclado.pressEnter();
                 break;
             case 3:
-                deleteUserView.deleteUserMsg();
-                if (repoUsers.delete(deleteUserView.userToDelete())) {
-                    repoUsers.save();
-                }else {
-                    deleteUserView.errordeleteUserMsg();
-                }
+                chooseToDeleteUser();
                 break;
             case 4:
                 chooseToCreate();
                 break;
             case 5:
-                chooseToDeleteProyect()
+                chooseToDeleteProyect();
                 break;
             case 6:
                 Project project = accessToProjectView.soliciteNameProject();
@@ -108,8 +100,8 @@ public class Controller implements Icontroller {
                 switchToCreate(opcionMenuToCreate);
             }
         } while (continueLoopToCreate);
-
     }
+
     /**
      * Maneja las opciones relacionadas con la creación de un proyecto.
      * Si el usuario elige crear un nuevo proyecto (opción 1), solicita los detalles del proyecto,
@@ -132,7 +124,6 @@ public class Controller implements Icontroller {
                 start();
                 break;
             case 2:
-
                 break;
             default:
                 mainView.errorOption();
@@ -158,11 +149,36 @@ public class Controller implements Icontroller {
                 repoProject.save();
                 break;
             case 2:
-
                 break;
             default:
                 deleteProyectView.errorOptionDelete();
         }
     }
 
+    public void chooseToDeleteUser() throws NoSuchAlgorithmException {
+        boolean continueLoopToDeleteUser = true;
+        do {
+            int opcionMenuDeleteUser = deleteUserView.chooseToDeleteUser();
+            if (opcionMenuDeleteUser == 2) {
+                continueLoopToDeleteUser = false;
+            } else {
+                switchToDeleteUser(opcionMenuDeleteUser);
+            }
+        } while (continueLoopToDeleteUser);
+    }
+
+    public void switchToDeleteUser(int opcionMenuDeleteUser) throws NoSuchAlgorithmException {
+        switch (opcionMenuDeleteUser) {
+            case 1:
+                if (repoUsers.delete(deleteUserView.userToDelete())) {
+                    repoUsers.save();
+                }else {
+                }
+                break;
+            case 2:
+                break;
+            default:
+                deleteUserView.errordeleteUserMsg();
+        }
+    }
 }

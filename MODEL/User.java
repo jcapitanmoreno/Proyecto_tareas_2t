@@ -62,10 +62,10 @@ public class User implements Serializable {
     @Override
     public String toString() {
         return "╔════════════════════════════════╗\n" +
-                String.format("║ %-10s: %-18s ║\n", "Name", name) +
-                String.format("║ %-10s: %-18s ║\n", "Username", user) +
-                String.format("║ %-10s: %-18s ║\n", "Password", "********") +
-                String.format("║ %-10s: %-18s ║\n", "Email", mail) +
+                String.format("║ %-10s: %-18s \n", "Name", name) +
+                String.format("║ %-10s: %-18s \n", "Username", user) +
+                String.format("║ %-10s: %-18s \n", "Password", "********") +
+                String.format("║ %-10s: %-18s \n", "Email", mail) +
                 "╚════════════════════════════════╝";
     }
 

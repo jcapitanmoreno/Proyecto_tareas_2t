@@ -1,17 +1,16 @@
 package MODEL;
 
+import IO.Teclado;
 import Serializator.Serializator;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 public class RepoUsers extends Repository<User, String> {
-
     private final static String FILENAME = "users.bin";
     private static RepoUsers _instance;
     private Set<User> users;
-
+    Teclado teclado = new Teclado();
     private User userLogin;
 
     public RepoUsers() {
@@ -124,10 +123,13 @@ public class RepoUsers extends Repository<User, String> {
         for (User user : users) {
             if (user.getUser().equals(u)) {
                 userToDelete = user;
+            } else {
+                teclado.printMsg("No existe el usuario " + u);
             }
         }
         if (getInstance().userLogin.equals(userToDelete)) {
-            System.out.println("Np se puede borrar el usuario con el que está la sesión iniciada.");
+            System.out.println("");
+            System.out.println("No se puede borrar el usuario con el que está la sesión iniciada.");
         } else {
             System.out.println("Borrando usuario " + userToDelete.getUser() + " ...");
             userDeleted = users.remove(getByName(u));
