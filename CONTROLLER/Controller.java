@@ -21,7 +21,6 @@ public class Controller implements Icontroller {
     WelcomeByeView welcomeByeView = new WelcomeByeView();
     RepoProject repoProject = RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
-    Teclado teclado = new Teclado();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();

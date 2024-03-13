@@ -17,7 +17,6 @@ public class SesionController implements ISesionController {
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
-    Teclado teclado = new Teclado();
     CreateUserView createUserView = new CreateUserView();
 
 
@@ -101,7 +100,6 @@ public class SesionController implements ISesionController {
         switch (opcionMenu) {
             case 1:
                 createUser.createUser();
-                chooseoption();
                 break;
             case 2:
                 break;

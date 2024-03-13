@@ -1,15 +1,12 @@
 package CONTROLLER;
 
 import INTERFACES.ITaskFunctions;
-import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
-import MODEL.Task;
-import MODEL.TaskStatus;
 import VIEW.CreateTaskView;
 import VIEW.TaskMenuView;
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
+
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -45,7 +42,7 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    taskMenuView.printMsg4();
             }
         } while (option != 6);
     }

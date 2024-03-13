@@ -109,11 +109,5 @@ public class RepoUsers extends Repository<User, String> {
         return login;
     }
 
-    public void setUser(User u){
-        for(User user : users){
-            if (user.equals(u)){
 
-            }
-        }
-    }
 }
