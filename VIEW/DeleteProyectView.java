@@ -12,8 +12,13 @@ public class DeleteProyectView implements IDeleteProyectView {
      */
     @Override
     public String proyectToDelete() {
-        System.out.println("Escriba el nombre del proyecto que desea borrar.");
-        return Teclado.readString("Escriba \"volver\", para volver al menú.");
+        return Teclado.readString("Escriba el nombre del proyecto que desea borra:.");
+    }
+
+    public int chooseToDeleteProject() {
+        System.out.println("1. Para borrar proyecto.");
+        return Teclado.leerEntero(
+                "2. Si desea volver al menú.");
     }
 
     /**
@@ -40,5 +45,9 @@ public class DeleteProyectView implements IDeleteProyectView {
         } else {
             System.out.println("el proyecto no ha podido ser eliminado");
         }
+    }
+
+    public void errorOptionDelete(){
+        System.out.println("Por favor, introduce un número valido.");
     }
 }

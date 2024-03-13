@@ -18,7 +18,7 @@ public class SesionController implements ISesionController {
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
     CreateUserView createUserView = new CreateUserView();
-
+    Teclado teclado = new Teclado();
 
     /**
      * Método para iniciar la sesión del usuario.
@@ -28,6 +28,7 @@ public class SesionController implements ISesionController {
      */
     public void start() throws NoSuchAlgorithmException {
         welcomeByeView.welcomeProgram();
+        teclado.pressEnter();
         chooseoption();
     }
 
