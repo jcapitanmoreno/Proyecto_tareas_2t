@@ -21,7 +21,7 @@ public class ListTaskViewTest {
         taskStatus[0] = TaskStatus.SIN_INICIAR;
         taskStatus[1] = TaskStatus.EN_TRAMITE;
         taskStatus[2] = TaskStatus.FINALIZADA;
-        Task task = new Task("Crear modelo", "Crear modelo del programa", null, null, user, taskStatus[0]);
+        Task task = new Task("Crear modelo", "Crear modelo del programa", null, null, "", taskStatus[0]);
         List<User> users = new ArrayList<>();
         List<Task> tasks = new ArrayList<>();
         users.add(new User("juan","Juan1","1234","juan@gmail.com"));

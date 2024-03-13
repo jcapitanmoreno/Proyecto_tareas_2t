@@ -65,6 +65,7 @@ public class Project implements Serializable {
     public void setProjectCreator(User projectCreator) {
         this.projectCreator = projectCreator;
     }
+    RepoProject repoProject = RepoProject.get_Instance();
 
     @Override
     public boolean equals(Object o) {
@@ -80,79 +81,30 @@ public class Project implements Serializable {
                 String.format("║ %-5s: %-28s ║\n", "Name", name) +
                 String.format("║ %-10s: %-13s ║\n", "Creador del Proyecto", projectCreator.getUser()) +
                 "╚═════════════════════════════════════╝\n" +
-                "Descripción:" + description+ "\n\n";
+                "Descripción:" + description + "\n\n";
     }
 
-    public  Task addTask(Task t){
+    /**
+     * Agrega una tarea al proyecto si no está contenida en la lista de tareas.
+     *
+     * @param t La tarea que se desea agregar.
+     * @return La tarea que se agregó, o null si la tarea ya estaba en la lista.
+     */
+    public Task addTask(Task t) {
         Task result = null;
-        if (!tasks.contains(t)){
+        if (!tasks.contains(t)) {
             tasks.add(t);
         }
         result = t;
         return result;
     }
-    public Task getByName(String name) {
-        Task result = null;
-        for (Task task: tasks){
-            if (task.getName().equals(name)){
-                result=task;
-                break;
-            }
-        }
-        return result;
-    }
-    public List<Task> getByStatus(Enum status) {
-        List<Task> result = new ArrayList<>();
-        for (Task task: tasks){
-            if (task.getTaskStatus().equals(status)){
-                result.add(task);
-            }
-        }
-        return result;
 
-        //return tasks.stream().filter(d->d.getTaskStatus().equals(status)).collect(Collectors.toList());
-    }
-    public Collection<Task> getAll() {
-        return tasks;
-    }
-    public Task update(Task t) {
-        Task result;
-        result=getByName(t.getName());
-        if (result!=null){
-            tasks.remove(result);
-            tasks.add(t);
-            result=t;
-        }
-        return result;
-    }
-    public Task removeTask(Task t){
-        Task taskToRemove = null;
-        Iterator<Task> iterator = tasks.iterator();
-        while (iterator.hasNext()){
-            Task temporalTask = iterator.next();
-            if (temporalTask.equals(t)){
-                taskToRemove = temporalTask;
-                iterator.remove();
-            }
-        }
-        return taskToRemove;
-    }
-
-    public boolean creartarea() {
-        //Crear tarea
-        CreateTaskView createTaskView= new CreateTaskView();
-        CreateTaskView v = new CreateTaskView();
-        Task t = v.createTask();
-        addTask(t);
-        boolean taskAdded = false;
-        createTaskView.createTask();
-        if (!tasks.contains(t)) {
-            taskAdded =tasks.add(t);
-        }
-        return taskAdded;
-
-    }
-
+    /**
+     * Obtiene una lista de tareas que tienen el estado especificado.
+     *
+     * @param status El estado de la tarea que se desea filtrar.
+     * @return Una lista de tareas con el estado especificado.
+     */
     public List<Task> getTasksByStatus(TaskStatus status) {
         return tasks.stream().filter(task -> task.getTaskStatus().equals(status)).collect(Collectors.toList());
     }
