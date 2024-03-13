@@ -6,6 +6,7 @@ import MODEL.RepoUsers;
 import MODEL.Task;
 
 import static MODEL.TaskStatus.EN_TRAMITE;
+import static MODEL.TaskStatus.SIN_INICIAR;
 
 public class CreateTaskView implements ICreateTaskView {
     RepoUsers repoUsers = RepoUsers.getInstance();
@@ -24,6 +25,7 @@ public class CreateTaskView implements ICreateTaskView {
 
     @Override
     public Task createTask() {
+        String projectColaborator = "";
         Task taskCreated = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
                 Teclado.readString("Introduce una descripción sobre la tarea: "),
                 Teclado.readDateBeforeToday("Introduce la fecha de inicio de la tarea: "),
@@ -33,8 +35,8 @@ public class CreateTaskView implements ICreateTaskView {
                 //Debe de recorrerse la lista de usuarios en un if y si el usuario introducido es igual al de alguno de la lista se asigna.
                 //Si no se asigna el usuario con el else se asigna el usuario que ha iniciado sesión.
                 //Luego ha de haber una opción de modificar tarea y que se pueda asignar un usuario.
-                repoUsers.getUser(),
-                EN_TRAMITE);
+                projectColaborator,
+                SIN_INICIAR);
         return taskCreated;
     }
 

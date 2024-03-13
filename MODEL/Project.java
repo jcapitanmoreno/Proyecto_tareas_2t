@@ -65,6 +65,7 @@ public class Project implements Serializable {
     public void setProjectCreator(User projectCreator) {
         this.projectCreator = projectCreator;
     }
+    RepoProject repoProject = RepoProject.get_Instance();
 
     @Override
     public boolean equals(Object o) {
@@ -101,6 +102,7 @@ public class Project implements Serializable {
         }
         return result;
     }
+
     public List<Task> getByStatus(Enum status) {
         List<Task> result = new ArrayList<>();
         for (Task task: tasks){
@@ -115,6 +117,7 @@ public class Project implements Serializable {
     public Collection<Task> getAll() {
         return tasks;
     }
+
     public Task update(Task t) {
         Task result;
         result=getByName(t.getName());
@@ -125,6 +128,7 @@ public class Project implements Serializable {
         }
         return result;
     }
+
     public Task removeTask(Task t){
         Task taskToRemove = null;
         Iterator<Task> iterator = tasks.iterator();

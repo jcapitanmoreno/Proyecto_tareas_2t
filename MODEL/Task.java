@@ -11,13 +11,14 @@ public class Task implements Serializable {
     private String description;
     private LocalDate starterDate;
     private LocalDate limitDate;
-    private User projectColaborator;
+    private String projectColaborator;
     private TaskStatus taskStatus;
 
     public Task() {
+        projectColaborator = "";
     }
 
-    public Task(String name, String description, LocalDate starterDate, LocalDate limitDate, User projectColaborator, TaskStatus taskStatus) {
+    public Task(String name, String description, LocalDate starterDate, LocalDate limitDate, String projectColaborator, TaskStatus taskStatus) {
         this.name = name;
         this.description = description;
         this.starterDate = starterDate;
@@ -66,11 +67,11 @@ public class Task implements Serializable {
         this.taskStatus = taskStatus;
     }
 
-    public User getProjectColaborator() {
+    public String getProjectColaborator() {
         return projectColaborator;
     }
 
-    public void setProjectColaborator(User projectColaborator) {
+    public void setProjectColaborator(String projectColaborator) {
         this.projectColaborator = projectColaborator;
     }
 
@@ -80,7 +81,7 @@ public class Task implements Serializable {
                 String.format("║ %-5s: %-28s ║\n", "Name", name) +
                 String.format("║ %-10s: %-13s ║\n", "F. inicio de la tarea", starterDate) +
                 String.format("║ %-10s: %-13s ║\n", "F. límite de la tarea", limitDate) +
-                String.format("║ %-10s: %-13s ║\n", "Encargado de la tarea", projectColaborator.getUser()) +
+                String.format("║ %-10s: %-13s ║\n", "Encargado de la tarea", projectColaborator) +
                 String.format("║ %-10s: %-13s ║\n", "Estado de la tarea", taskStatus) +
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;

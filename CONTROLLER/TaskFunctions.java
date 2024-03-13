@@ -2,10 +2,7 @@ package CONTROLLER;
 
 import INTERFACES.ITaskFunctions;
 import IO.Teclado;
-import MODEL.Project;
-import MODEL.RepoProject;
-import MODEL.Task;
-import MODEL.TaskStatus;
+import MODEL.*;
 import VIEW.CreateTaskView;
 import VIEW.TaskMenuView;
 import java.security.NoSuchAlgorithmException;
@@ -39,10 +36,13 @@ public class TaskFunctions implements ITaskFunctions {
                     deleteTaskController.deleteTask(project);
                     break;
                 case 5:
-                    changeTaskStatusByName(project);
+                    updateStateController.changeTaskStatusByName(project);
                     repoProject.save();
                     break;
                 case 6:
+                    updateStateController.addColaboratorsByName(project);
+                    break;
+                case 7:
 
                     break;
                 default:
