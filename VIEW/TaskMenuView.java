@@ -27,10 +27,11 @@ public class TaskMenuView implements ITaskMenuView {
 
     public TaskStatus newStatus() {
         TaskStatus taskStatus = null;
-        System.out.println("Elige el estado de la tarea al que cambiar: ");
+        System.out.println("Elige el estado que desee que la tarea tenga: ");
         System.out.println("1. Sin iniciar.");
         System.out.println("2. En trámite.");
-        int option = Teclado.readNumber("3. Finalizada. ", 1, 3);
+        int option = Teclado.readNumber("3. Finalizada. ", 1, 4);
+        System.out.println("4. Volver al menu.");
         switch (option) {
             case 1:
                     taskStatus=TaskStatus.SIN_INICIAR;
@@ -41,6 +42,8 @@ public class TaskMenuView implements ITaskMenuView {
             case 3:
                 taskStatus= TaskStatus.FINALIZADA;
                 break;
+            case 4:
+                chooseTaskOption();
         }
         return taskStatus;
     }
