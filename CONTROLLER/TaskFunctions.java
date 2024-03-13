@@ -39,7 +39,8 @@ public class TaskFunctions implements ITaskFunctions {
                     deleteTaskController.deleteTask(project);
                     break;
                 case 5:
-                    updateStateController.changeTaskStatusByName(project);
+                    changeTaskStatusByName(project);
+                    repoProject.save();
                     break;
                 case 6:
 
