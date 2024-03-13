@@ -17,7 +17,6 @@ public class SesionController implements ISesionController {
     RepoUsers repoUsers=RepoUsers.getInstance();
     LogInView logInView = new LogInView();
     Controller controller = new Controller();
-    Teclado teclado = new Teclado();
     CreateUserView createUserView = new CreateUserView();
 
 

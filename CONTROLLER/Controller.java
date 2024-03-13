@@ -21,7 +21,6 @@ public class Controller implements Icontroller {
     WelcomeByeView welcomeByeView = new WelcomeByeView();
     RepoProject repoProject = RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
-    Teclado teclado = new Teclado();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
     ListProyectController listProyectController = new ListProyectController();
@@ -36,8 +35,6 @@ public class Controller implements Icontroller {
             manejarOpcionMenu(option);
         } while (option != 7);
     }
-
-    // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
         switch (opcion) {
             case 1:

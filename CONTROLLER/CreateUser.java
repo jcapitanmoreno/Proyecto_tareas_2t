@@ -22,11 +22,12 @@ public class CreateUser {
         User u = createUserView.createUser();
         RepoUsers ru = RepoUsers.getInstance();
         User existingUser = findUser(u.getUser(), u.getMail());
-
+        RepoUsers ru = RepoUsers.getInstance();
         if (existingUser == null) {
             if (ru.add(u) != null) {
                 userAdded = true;
                 ru.save();
+                createUserView.printMsg1();
             }
         } else {
             createUserView.errorNameUserOrEmail();

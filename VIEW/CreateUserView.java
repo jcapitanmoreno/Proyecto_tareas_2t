@@ -26,7 +26,7 @@ public class CreateUserView implements ICreateUserView {
                 createEmail());
         return userCreated;
     }
-    
+
     public String createEmail() {
         String email;
         CreateUser createUser = new CreateUser();
@@ -43,10 +43,14 @@ public class CreateUserView implements ICreateUserView {
     public String getNewEmail() {
         return Teclado.readString("Error al validar correo, escribe un nuevo email");
     }
-@Override
-public void errorNameUserOrEmail(){
-    System.out.println("El nombre de usuario o correo electrónico ya está en uso. Por favor, elige otro.");
-}
+
+    @Override
+    public void errorNameUserOrEmail() {
+        System.out.println("El nombre de usuario o correo electrónico ya está en uso. Por favor, elige otro.");
+    }
+    public void printMsg1(){
+        System.out.println("El usuario ha sido creado correctamente. Puede continuar");
+    }
 
 }
 
