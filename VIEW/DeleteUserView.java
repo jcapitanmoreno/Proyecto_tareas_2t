@@ -10,6 +10,7 @@ public class DeleteUserView implements IDeleteUserView {
         return Teclado.readString("Escriba \"volver\", para volver al menú.");
     }
 
+
     @Override
     public int sureToDelete() {
         System.out.println("\t╔════════════════════════════════════════════════╗\t");
@@ -22,7 +23,11 @@ public class DeleteUserView implements IDeleteUserView {
 
     @Override
     public void deleteUserMsg() {
-        System.out.println("Eliminando usuario ...");
+            System.out.println("Eliminando usuario ...");
+    }
+    @Override
+    public void errordeleteUserMsg(){
+        System.out.println("El usuario no se encuentra");
     }
 }
 

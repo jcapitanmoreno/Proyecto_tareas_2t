@@ -3,6 +3,7 @@ package IO;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Teclado {
@@ -48,8 +49,45 @@ public class Teclado {
     public static LocalDate readDate(String msg) {
         System.out.println(msg);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM yyyy");
-        return LocalDate.parse(scanner.nextLine(), formatter);
+        //Valida el string con expresiones regulares para asegurate que tenga formato xd xm yyyy
+        boolean valida=false;
+        String primerosDigitos="";
+        String segundosDigitos="";
+        String tercerosDigitos="";
+        do {
+            String loqueinserta = scanner.nextLine();
+            String regex = "\\b(\\d{1,2})\\s(\\d{1,2})\\s(\\d{4})\\b";
+            Pattern pattern = Pattern.compile(regex);
+            Matcher matcher = pattern.matcher(loqueinserta);
+            valida = matcher.matches();
+            if(!valida) {
+                System.out.println("El formato es blabla");
+            }else{
+                primerosDigitos = matcher.group(1);
+                segundosDigitos = matcher.group(2);
+                tercerosDigitos = matcher.group(3);
+            }
+        }while(!valida);
+        primerosDigitos = primerosDigitos.length()==2?primerosDigitos:"0"+primerosDigitos;
+        segundosDigitos = segundosDigitos.length()==2?segundosDigitos:"0"+segundosDigitos;
+
+
+        return LocalDate.parse(primerosDigitos+" "+segundosDigitos+" "+tercerosDigitos, formatter);
     }
+
+    public static LocalDate readDateBeforeToday(String msg){
+        LocalDate fecha=null;
+        boolean valida = false;
+        do {
+            fecha = readDate(msg);
+            valida = LocalDate.now().isBefore(fecha);
+            if(!valida){
+                System.out.println("La fecha no puede ser anterior a hoy");
+            }
+        }while(!valida);
+        return fecha;
+    }
+
     public boolean validateEmail(String email) {
         Pattern pattern = Pattern.compile(".+@.+\\.(com|es)$");
 
