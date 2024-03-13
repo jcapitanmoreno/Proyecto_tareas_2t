@@ -12,6 +12,7 @@ public class SesionView implements ISesionView {
      */
     @Override
     public int chooseoption() {
+        System.out.println("");
         System.out.println("\t╔══════════════════════════════════╗\t");
         System.out.println("\t║ Pulse 1 para iniciar sesión.     ║\t");
         System.out.println("\t║ Pulse 2 para crear usuario.      ║\t");

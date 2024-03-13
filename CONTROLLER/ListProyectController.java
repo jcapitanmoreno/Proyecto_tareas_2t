@@ -34,7 +34,9 @@ public class ListProyectController {
         if (projects.isEmpty()) {
             listProyectView.printMsg2();
         } else {
-            teclado.printMsg("Hay "+projects.size()+" Proyectos guardados:");
+            teclado.printMsg("");
+            teclado.printMsg("Listando proyectos ...");
+            teclado.printMsg("Hay "+projects.size()+" proyectos guardados:");
             for (Project project : projects) {
                 System.out.println(project);
             }

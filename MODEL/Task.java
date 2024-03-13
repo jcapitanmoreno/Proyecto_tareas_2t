@@ -78,11 +78,11 @@ public class Task implements Serializable {
     @Override
     public String toString() {
         return "╔═════════════════════════════════════╗\n" +
-                String.format("║ %-5s: %-28s ║\n", "Name", name) +
-                String.format("║ %-10s: %-13s ║\n", "F. inicio de la tarea", starterDate) +
-                String.format("║ %-10s: %-13s ║\n", "F. límite de la tarea", limitDate) +
-                String.format("║ %-10s: %-13s ║\n", "Encargado de la tarea", projectColaborator) +
-                String.format("║ %-10s: %-13s ║\n", "Estado de la tarea", taskStatus) +
+                String.format("║ %-5s: %-28s \n", "Name", name) +
+                String.format("║ %-10s: %-13s \n", "F. inicio de la tarea", starterDate) +
+                String.format("║ %-10s: %-13s \n", "F. límite de la tarea", limitDate) +
+                String.format("║ %-10s: %-13s \n", "Encargado de la tarea", projectColaborator) +
+                String.format("║ %-10s: %-13s \n", "Estado de la tarea", taskStatus) +
                 "╚═════════════════════════════════════╝\n" +
                 "Descripción:" + description;
     }

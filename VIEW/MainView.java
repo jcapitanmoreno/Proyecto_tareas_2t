@@ -11,6 +11,7 @@ public class MainView implements IMainView {
      * @return La opción seleccionada por el usuario.
      */
     public int chooseOption() {
+        System.out.println("");
         System.out.println("\t╔═════════════════════════════════════╗\t");
         System.out.println("\t║ Pulse 1 para listar proyectos.      ║\t");
         System.out.println("\t║ Pulse 2 para listar usuarios.       ║\t");
@@ -29,14 +30,6 @@ public class MainView implements IMainView {
     public void errorOption() {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 7.");
         System.out.println("Pruebe de nuevo.");
-    }
-
-    /**
-     * Muestra un mensaje indicando que se están listando los proyectos.
-     */
-    @Override
-    public void listProyectMsg() {
-        System.out.println("Listando proyectos ...");
     }
 
     /**

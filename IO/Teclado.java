@@ -1,12 +1,13 @@
 package IO;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Teclado {
+public class Teclado implements Serializable {
     private static Scanner scanner = new Scanner(System.in);
 
     public String leerString() {

@@ -16,9 +16,9 @@ public class LogInView implements ILogInView {
      */
     @Override
     public int chooseLogIn() {
-        System.out.println("1. Para iniciar sesión.");
-        return Teclado.leerEntero(
-                "2. Si desea volver al menú.");
+        System.out.println("");
+        System.out.println("\t║     1. Para iniciar sesión.         ║\t");
+        return Teclado.leerEntero("\t║     2. Si desea volver al menú.     ║\t");
     }
 
     /**
@@ -28,6 +28,7 @@ public class LogInView implements ILogInView {
      */
     @Override
     public String enterUsername() {
+        System.out.println("");
         return Teclado.readString("Introduce el nombre de usuario: ");
     }
 

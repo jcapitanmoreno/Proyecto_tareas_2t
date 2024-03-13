@@ -42,7 +42,6 @@ public class SesionController implements ISesionController {
     @Override
     public int chooseoption() throws NoSuchAlgorithmException {
         int opcion = -1;
-
         do {
             opcion = sesionView.chooseoption();
             manejarOpcionMenu(opcion);
@@ -67,6 +66,7 @@ public class SesionController implements ISesionController {
                 break;
             case 3:
                 welcomeByeView.byeProgram();
+                System.exit(0);
                 break;
             default:
                 sesionView.errorOption();
@@ -146,6 +146,7 @@ public class SesionController implements ISesionController {
         switch (opcionMenu) {
             case 1:
                 createUser.createUser();
+                chooseoption();
                 break;
             case 2:
                 break;

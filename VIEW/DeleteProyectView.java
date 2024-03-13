@@ -17,9 +17,9 @@ public class DeleteProyectView implements IDeleteProyectView {
     }
 
     public int chooseToDeleteProject() {
-        System.out.println("1. Para borrar proyecto.");
-        return Teclado.leerEntero(
-                "2. Si desea volver al menú.");
+        System.out.println("");
+        System.out.println("\t║     1. Para borrar proyecto.         ║\t");
+        return Teclado.leerEntero("\t║     2. Si desea volver al menú.     ║\t");
     }
 
     /**

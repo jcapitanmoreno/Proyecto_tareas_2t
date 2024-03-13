@@ -39,6 +39,7 @@ public class ListUserController {
             teclado.printMsg("Hay " + users.size() + " Usuarios guardados:");
             for (User user : users) {
                 System.out.println(user);
+                System.out.println("");
             }
         }
     }

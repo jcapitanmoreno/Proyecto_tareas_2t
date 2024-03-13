@@ -20,6 +20,7 @@ public class CreateProyectView implements ICreateProyectView {
      */
     @Override
     public Project createProyect() {
+        System.out.println("");
         String projectName = Teclado.readString("Introduce el nombre del proyecto: ");
         String projectDescription = Teclado.readString("Introduce una descripción para el proyecto: ");
         Project proyectCreated = new Project(projectName, projectDescription, repoUsers.getUser(), new ArrayList<User>(), new ArrayList<Task>());
@@ -52,10 +53,9 @@ public class CreateProyectView implements ICreateProyectView {
      */
     @Override
     public int chooseoption() {
-        System.out.println("1. Para crear el proyecto.");
-        return Teclado.leerEntero(
-                "2. Si desea volver al menú.");
-
+        System.out.println("");
+        System.out.println("\t║     1. Para crear proyecto.         ║\t");
+        return Teclado.leerEntero("\t║     2. Si desea volver al menú.     ║\t");
     }
 
     /**
