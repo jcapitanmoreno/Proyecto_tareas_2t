@@ -18,26 +18,21 @@ public class CreateUser {
 
 
     public boolean createUser() throws NoSuchAlgorithmException {
-
         boolean userAdded = false;
-
         User u = createUserView.createUser();
+        RepoUsers ru = RepoUsers.getInstance();
         User existingUser = findUser(u.getUser(), u.getMail());
 
         if (existingUser == null) {
-
-            RepoUsers ru = RepoUsers.getInstance();
             if (ru.add(u) != null) {
-                return true;
+                userAdded = true;
+                ru.save();
             }
         } else {
-
             createUserView.errorNameUserOrEmail();
-
         }
-        return false;
+        return userAdded;
     }
-
     public User findUser(String username, String email) {
         User foundUser = null;
         boolean isFound = false;

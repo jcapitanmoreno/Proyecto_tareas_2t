@@ -61,7 +61,7 @@ public class Teclado {
             Matcher matcher = pattern.matcher(loqueinserta);
             valida = matcher.matches();
             if(!valida) {
-                System.out.println("El formato es blabla");
+                System.out.println("El formato es incorrecto, porfavor escriba la fecha de nuevo");
             }else{
                 primerosDigitos = matcher.group(1);
                 segundosDigitos = matcher.group(2);

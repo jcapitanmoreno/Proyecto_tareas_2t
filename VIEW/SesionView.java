@@ -22,6 +22,6 @@ public class SesionView implements ISesionView {
         System.out.println("Pruebe de nuevo.");
     }
     public void printMsg1(){
-        System.out.println("El usuario es valido");
+        System.out.println("El usuario es valido, accediendo al programa...");
     }
 }

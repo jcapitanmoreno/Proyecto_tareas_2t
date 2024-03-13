@@ -31,14 +31,7 @@ public class CreateProyectView implements ICreateProyectView {
         System.out.println("Error, el proyecto no puede tener el mismo nombre que otro proyecto.");
         System.out.println("Pruebe de nuevo.");
     }
-    public void printProjects(List<Project> projects) {
-        for (Project project : projects) {
-            System.out.println("Project Name: " + project.getName());
-            System.out.println("Project Creator: " + project.getProjectCreator());
-            System.out.println("Other Project Details: " + project.getDescription());
-            System.out.println("-----------------------------");
-        }
-    }
+
     @Override
     public int chooseoption() {
         System.out.println("1. Para crear el proyecto.");

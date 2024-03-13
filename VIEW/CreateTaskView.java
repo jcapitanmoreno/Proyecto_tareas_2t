@@ -26,7 +26,7 @@ public class CreateTaskView implements ICreateTaskView {
     public Task createTask() {
         Task taskCreated = new Task(Teclado.readString("Introduce el nombre de la tarea: "),
                 Teclado.readString("Introduce una descripción sobre la tarea: "),
-                Teclado.readDateBeforeToday("Introduce la fecha de inicio de la tarea: "),
+                Teclado.readDateBeforeToday("Introduce la fecha de inicio de la tarea (dd/mm/aa): "),
                 Teclado.readDateBeforeToday("Introduce la fecha límite de la tarea: "),
 
                 //Provisional que se asigne el usuario que ha iniciado sesión en la tarea creada.
