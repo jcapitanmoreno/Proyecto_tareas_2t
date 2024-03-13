@@ -16,4 +16,11 @@ public class DeleteTaskView implements IDeleteTaskView {
         System.out.println("Escriba \"Si\", para borrar la tarea.");
         return Teclado.readString("Escriba \"No\", para cancelar.");
     }
+    public void printMsg1(){
+        System.out.println("Tarea eliminada exitosamente.");
+    }
+    public void printMsg2(){
+        System.out.println("No se pudo eliminar la tarea. La tarea no existe.");
+
+    }
 }

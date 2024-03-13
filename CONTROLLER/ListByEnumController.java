@@ -5,6 +5,7 @@ import MODEL.RepoProject;
 import MODEL.Task;
 import MODEL.TaskStatus;
 import VIEW.ListTaskByStatus;
+import VIEW.ListTaskView;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.List;
 public class ListByEnumController {
     ListTaskByStatus listTaskByStatus = new ListTaskByStatus();
     private RepoProject repoProject;
+    ListTaskView listTaskView = new ListTaskView();
 
     public ListByEnumController() {
         this.repoProject = RepoProject.get_Instance();
@@ -39,9 +41,9 @@ public class ListByEnumController {
                 listTasksFinalizadas(projects);
                 break;
             case 4:
-                System.out.println("saliendo ...");
+                listTaskView.printMsg1();
             default:
-                System.out.println(("Opción no válida. Elige otra opción"));
+                listTaskView.printMsg2();
         }
     }
 

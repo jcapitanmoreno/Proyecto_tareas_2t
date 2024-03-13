@@ -1,27 +1,33 @@
 package CONTROLLER;
 
-import IO.Teclado;
 import MODEL.Project;
+import MODEL.RepoProject;
 import MODEL.Task;
 import MODEL.TaskStatus;
-import VIEW.UpdateStateTaskView;
+import VIEW.TaskMenuView;
 
 import java.util.List;
 
 public class UpdateStateController {
-    Project project = new Project();
-    Teclado teclado = new Teclado();
-    String name;
-    TaskStatus newStatus;
+    TaskMenuView taskMenuView = new TaskMenuView();
+    RepoProject repoProject = RepoProject.get_Instance();
 
-    public void changeTaskStatusByName() {
-        List<Task> tasks = project.getTasks();
+
+    public void changeTaskStatusByName(Project project) {
+        String name =taskMenuView.taskName();
+        TaskStatus newStatus =taskMenuView.newStatus();
+        List<Task> tasks = repoProject.getTasks(project);
+        boolean taskFound = false;
         for (Task task : tasks) {
             if (task.getName().equals(name)) {
                 task.setTaskStatus(newStatus);
-                teclado.printMsg("El estado de la tarea ha sido cambiado a " + newStatus);
+                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
+                taskFound = true;
+                break;
             }
         }
-        teclado.printMsg("No se encontró ninguna tarea con el nombre " + name);
+        if (!taskFound) {
+            System.out.println("No se encontró ninguna tarea con el nombre " + name);
+        }
     }
 }

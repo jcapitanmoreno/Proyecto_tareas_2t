@@ -17,4 +17,8 @@ public class AccessToProjectView {
     public String enterNameProject() {
         return Teclado.readString("Introduce el nombre del proyecto: ");
     }
+
+    public void errorToAcces(){
+        System.out.println("No existe ese proyecto al que quieres acceder.");
+    }
 }

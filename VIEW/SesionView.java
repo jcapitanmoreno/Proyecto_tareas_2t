@@ -21,4 +21,7 @@ public class SesionView implements ISesionView {
         System.out.println("Error al seleccionar una opción, debe ser un número comprendido entre 1 y 3.");
         System.out.println("Pruebe de nuevo.");
     }
+    public void printMsg1(){
+        System.out.println("El usuario es valido");
+    }
 }

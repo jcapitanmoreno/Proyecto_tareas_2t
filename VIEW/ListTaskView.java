@@ -15,4 +15,10 @@ public class ListTaskView implements IListTaskView {
         }
         System.out.println("**********************");
     }
+    public void printMsg1(){
+        System.out.println("saliendo ...");
+    }
+    public void printMsg2(){
+        System.out.println("Opción no válida. Elige otra opción");
+    }
 }

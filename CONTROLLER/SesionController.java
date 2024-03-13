@@ -72,10 +72,10 @@ public class SesionController implements ISesionController {
                 User user = logInView.solicitateUser();
                 if (repoUsers.login(user)) {
                     repoUsers.setUserLogin(user);
-                    teclado.printMsg("El usuario es valido");
+                    sesionView.printMsg1();
                     controller.start();
                 }else {
-
+                    login.usernamePasswordError();
                 }
                 break;
             case 2:

@@ -18,6 +18,7 @@ public class TaskFunctions implements ITaskFunctions {
     ListTaskController listTaskController = new ListTaskController();
     ListByEnumController listByEnumController = new ListByEnumController();
     DeleteTaskController deleteTaskController = new DeleteTaskController();
+    UpdateStateController updateStateController = new UpdateStateController();
 
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
@@ -44,7 +45,6 @@ public class TaskFunctions implements ITaskFunctions {
                 case 6:
 
                     break;
-
                 default:
                     System.out.println("Opción no válida, por favor intente de nuevo.");
             }
@@ -59,22 +59,5 @@ public class TaskFunctions implements ITaskFunctions {
     @Override
     public void manejarOpcionMenu(int opcion) {
 
-    }
-    public void changeTaskStatusByName(Project project) {
-        String name =taskMenuView.taskName();
-        TaskStatus newStatus =taskMenuView.newStatus();
-        List<Task> tasks = repoProject.getTasks(project);
-        boolean taskFound = false;
-        for (Task task : tasks) {
-            if (task.getName().equals(name)) {
-                task.setTaskStatus(newStatus);
-                System.out.println("El estado de la tarea ha sido cambiado a " + newStatus);
-                taskFound = true;
-                break;
-            }
-        }
-        if (!taskFound) {
-            System.out.println("No se encontró ninguna tarea con el nombre " + name);
-        }
     }
 }

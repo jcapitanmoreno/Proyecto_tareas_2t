@@ -46,4 +46,13 @@ public class CreateProyectView implements ICreateProyectView {
                 "2. Si desea volver al menú.");
 
     }
+    public void printMsg1(){
+        System.out.println("El proyecto existe en el repositorio.");
+    }
+    public void printMsg2(){
+        System.out.println("Proyecto creado exitosamente.");
+    }
+    public void printMsg3(){
+        System.out.println("Opción no válida, por favor intente de nuevo.");
+    }
 }
