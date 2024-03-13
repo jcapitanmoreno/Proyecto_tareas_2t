@@ -13,4 +13,10 @@ public class ListProyectView implements IListProyectView {
         }
         System.out.println("**********************");
     }
+    public void printMsg1(){
+        System.out.println("El repositorio de proyectos no está inicializado.");
+    }
+    public void printMsg2(){
+        System.out.println("No hay proyectos guardados.");
+    }
 }

@@ -44,4 +44,13 @@ public class TaskMenuView implements ITaskMenuView {
         }
         return taskStatus;
     }
+    public void printMsg1(){
+        System.out.println("El repositorio de proyectos no está inicializado.");
+    }
+    public void printMsg2(){
+        System.out.println("No hay tareas guardadas.");
+    }
+    public void printMsg3(){
+        System.out.println("Tareas guardadas:");
+    }
 }

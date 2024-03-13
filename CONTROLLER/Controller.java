@@ -78,7 +78,7 @@ public class Controller implements Icontroller {
                 System. exit(0);
                 break;
             default:
-                teclado.printMsg("Opción no válida, por favor intente de nuevo.");
+                createProyectView.printMsg3();
                 break;
         }
     }
@@ -98,11 +98,11 @@ public class Controller implements Icontroller {
             case 1:
                 Project project = createProyectView.createProyect();
                 if (repoProject.isProjectExist(project)){
-                    teclado.printMsg("el proyecto existe en el repositorio");
+                    createProyectView.printMsg1();
                 }else {
                     repoProject.add(project);
                     repoProject.save();
-                    teclado.printMsg("Proyecto creado");
+                    createProyectView.printMsg2();
                 }
                 break;
             case 2:

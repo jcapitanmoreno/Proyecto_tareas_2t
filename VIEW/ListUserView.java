@@ -17,4 +17,13 @@ public class ListUserView implements IListUserView {
         }
         System.out.println("**********************");
     }
+    public void printMsg1(){
+        System.out.println("El repositorio de usuarios no está inicializado.");
+    }
+    public void printMsg2(){
+        System.out.println("No hay usuarios guardados.");
+    }
+    public void printMsg3(){
+        System.out.println("");
+    }
 }

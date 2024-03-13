@@ -28,7 +28,6 @@ public class CreateUser {
 
             RepoUsers ru = RepoUsers.getInstance();
             if (ru.add(u) != null) {
-                System.out.println(ru.save());
                 return true;
             }
         } else {

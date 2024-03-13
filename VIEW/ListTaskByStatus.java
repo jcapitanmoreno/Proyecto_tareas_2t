@@ -1,6 +1,7 @@
 package VIEW;
 
 import INTERFACES.IListTaskByStatus;
+import IO.Teclado;
 import MODEL.Project;
 import MODEL.Task;
 import MODEL.TaskStatus;
@@ -8,6 +9,8 @@ import MODEL.TaskStatus;
 import java.util.List;
 
 public class ListTaskByStatus implements IListTaskByStatus {
+    Teclado teclado = new Teclado();
+
     @Override
     public int byStatus() {
         System.out.println("Elige el estado de la tarea para buscar: ");
@@ -21,7 +24,7 @@ public class ListTaskByStatus implements IListTaskByStatus {
         for (Project project : projects) {
             List<Task> tasks = project.getTasksByStatus(status);
             if (!tasks.isEmpty()) {
-                System.out.println("Tareas en estado " + status + " del proyecto " + project.getName() + ":");
+                teclado.printMsg("Tareas en estado " + status + " del proyecto " + project.getName() + ":");
                 for (Task task : tasks) {
                     System.out.println(task);
                 }
