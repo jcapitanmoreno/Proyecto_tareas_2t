@@ -54,8 +54,11 @@ public class Controller implements Icontroller {
                 break;
             case 3:
                 deleteUserView.deleteUserMsg();
-                repoUsers.delete(deleteUserView.userToDelete());
-                repoUsers.save();
+                if (repoUsers.delete(deleteUserView.userToDelete())) {
+                    repoUsers.save();
+                }else {
+                    deleteUserView.errordeleteUserMsg();
+                }
                 break;
             case 4:
                 chooseToCreate();
@@ -71,6 +74,7 @@ public class Controller implements Icontroller {
                     mainView.accessToProyectMsg();
                     taskFunctions.manejarOpcionMenuTarea(project);
                 }else{
+                    accessToProjectView.errorToAcces();
                 }
                 break;
             case 7:
