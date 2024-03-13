@@ -3,10 +3,13 @@ package CONTROLLER;
 import INTERFACES.ITaskFunctions;
 import IO.Teclado;
 import MODEL.*;
+import MODEL.Project;
+import MODEL.RepoProject;
 import VIEW.CreateTaskView;
 import VIEW.TaskMenuView;
+
 import java.security.NoSuchAlgorithmException;
-import java.util.List;
+
 
 public class TaskFunctions implements ITaskFunctions {
     RepoProject repoProject = RepoProject.get_Instance();
@@ -17,6 +20,12 @@ public class TaskFunctions implements ITaskFunctions {
     DeleteTaskController deleteTaskController = new DeleteTaskController();
     UpdateStateController updateStateController = new UpdateStateController();
 
+    /**
+     * Método para manejar las opciones del menú relacionadas con las tareas.
+     *
+     * @param project El proyecto en el que se realizarán las operaciones.
+     * @throws NoSuchAlgorithmException Si ocurre un error relacionado con el algoritmo de hash.
+     */
     public void manejarOpcionMenuTarea(Project project) throws NoSuchAlgorithmException {
         int option = -1;
         do {
@@ -46,7 +55,7 @@ public class TaskFunctions implements ITaskFunctions {
 
                     break;
                 default:
-                    System.out.println("Opción no válida, por favor intente de nuevo.");
+                    taskMenuView.printMsg4();
             }
         } while (option != 6);
     }

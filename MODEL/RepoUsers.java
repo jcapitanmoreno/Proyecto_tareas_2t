@@ -34,6 +34,12 @@ public class RepoUsers extends Repository<User, String> {
         this.userLogin = user;
     }
 
+    /**
+     * Método estático para obtener una instancia única del repositorio de usuarios.
+     * Utiliza el patrón Singleton.
+     *
+     * @return La instancia única del repositorio de usuarios.
+     */
     public static RepoUsers getInstance() {
         if (_instance == null) {
             _instance = (RepoUsers) load(FILENAME);
@@ -44,6 +50,12 @@ public class RepoUsers extends Repository<User, String> {
         return _instance;
     }
 
+    /**
+     * Agrega un usuario al repositorio.
+     *
+     * @param u El usuario a agregar.
+     * @return El usuario agregado.
+     */
     @Override
     public User add(User u) {
         User result = null;
@@ -53,6 +65,12 @@ public class RepoUsers extends Repository<User, String> {
         return result;
     }
 
+    /**
+     * Obtiene un usuario por su nombre de usuario.
+     *
+     * @param u El nombre de usuario del usuario a obtener.
+     * @return El usuario encontrado, o null si no se encuentra.
+     */
     @Override
     public User getByName(String u) {
         User result = null;
@@ -65,11 +83,22 @@ public class RepoUsers extends Repository<User, String> {
         return result;
     }
 
+    /**
+     * Obtiene todos los usuarios del repositorio.
+     *
+     * @return Una colección de todos los usuarios.
+     */
     @Override
     public Collection<User> getAll() {
         return users;
     }
 
+    /**
+     * Actualiza un usuario en el repositorio.
+     *
+     * @param u El usuario actualizado.
+     * @return El usuario actualizado.
+     */
     @Override
     public User update(User u) {
         User result = null;
@@ -82,6 +111,12 @@ public class RepoUsers extends Repository<User, String> {
         return result;
     }
 
+    /**
+     * Elimina un usuario del repositorio por su nombre de usuario.
+     *
+     * @param u El nombre de usuario del usuario a eliminar.
+     * @return true si el usuario se eliminó correctamente, false en caso contrario.
+     */
     @Override
     public boolean delete(String u) {
         User userToDelete = null;
@@ -93,25 +128,47 @@ public class RepoUsers extends Repository<User, String> {
         }
         if (getInstance().userLogin.equals(userToDelete)) {
             System.out.println("Np se puede borrar el usuario con el que está la sesión iniciada.");
-        } else{
+        } else {
             System.out.println("Borrando usuario " + userToDelete.getUser() + " ...");
             userDeleted = users.remove(getByName(u));
         }
         return userDeleted;
     }
 
+    /**
+     * Guarda el repositorio de usuarios en un archivo.
+     *
+     * @return true si se guardó correctamente, false en caso contrario.
+     */
     public boolean save() {
         return super.save(FILENAME);
     }
 
+    /**
+     * Carga el repositorio de usuarios desde un archivo.
+     *
+     * @return El repositorio de usuarios cargado.
+     */
     public static RepoUsers load() {
         return Serializator.desearize(FILENAME);
     }
 
+    /**
+     * Verifica si un usuario existe en el repositorio.
+     *
+     * @param u El usuario a verificar.
+     * @return true si el usuario existe, false en caso contrario.
+     */
     public boolean isUserExist(User u) {
         return users.contains(u);
     }
 
+    /**
+     * Verifica si un usuario puede iniciar sesión en el sistema.
+     *
+     * @param u El usuario que intenta iniciar sesión.
+     * @return true si el usuario puede iniciar sesión, false en caso contrario.
+     */
     public boolean login(User u) {
         boolean login = false;
         for (User user : users) {
@@ -121,13 +178,5 @@ public class RepoUsers extends Repository<User, String> {
             }
         }
         return login;
-    }
-
-    public void setUser(User u) {
-        for (User user : users) {
-            if (user.equals(u)) {
-
-            }
-        }
     }
 }
