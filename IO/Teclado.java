@@ -62,7 +62,7 @@ public class Teclado {
      */
     public static void pressEnter() {
         Scanner teclado = new Scanner(System.in);
-        System.out.println("Press enter to continue.");
+        System.out.println("Pulsa intro para continuar.");
         teclado.nextLine();
     }
 

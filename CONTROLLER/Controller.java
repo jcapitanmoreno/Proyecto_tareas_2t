@@ -26,7 +26,6 @@ public class Controller implements Icontroller {
     ListProyectController listProyectController = new ListProyectController();
     ListUserController listUserController = new ListUserController();
 
-
     /**
      * Inicia el programa ejecutando un bucle que solicita al usuario que elija una opción del menú principal.
      * El bucle se ejecuta hasta que el usuario selecciona la opción de salida (7).
@@ -69,8 +68,7 @@ public class Controller implements Icontroller {
                 chooseToCreate();
                 break;
             case 5:
-                deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
-                repoProject.save();
+                chooseToDeleteProyect();
                 break;
             case 6:
                 Project project = accessToProjectView.soliciteNameProject();
@@ -130,13 +128,39 @@ public class Controller implements Icontroller {
                     repoProject.save();
                     createProyectView.printMsg2();
                 }
+                start();
                 break;
             case 2:
-                start();
 
                 break;
             default:
                 mainView.errorOption();
+        }
+    }
+
+    public void chooseToDeleteProyect() throws NoSuchAlgorithmException {
+        boolean continueLoopToDeleteProyect = true;
+        do {
+            int opcionMenuDeleteProyect = deleteProyectView.chooseToDeleteProject();
+            if (opcionMenuDeleteProyect == 2) {
+                continueLoopToDeleteProyect = false;
+            } else {
+                switchToDeleteProyect(opcionMenuDeleteProyect);
+            }
+        } while (continueLoopToDeleteProyect);
+    }
+
+    public void switchToDeleteProyect(int opcionMenuDeleteProyect) throws NoSuchAlgorithmException {
+        switch (opcionMenuDeleteProyect) {
+            case 1:
+                deleteProyectView.deleteProyectMsg(repoProject.delete(deleteProyectView.proyectToDelete()));
+                repoProject.save();
+                break;
+            case 2:
+
+                break;
+            default:
+                deleteProyectView.errorOptionDelete();
         }
     }
 

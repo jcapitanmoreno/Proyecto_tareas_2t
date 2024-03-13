@@ -50,6 +50,7 @@ public class TaskFunctions implements ITaskFunctions {
                     break;
                 case 6:
                     updateStateController.addColaboratorsByName(project);
+                    repoProject.save();
                     break;
                 case 7:
 
