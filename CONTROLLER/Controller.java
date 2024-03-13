@@ -35,8 +35,6 @@ public class Controller implements Icontroller {
             manejarOpcionMenu(option);
         } while (option != 7);
     }
-
-    // Método para manejar la lógica del menú
     public void manejarOpcionMenu(int opcion) throws NoSuchAlgorithmException {
         switch (opcion) {
             case 1:
