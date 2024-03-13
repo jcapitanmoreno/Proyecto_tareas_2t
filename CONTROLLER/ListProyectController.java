@@ -3,29 +3,29 @@ package CONTROLLER;
 import IO.Teclado;
 import MODEL.Project;
 import MODEL.RepoProject;
+import VIEW.ListProyectView;
 
 import java.util.List;
 
 public class ListProyectController {
     private RepoProject repoProject;
     Teclado teclado = new Teclado();
+    ListProyectView listProyectView = new ListProyectView();
 
 
     public ListProyectController() {
-        // Corrige el nombre del constructor
         this.repoProject = RepoProject.get_Instance();
     }
 
     public void listProjects() {
-        // Verifica si repoProject es nulo antes de usarlo
         if (repoProject == null) {
-            teclado.printMsg("El repositorio de proyectos no está inicializado.");
+            listProyectView.printMsg1();
             return;
         }
 
         List<Project> projects = (List<Project>) repoProject.getAll();
         if (projects.isEmpty()) {
-            teclado.printMsg("No hay proyectos guardados.");
+            listProyectView.printMsg2();
         } else {
             teclado.printMsg("Hay "+projects.size()+" Proyectos guardados:");
             for (Project project : projects) {

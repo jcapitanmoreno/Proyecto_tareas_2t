@@ -19,12 +19,8 @@ public class Controller implements Icontroller {
     DeleteProyectView deleteProyectView = new DeleteProyectView();
     DeleteUserView deleteUserView = new DeleteUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
-    TaskMenuView taskMenuView = new TaskMenuView();
     RepoProject repoProject = RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
-    CreateUser createUser = new CreateUser();
-    CreateProyectController createProyectController = new CreateProyectController();
-    ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();
@@ -82,7 +78,7 @@ public class Controller implements Icontroller {
                 System. exit(0);
                 break;
             default:
-                teclado.printMsg("Opción no válida, por favor intente de nuevo.");
+                createProyectView.printMsg3();
                 break;
         }
     }
@@ -102,11 +98,11 @@ public class Controller implements Icontroller {
             case 1:
                 Project project = createProyectView.createProyect();
                 if (repoProject.isProjectExist(project)){
-                    teclado.printMsg("el proyecto existe en el repositorio");
+                    createProyectView.printMsg1();
                 }else {
                     repoProject.add(project);
                     repoProject.save();
-                    teclado.printMsg("Proyecto creado");
+                    createProyectView.printMsg2();
                 }
                 break;
             case 2:
