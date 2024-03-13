@@ -39,6 +39,7 @@ public class TaskFunctions implements ITaskFunctions {
                     break;
                 case 5:
                     changeTaskStatusByName(project);
+                    repoProject.save();
                     break;
                 case 6:
 

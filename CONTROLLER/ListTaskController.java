@@ -16,6 +16,7 @@ public class ListTaskController {
     public ListTaskController() {
         this.repoProject = RepoProject.get_Instance();
     }
+
     public void listTask(Project p) {
         if (repoProject==null) {
             teclado.printMsg("El repositorio de proyectos no está inicializado.");
@@ -25,7 +26,7 @@ public class ListTaskController {
         if (tasks.isEmpty()) {
             teclado.printMsg("No hay tareas guardadas.");
         } else {
-            teclado.printMsg("Tareas guardadas:");
+            teclado.printMsg("Hay " + tasks.size() + " tareas guardadas:");
             for (Task task : tasks) {
                 System.out.println(task);
             }
