@@ -12,12 +12,10 @@ public class ListProyectController {
 
 
     public ListProyectController() {
-        // Corrige el nombre del constructor
         this.repoProject = RepoProject.get_Instance();
     }
 
     public void listProjects() {
-        // Verifica si repoProject es nulo antes de usarlo
         if (repoProject == null) {
             teclado.printMsg("El repositorio de proyectos no está inicializado.");
             return;

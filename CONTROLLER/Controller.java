@@ -19,12 +19,8 @@ public class Controller implements Icontroller {
     DeleteProyectView deleteProyectView = new DeleteProyectView();
     DeleteUserView deleteUserView = new DeleteUserView();
     WelcomeByeView welcomeByeView = new WelcomeByeView();
-    TaskMenuView taskMenuView = new TaskMenuView();
     RepoProject repoProject = RepoProject.get_Instance();
     RepoUsers repoUsers = RepoUsers.getInstance();
-    CreateUser createUser = new CreateUser();
-    CreateProyectController createProyectController = new CreateProyectController();
-    ListProyectView listProyectView = new ListProyectView();
     Teclado teclado = new Teclado();
     TaskFunctions taskFunctions = new TaskFunctions();
     AccessToProjectView accessToProjectView = new AccessToProjectView();

@@ -75,7 +75,7 @@ public class SesionController implements ISesionController {
                     teclado.printMsg("El usuario es valido");
                     controller.start();
                 }else {
-
+                    login.usernamePasswordError();
                 }
                 break;
             case 2:
