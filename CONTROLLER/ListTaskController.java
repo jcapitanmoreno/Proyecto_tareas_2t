@@ -13,6 +13,7 @@ public class ListTaskController {
     public ListTaskController() {
         this.repoProject = RepoProject.get_Instance();
     }
+
     public void listTask(Project p) {
         if (repoProject==null) {
             taskMenuView.printMsg1();

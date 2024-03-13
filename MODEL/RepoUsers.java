@@ -84,7 +84,20 @@ public class RepoUsers extends Repository<User, String> {
 
     @Override
     public boolean delete(String u) {
-        return users.remove(getByName(u));
+        User userToDelete = null;
+        boolean userDeleted = false;
+        for (User user : users) {
+            if (user.getUser().equals(u)) {
+                userToDelete = user;
+            }
+        }
+        if (getInstance().userLogin.equals(userToDelete)) {
+            System.out.println("Np se puede borrar el usuario con el que está la sesión iniciada.");
+        } else{
+            System.out.println("Borrando usuario " + userToDelete.getUser() + " ...");
+            userDeleted = users.remove(getByName(u));
+        }
+        return userDeleted;
     }
 
     public boolean save() {
@@ -98,16 +111,15 @@ public class RepoUsers extends Repository<User, String> {
     public boolean isUserExist(User u) {
         return users.contains(u);
     }
-    public boolean login(User u){
-        boolean login=false;
-         for( User user:users){
-             if(u.equals(user)){
-                 login=true;
-                 break;
-             }
-         }
+
+    public boolean login(User u) {
+        boolean login = false;
+        for (User user : users) {
+            if (u.equals(user)) {
+                login = true;
+                break;
+            }
+        }
         return login;
     }
-
-
 }
